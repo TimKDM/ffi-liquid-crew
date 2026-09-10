@@ -34,7 +34,7 @@ function App() {
   }, [toast])
 
   const notify = (message) => setToast(message)
-  const handleView = (nextView) => { setView(nextView); setLeagueMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }
+  const handleView = (nextView) => { window.scrollTo({ top: 0, behavior: 'auto' }); setView(nextView); setLeagueMenuOpen(false) }
 
   const movePlayer = (playerId) => {
     setData((current) => {
