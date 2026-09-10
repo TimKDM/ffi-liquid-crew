@@ -7,11 +7,13 @@ import { CommissionerView } from './views/CommissionerView.jsx'
 import { DashboardView } from './views/DashboardView.jsx'
 import { LeagueView } from './views/LeagueView.jsx'
 import { MatchupsView } from './views/MatchupsView.jsx'
+import { MarketingSite } from './views/MarketingSite.jsx'
 import { PlayersView } from './views/PlayersView.jsx'
 import { TeamView } from './views/TeamView.jsx'
 import { TransactionsView } from './views/TransactionsView.jsx'
 
 function App() {
+  const [siteMode, setSiteMode] = useState(() => window.location.hash === '#demo' ? 'demo' : 'marketing')
   const [data, setData] = usePersistentState('ffi-demo-v6', initialAppData)
   const [view, setView] = useState('dashboard')
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -100,7 +102,9 @@ function App() {
 
   const activeLeague = data.leagues.find((league) => league.id === activeLeagueId) ?? data.leagues[0]
 
-  return <AppChrome view={view} onView={handleView} sidebarOpen={sidebarOpen} onSidebar={setSidebarOpen} leagueMenuOpen={leagueMenuOpen} onLeagueMenu={() => setLeagueMenuOpen((open) => !open)} onCreateLeague={() => { setCreateLeagueOpen(true); setLeagueMenuOpen(false) }} leagues={data.leagues} activeLeague={activeLeague} onSelectLeague={(league) => { setActiveLeagueId(league.id); setLeagueMenuOpen(false); handleView('dashboard'); notify(`${league.name} selected`) }} onGlobalSearch={(event) => { event.preventDefault(); const query = new FormData(event.currentTarget).get('query')?.toString() ?? ''; setSearch(query); handleView('players') }}>{views[view]}<Toast message={toast} />
+  if (siteMode === 'marketing') return <MarketingSite onEnterDemo={() => { window.location.hash = 'demo'; window.scrollTo(0, 0); setSiteMode('demo') }} />
+
+  return <AppChrome view={view} onView={handleView} onExitDemo={() => { window.location.hash = ''; window.scrollTo(0, 0); setSiteMode('marketing') }} sidebarOpen={sidebarOpen} onSidebar={setSidebarOpen} leagueMenuOpen={leagueMenuOpen} onLeagueMenu={() => setLeagueMenuOpen((open) => !open)} onCreateLeague={() => { setCreateLeagueOpen(true); setLeagueMenuOpen(false) }} leagues={data.leagues} activeLeague={activeLeague} onSelectLeague={(league) => { setActiveLeagueId(league.id); setLeagueMenuOpen(false); handleView('dashboard'); notify(`${league.name} selected`) }} onGlobalSearch={(event) => { event.preventDefault(); const query = new FormData(event.currentTarget).get('query')?.toString() ?? ''; setSearch(query); handleView('players') }}>{views[view]}<Toast message={toast} />
     {claimPlayer ? <Modal title={`Claim ${claimPlayer.name}`} onClose={() => setClaimPlayer(null)} footer={<><button className="button secondary" type="button" onClick={() => setClaimPlayer(null)}>Cancel</button><button className="button primary" type="submit" form="claim-form">Submit claim</button></>}><form id="claim-form" className="modal-form" onSubmit={submitClaim}><div className="player-callout"><b>{claimPlayer.position}</b><span><strong>{claimPlayer.name}</strong><small>{claimPlayer.nflTeam} · {claimPlayer.opponent} · {claimPlayer.projection.toFixed(1)} projected</small></span></div><label>Drop player<select value={claimDrop} onChange={(event) => setClaimDrop(event.target.value)}>{data.roster.filter((player) => player.rosterSlot === 'bench').map((player) => <option key={player.id}>{player.name}</option>)}</select></label><p>Claim priority: <strong>#8</strong>. Claims process after the one-day waiver period.</p></form></Modal> : null}
     {createLeagueOpen ? <Modal title="Create a League" onClose={() => setCreateLeagueOpen(false)} footer={<><button className="button secondary" type="button" onClick={() => setCreateLeagueOpen(false)}>Cancel</button><button className="button primary" type="submit" form="create-league-form">Create league</button></>}><form id="create-league-form" className="modal-form" onSubmit={createLeague}><label>League name<input value={newLeague.name} onChange={(event) => setNewLeague((league) => ({ ...league, name: event.target.value }))} required /></label><label>Number of teams<input type="number" min="4" max="32" value={newLeague.teams} onChange={(event) => setNewLeague((league) => ({ ...league, teams: Number(event.target.value) }))} /></label><label>Scoring format<select value={newLeague.scoring} onChange={(event) => setNewLeague((league) => ({ ...league, scoring: event.target.value }))}><option>Head-to-head points</option><option>Best ball</option><option>Rotisserie</option></select></label></form></Modal> : null}
   </AppChrome>

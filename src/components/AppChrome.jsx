@@ -12,11 +12,11 @@ const items = [
   ['league', 'League', Shield],
 ]
 
-export function AppChrome({ view, onView, leagueMenuOpen, onLeagueMenu, onCreateLeague, leagues, activeLeague, onSelectLeague, onGlobalSearch, children }) {
+export function AppChrome({ view, onView, onExitDemo, leagueMenuOpen, onLeagueMenu, onCreateLeague, leagues, activeLeague, onSelectLeague, onGlobalSearch, children }) {
   return (
     <div className="ffi-app">
       <header className="topbar">
-        <a className="ffi-lockup" href="#dashboard" onClick={() => onView('dashboard')}><strong>FFI</strong><span>THE FANTASY FOOTBALL<br />INDEPENDENTS</span></a>
+        <a className="ffi-lockup" href="#" onClick={(event) => { event.preventDefault(); onExitDemo() }}><strong>FFI</strong><span>THE FANTASY FOOTBALL<br />INDEPENDENTS</span></a>
         <div className="league-picker-wrap"><button className="league-picker" type="button" onClick={onLeagueMenu} aria-expanded={leagueMenuOpen}><i className="checker" /> <span>{activeLeague?.name ?? 'SELECT LEAGUE'}</span><ChevronDown /></button>{leagueMenuOpen ? <div className="league-dropdown"><small>YOUR LEAGUES</small>{leagues.map((league) => <button key={league.id} type="button" className={activeLeague?.id === league.id ? 'selected' : ''} onClick={() => onSelectLeague(league)}><strong>{league.name}</strong><span>{league.role} · {league.team}</span></button>)}<button className="create-league" type="button" onClick={onCreateLeague}>+ Create or join league</button></div> : null}</div>
         <nav className="primary-nav" aria-label="FFI navigation">{items.map(([id, label, icon]) => <button key={id} className={view === id ? 'active' : ''} type="button" onClick={() => onView(id)}>{createElement(icon)}<span>{label}</span></button>)}</nav>
         <button className="week-picker" type="button" title="Week selector"><CalendarDays /><span>WEEK 1</span></button>

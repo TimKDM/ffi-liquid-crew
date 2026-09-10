@@ -167,276 +167,122 @@
 .attention-list>button>svg:first-child{width:22px;color:var(--teal2)}.attention-list>button>svg:last-child{width:15px;color:var(--muted)}.attention-list span{display:grid}.attention-list strong{font-size:.67rem}.attention-list small{font-size:.55rem;color:var(--muted);margin-top:2px}
 .heroes-strip{border:1px solid #88857c;margin-bottom:12px}.heroes-strip>header,.clubhouse-feed>header{min-height:38px;padding:0 13px;display:flex;align-items:center;gap:15px;background:var(--dark);color:var(--paper);border-bottom:3px solid var(--teal)}
 .heroes-strip h2,.clubhouse-feed h2{margin:0;font:400 1.25rem var(--display);letter-spacing:.05em;text-transform:uppercase}.heroes-strip>header span,.clubhouse-feed>header span{font-size:.5rem;letter-spacing:.1em;color:#bbb6a9}.heroes-strip>header small,.clubhouse-feed>header small{margin-left:auto;font-size:.48rem;letter-spacing:.12em}
-.heroes-strip>div{display:grid;grid-template-columns:1fr 1fr 170px;gap:10px;padding:8px;background:var(--paper)}
-.heroes-strip article{min-height:95px;padding:13px;display:flex;gap:11px;color:var(--paper)}.heroes-strip article>svg{width:24px;flex:0 0 auto}.heroes-strip article.hero{background:var(--teal2)}.heroes-strip article.bum{background:var(--red)}
-.heroes-strip article span{display:grid;align-content:center}.heroes-strip article strong{font:400 1.35rem/.9 var(--display);letter-spacing:.03em}.heroes-strip article b{font-size:.59rem;letter-spacing:.05em;margin-top:7px}.heroes-strip article small{font-size:.55rem;margin-top:4px;opacity:.85}
-.heroes-strip>div>p{margin:0;padding:12px;border-left:1px solid var(--line);align-self:stretch;display:grid;place-content:center;color:var(--teal2);font:400 .88rem/1.2 var(--display);letter-spacing:.08em}.heroes-strip>div>p b{font-weight:400}
-.clubhouse-feed{border:1px solid #88857c;background:var(--paper)}
-.clubhouse-body{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(220px,.75fr)}
-.feed-list{border-right:1px solid var(--line)}.feed-list article{min-height:58px;padding:8px 11px;display:grid;grid-template-columns:34px 125px minmax(160px,1fr) auto;align-items:center;gap:9px;border-bottom:1px solid var(--line)}.feed-list article:last-child{border-bottom:0}
-.feed-list article>i{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:var(--teal2);color:var(--paper);font:400 .75rem var(--display);font-style:normal}.feed-list article:nth-child(2)>i{background:var(--amber);color:var(--ink)}
-.feed-author{display:grid}.feed-author strong{font-size:.58rem}.feed-author small{font-size:.51rem;color:var(--muted)}.feed-list article p{margin:0;font-size:.58rem;line-height:1.35}.feed-list article p b{display:block;color:var(--red);font-size:.52rem;letter-spacing:.06em}
-.feed-actions{display:flex;gap:10px;color:var(--red);font-size:.55rem}.feed-actions button,.feed-actions span{border:0;background:transparent;color:inherit;display:flex;align-items:center;gap:3px;padding:3px}.feed-actions svg{width:13px}
-.trash-talk{padding:11px;display:grid;align-content:start;gap:9px}.trash-talk>div{display:flex;align-items:baseline;gap:8px}.trash-talk h3{margin:0;font:400 1rem var(--display);text-transform:uppercase}.trash-talk small{font-size:.42rem;letter-spacing:.07em}.trash-talk textarea{min-height:74px;resize:vertical;border:1px solid #aaa59a;background:#fffdf7;padding:9px;font-size:.62rem}.trash-talk button{justify-self:end;min-width:78px;min-height:32px;border:0;background:var(--teal2);color:var(--paper);font:400 .78rem var(--display);letter-spacing:.04em}.trash-talk button:disabled{opacity:.45;cursor:not-allowed}
-.league-rail{padding:16px 12px 25px;background:var(--rail);color:var(--paper);display:flex;flex-direction:column;gap:15px}
-.rail-slogan{margin:0;padding:6px 5px 13px;text-align:center;color:var(--teal);font:400 .92rem/1.2 var(--display);letter-spacing:.1em;border-bottom:1px solid var(--dline);transform:rotate(-2deg)}.rail-slogan b{font-weight:400}
-.league-rail>section{border:1px solid #555a56}.league-rail>section>header{min-height:42px;padding:0 11px;display:flex;align-items:center;border-bottom:1px solid #555a56;font:400 1.2rem var(--display);letter-spacing:.05em;text-transform:uppercase}
-.league-rail>section>div:not(.waiver-place){min-height:43px;display:grid;grid-template-columns:20px 1fr 20px 20px;align-items:center;gap:6px;padding:0 9px;border-bottom:1px solid #3f443f;font-size:.55rem}.league-rail>section>div.selected{background:var(--teal2);color:var(--paper)}.league-rail>section .rail-table-head{min-height:32px;font-size:.47rem}
-.league-rail>section>div strong{font-size:.56rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.league-rail>section>button{width:100%;min-height:38px;border:0;background:transparent;color:var(--teal);display:flex;align-items:center;justify-content:center;gap:6px;font-size:.54rem}.league-rail>section>button svg{width:13px}
-.waiver-place{min-height:65px;padding:10px 11px;display:flex;align-items:center;gap:10px;background:var(--teal2)}.waiver-place>b{font:400 1.8rem var(--display)}.waiver-place>span{display:grid;font-size:.66rem;font-weight:700}.waiver-place small{font-size:.49rem;font-weight:400;opacity:.8}
-.rail-manifesto{margin:auto 12px 0;color:#7c817d;font:400 1.25rem/1.1 var(--display);letter-spacing:.08em;transform:rotate(-2deg)}
-@media(max-width:1250px){
-  .game-plan-action{grid-template-columns:32px minmax(210px,1fr) auto auto}.game-plan-action>aside{display:none}
-  .game-plan-head p{display:none}.clubhouse-body{grid-template-columns:1fr}.feed-list{border-right:0;border-bottom:1px solid var(--line)}
-}
-@media(max-width:1050px){
-  .club-home{grid-template-columns:1fr}.league-rail{display:grid;grid-template-columns:1fr 1fr;padding:14px 20px}.rail-slogan,.rail-manifesto{display:none}
-  .heroes-strip>div{grid-template-columns:1fr 1fr}.heroes-strip>div>p{display:none}
-}
-@media(max-width:720px){
-  .club-home{margin:-14px -12px -55px}.club-home-main{padding:15px 12px 28px}.game-plan-head{min-height:60px}.game-plan-head h1{font-size:2.55rem;white-space:normal}.game-plan-head>strong{font-size:.9rem}
-  .week-phases button{min-height:54px}.week-phases span{display:none}.game-plan-action{grid-template-columns:1fr auto;padding:12px}.game-plan-action>svg,.starter-count{display:none}.game-plan-action>button{padding:0 12px}
-  .game-plan-grid{grid-template-columns:1fr}.club-matchup-body{grid-template-columns:1fr;gap:9px}.club-matchup-body>em{text-align:center}.club-team,.club-team.away{grid-template-columns:36px 1fr auto;text-align:left}.club-team.away>b{order:3}.club-team.away>span{order:2}.club-team.away>i{order:1}
-  .heroes-strip>header span,.heroes-strip>header small,.clubhouse-feed>header span,.clubhouse-feed>header small{display:none}.heroes-strip>div{grid-template-columns:1fr}.feed-list article{grid-template-columns:34px 1fr auto}.feed-list article p{grid-column:2/4}.feed-actions{grid-column:3;grid-row:1}.league-rail{grid-template-columns:1fr}.clubhouse-body{display:block}
-}
-
-/* My Team: standard fantasy roster manager */
-.team-manager{padding-bottom:76px}
-.team-manager-head{display:grid;grid-template-columns:minmax(280px,1fr) auto minmax(310px,.85fr);align-items:center;gap:22px;margin:-8px 0 18px;padding-bottom:16px;border-bottom:3px solid var(--ink)}
-.team-manager-head>div:first-child{display:grid;grid-template-columns:auto auto;grid-template-areas:'title team' 'title meta';align-items:center;column-gap:22px}
-.team-manager-head h1{grid-area:title;margin:0;font:400 clamp(3.8rem,5vw,6rem)/.78 var(--display);text-transform:uppercase;letter-spacing:.01em}
-.team-manager-head>div:first-child>strong{grid-area:team;color:var(--teal2);font:400 1.75rem var(--display);letter-spacing:.05em}
-.team-manager-head>div:first-child>span{grid-area:meta;font-size:.66rem;color:var(--muted)}
-.team-brand-line b{color:var(--amber);font-weight:700;letter-spacing:.12em}
-.team-manager-head{position:relative}
-.team-manager-head:after{content:'';position:absolute;left:0;bottom:-3px;width:165px;height:3px;background:var(--amber);box-shadow:174px 0 0 var(--teal2),348px 0 0 var(--red)}
-.projected-total{padding:3px 24px;border-left:1px solid var(--line);display:grid}
-.projected-total small{font-size:.58rem;font-weight:700;letter-spacing:.08em}
-.projected-total b{font:400 2.6rem/.95 var(--display)}
-.team-week-picker{height:54px;display:grid;grid-template-columns:46px 1fr 46px;border:2px solid var(--ink);background:var(--paper)}
-.team-week-picker button{border:0;background:transparent;color:var(--ink);display:grid;place-items:center}
-.team-week-picker button:first-child{border-right:1px solid var(--line)}
-.team-week-picker button:last-child{border-left:1px solid var(--line)}
-.team-week-picker button:hover{background:var(--paper2)}
-.team-week-picker svg{width:20px}
-.team-week-picker span{display:grid;place-content:center;text-align:center}
-.team-week-picker strong{font:400 1rem var(--display);letter-spacing:.05em}
-.team-week-picker small{font-size:.58rem;color:var(--muted)}
-.lineup-attention{min-height:60px;margin-bottom:14px;display:flex;align-items:center;gap:13px;padding:9px 13px;background:#f8edce;border:1px solid #ad9b6d;box-shadow:3px 3px 0 rgba(24,33,34,.1)}
-.lineup-attention>svg{width:26px;color:var(--teal2)}
-.lineup-attention>div:first-of-type{display:grid;min-width:220px}
-.lineup-attention strong{font-size:.78rem}
-.lineup-attention span{font-size:.64rem;color:#646763}
-.lineup-attention>div:nth-of-type(2){margin-left:auto;padding-left:16px;border-left:1px solid #c6b683;display:flex;align-items:center;gap:9px}
-.lineup-attention>div:nth-of-type(2) svg{width:17px;color:var(--amber)}
-.lineup-attention>div:nth-of-type(2) strong{display:block;color:var(--ink)}
-.lineup-attention>button{min-height:34px;border:1px solid var(--ink);padding:0 11px;background:var(--paper);display:flex;align-items:center;gap:6px;font:400 .74rem var(--display);letter-spacing:.05em;text-transform:uppercase}
-.lineup-attention>button svg{width:14px}
-.roster-workspace{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px;align-items:start}
-.roster-board{min-width:0;overflow:auto;border:1px solid #827f75;background:var(--paper);box-shadow:3px 3px 0 rgba(24,33,34,.12)}
-.roster-manager-table{width:100%;min-width:760px;border-collapse:collapse;font-size:.72rem}
-.roster-manager-table thead{background:var(--dark);color:var(--paper)}
-.roster-manager-table thead th{height:38px;padding:0 11px;text-align:left;font-size:.55rem;letter-spacing:.08em}
-.roster-manager-table tbody>tr:not(.roster-band){height:49px;border-bottom:1px solid var(--line);transition:background .14s}
-.roster-manager-table tbody>tr:not(.roster-band):hover{background:#fff8e9}
-.roster-manager-table tbody>tr.is-selected{background:rgba(47,119,115,.15);box-shadow:inset 4px 0 var(--teal2)}
-.roster-manager-table td,.roster-manager-table tbody>tr:not(.roster-band)>th{padding:6px 11px;text-align:left}
-.roster-manager-table tbody>tr:not(.roster-band)>th{font-weight:400}
-.roster-manager-table td strong,.roster-manager-table th strong{display:block;font-size:.76rem}
-.roster-manager-table td small,.roster-manager-table th small{display:block;margin-top:2px;font-size:.56rem;color:var(--muted)}
-.roster-band th{height:30px;padding:0 12px;text-align:left;color:var(--paper);font:400 .9rem var(--display);letter-spacing:.07em}
-.roster-band.starters{background:var(--teal2)}
-.roster-band.bench{background:#5f6664}
-.roster-band.injured{background:var(--red)}
-.roster-slot{color:var(--teal2);font:400 .9rem var(--display)}
-.player-trend{display:inline-flex;align-items:center;gap:4px;font-size:.56rem;font-weight:700;text-transform:uppercase}
-.player-trend svg{width:15px}
-.player-trend.hot,.player-trend.rising{color:var(--teal2)}
-.player-trend.cold{color:var(--red)}
-.player-trend.steady{color:#687270}
-.roster-status{font-size:.54rem;font-weight:700}
-.roster-status.locked{color:var(--red)}
-.swap-button{min-width:60px;height:28px;border:1px solid var(--teal2);background:transparent;color:var(--teal2);font:400 .69rem var(--display);letter-spacing:.05em}
-.swap-button:hover{background:var(--teal2);color:var(--paper)}
-.swap-button:disabled{border-color:#aaa69b;background:var(--paper2);color:#777;cursor:not-allowed}
-.team-insights{display:grid;gap:14px}
-.team-insights>section{border:1px solid #827f75;background:var(--paper);box-shadow:3px 3px 0 rgba(24,33,34,.12)}
-.swap-drawer>header,.heroes-bums>header,.best-available>header{min-height:42px;padding:0 12px;background:var(--dark);color:var(--paper);display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--teal)}
-.swap-drawer h2,.heroes-bums h2,.best-available h2,.swap-help h2{margin:0;font:400 1.13rem var(--display);letter-spacing:.05em;text-transform:uppercase}
-.swap-drawer h2 b{font-weight:400;color:var(--teal)}
-.swap-drawer>header button{border:0;background:transparent;color:var(--paper);font-size:1.4rem}
-.swap-drawer>p{margin:11px 12px 5px;font-size:.65rem}
-.swap-options{display:grid;gap:7px;padding:7px 11px 11px}
-.swap-options label{min-height:56px;padding:8px 9px;border:1px solid var(--line);display:grid;grid-template-columns:20px 1fr auto;align-items:center;gap:7px;cursor:pointer}
-.swap-options label.selected{border-color:var(--teal2);background:rgba(47,119,115,.14)}
-.swap-options label input{accent-color:var(--teal2)}
-.swap-options label span strong,.swap-options label span small{display:block}
-.swap-options label span strong{font-size:.76rem}
-.swap-options label span small{font-size:.57rem;color:var(--muted)}
-.swap-options label>b{font:400 1rem var(--display)}
-.make-swap{width:calc(100% - 22px);min-height:39px;margin:0 11px 12px;border:2px solid var(--ink);background:var(--amber);color:var(--ink);box-shadow:3px 3px 0 var(--ink);font:400 .9rem var(--display);letter-spacing:.07em;text-transform:uppercase}
-.make-swap:disabled{background:#a9afaa;cursor:not-allowed}
-.swap-help{padding:25px 20px;text-align:center}
-.swap-help>svg{width:25px;color:var(--teal2)}
-.swap-help h2{margin-top:5px}
-.swap-help p{margin:6px auto 0;max-width:260px;color:var(--muted);font-size:.66rem;line-height:1.45}
-.heroes-bums>header span{display:flex;align-items:center;gap:4px;font-size:.46rem;letter-spacing:.07em}
-.heroes-bums>header svg{width:13px}
-.hero-row,.bum-row{display:grid;grid-template-columns:72px 1fr auto;align-items:center;min-height:58px;border-bottom:1px solid var(--line)}
-.hero-row>b,.bum-row>b{height:100%;display:flex;align-items:center;justify-content:center;gap:3px;font:400 .76rem var(--display)}
-.hero-row>b{background:rgba(47,119,115,.18);color:var(--teal2)}
-.bum-row>b{background:rgba(166,61,50,.16);color:var(--red)}
-.hero-row>b svg,.bum-row>b svg{width:16px}
-.hero-row>span,.bum-row>span{padding:0 10px}
-.hero-row>span strong,.bum-row>span strong,.hero-row>span small,.bum-row>span small{display:block}
-.hero-row>span strong,.bum-row>span strong{font-size:.71rem}
-.hero-row>span small,.bum-row>span small{font-size:.53rem;color:var(--muted)}
-.hero-row>em,.bum-row>em{padding-right:10px;font:400 1rem var(--display);font-style:normal}
-.hero-row>em{color:var(--teal2)}.bum-row>em{color:var(--red)}
-.hero-row>em small,.bum-row>em small{display:block;color:var(--muted);font:400 .47rem var(--body)}
-.heroes-bums>p{margin:8px 11px 10px;color:var(--muted);font-size:.54rem}
-.best-available>header button{border:0;background:transparent;color:var(--teal);display:flex;align-items:center;gap:4px;font-size:.55rem}
-.best-available>header svg{width:13px}
-.best-available>div{min-height:62px;padding:8px 10px;display:flex;align-items:center;gap:10px}
-.best-available>div>span{display:grid;grid-template-columns:34px 1fr;grid-template-areas:'pos name' 'pos meta';align-items:center;flex:1}
-.best-available>div>span>b{grid-area:pos;width:28px;height:28px;display:grid;place-items:center;background:var(--dark);color:var(--teal);font:400 .68rem var(--display)}
-.best-available>div>span>strong{grid-area:name;font-size:.73rem}
-.best-available>div>span>small{grid-area:meta;font-size:.54rem;color:var(--muted)}
-.best-available>div>button{height:32px;border:0;background:var(--teal2);color:var(--paper);display:flex;align-items:center;gap:4px;padding:0 10px;font:400 .68rem var(--display);text-transform:uppercase}
-.best-available>div>button svg{width:13px}
-.lineup-savebar{position:fixed;z-index:18;left:205px;right:0;bottom:0;min-height:62px;padding:9px clamp(22px,2.5vw,42px);display:flex;align-items:center;justify-content:flex-end;gap:10px;background:var(--dark);color:var(--paper);border-top:3px solid var(--teal)}
-.lineup-savebar>span{margin-right:auto;display:flex;align-items:center;gap:8px;font-size:.69rem;font-weight:700;color:var(--teal)}
-.lineup-savebar.is-dirty>span{color:var(--amber)}
-.lineup-savebar>span svg{width:18px}
-.lineup-savebar .button{min-width:135px;color:var(--paper);border-color:var(--paper)}
-.lineup-savebar .button.primary{color:var(--ink);border-color:var(--ink)}
-.lineup-savebar .button:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
-@media(max-width:1100px){
-  .team-manager-head{grid-template-columns:1fr auto}.team-week-picker{grid-column:1/-1}
-  .roster-workspace{grid-template-columns:1fr}.team-insights{grid-template-columns:1fr 1fr}.swap-drawer,.swap-help{grid-row:1/3}
-  .lineup-savebar{left:0}
-}
-@media(max-width:720px){
-  .team-manager{padding-bottom:105px}.team-manager-head{display:flex;align-items:flex-start;flex-wrap:wrap;gap:10px}
-  .team-manager-head>div:first-child{width:100%;grid-template-columns:auto 1fr}.team-manager-head h1{font-size:3.4rem}
-  .projected-total{border:0;padding:0}.team-week-picker{width:100%}
-  .lineup-attention{align-items:flex-start;flex-wrap:wrap}.lineup-attention>div:first-of-type{min-width:0}
-  .lineup-attention>div:nth-of-type(2){width:100%;margin:0;padding:9px 0 0;border-left:0;border-top:1px solid #c6b683}
-  .lineup-attention>button{margin-left:auto}.team-insights{grid-template-columns:1fr}.swap-drawer,.swap-help{grid-row:auto}
-  .lineup-savebar{padding:9px 12px;flex-wrap:wrap}.lineup-savebar>span{width:100%}.lineup-savebar .button{flex:1;min-width:0}
-}
-
-/* League-owned clubhouse product rebuild */
-.topbar{position:sticky;height:68px}
-.ffi-lockup{width:180px;flex:0 0 auto}
-.league-picker-wrap{min-width:190px}
-.primary-nav{display:flex;align-items:stretch;height:100%;margin:0 auto}
-.primary-nav button{min-width:82px;border:0;border-bottom:4px solid transparent;background:transparent;color:#b9bfba;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 12px;font-size:.67rem;font-weight:700}
-.primary-nav button svg{display:none;width:17px}
-.primary-nav button:hover{color:var(--paper);background:#222522}
-.primary-nav button.active{color:var(--paper);border-bottom-color:var(--amber)}
-.week-picker{display:none}
-.global-search{max-width:210px;margin-left:10px}
-.app-content{min-height:calc(100vh - 68px);margin-left:0;padding:24px clamp(18px,3vw,42px) 52px}
-
-.clubhouse-home-v2{max-width:1380px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
-.clubhouse-home-v2>main{min-width:0}
-.league-paper-head,.team-paper-head{position:relative;overflow:hidden;min-height:90px;padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--paper2);border:1px solid #aaa08a;border-top:7px solid var(--ink);box-shadow:3px 3px 0 rgba(24,33,34,.14)}
-.league-paper-head:after,.team-paper-head:after{content:'';position:absolute;right:20%;inset-block:0;width:90px;background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(47,119,115,.08) 8px 16px);transform:skew(-13deg)}
-.league-paper-head h1,.team-paper-head h1{position:relative;z-index:1;margin:0;font:400 clamp(3rem,5vw,5.2rem)/.75 var(--display);text-transform:uppercase}
-.league-paper-head p,.team-paper-head p{position:relative;z-index:1;margin:8px 0 0;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal2)}
-.league-paper-head>span{position:relative;z-index:1;color:var(--teal2);font:400 1rem/1.05 var(--display);letter-spacing:.1em;transform:rotate(-2deg)}
-
-.today-focus{min-height:126px;margin-top:16px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:#fffaf0;border:1px solid #aaa08a;border-left:7px solid var(--amber)}
-.today-focus small{font-size:.58rem;font-weight:800;letter-spacing:.13em;color:var(--red)}
-.today-focus h2{margin:4px 0 3px;font:400 clamp(1.8rem,3vw,2.8rem)/1 var(--display);letter-spacing:.02em}
-.today-focus p{margin:0;max-width:660px;color:#626761;font-size:.72rem;line-height:1.5}
-.today-focus>button{min-width:190px;min-height:52px;padding:0 17px;border:2px solid var(--ink);background:var(--amber);color:var(--ink);box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;justify-content:center;gap:9px;font:400 .95rem var(--display);letter-spacing:.05em;text-transform:uppercase}
-.today-focus>button svg{width:18px}.today-focus>button svg:last-child{margin-left:auto}
-
-.home-matchup-v2,.quick-actions-v2,.heroes-v2{margin-top:16px;border:1px solid #aaa08a;background:#fffaf0}
-.home-matchup-v2>header,.quick-actions-v2>header,.heroes-v2>header{min-height:44px;padding:0 15px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line)}
-.home-matchup-v2 h2,.quick-actions-v2 h2,.heroes-v2 h2{margin:0;font:400 1.35rem var(--display);letter-spacing:.05em;text-transform:uppercase}
-.home-matchup-v2>header button{margin-left:auto;border:0;background:transparent;color:var(--teal2);display:flex;align-items:center;gap:6px;font-size:.62rem;font-weight:700;text-transform:uppercase}.home-matchup-v2>header svg{width:14px}
-.home-matchup-v2>div{min-height:108px;padding:18px;display:grid;grid-template-columns:44px minmax(130px,1fr) auto 36px minmax(220px,1fr);align-items:center;gap:14px}
-.team-mark{width:42px;height:42px;display:grid;place-items:center;background:var(--dark);color:var(--teal);font:400 1.4rem var(--display)}
-.home-matchup-v2>div>div{display:grid}.home-matchup-v2 strong{font-size:.84rem}.home-matchup-v2 small{margin-top:3px;color:var(--muted);font-size:.57rem}
-.home-matchup-v2>div>b{font:400 2.7rem/.8 var(--display);color:var(--teal2)}.home-matchup-v2>div>b small{display:block;font:700 .48rem var(--body);letter-spacing:.1em}
-.home-matchup-v2>div>i{font:400 .75rem var(--display);font-style:normal;color:var(--red)}
-.opponent-pending{padding-left:16px;border-left:1px solid var(--line)}
-
-.quick-actions-v2>header p{margin:0;color:var(--muted);font-size:.6rem}
-.quick-actions-v2>button{width:100%;min-height:68px;border:0;border-bottom:1px solid var(--line);padding:10px 15px;background:transparent;color:var(--ink);display:grid;grid-template-columns:34px 1fr 20px;align-items:center;gap:12px;text-align:left}
-.quick-actions-v2>button:last-child{border-bottom:0}.quick-actions-v2>button:hover{background:#f8edce}
-.quick-actions-v2>button>svg:first-child{width:24px;color:var(--teal2)}.quick-actions-v2>button>svg:last-child{width:17px;color:var(--muted)}
-.quick-actions-v2>button span{display:grid}.quick-actions-v2>button strong{font-size:.78rem}.quick-actions-v2>button small{margin-top:3px;color:var(--muted);font-size:.6rem}
-
-.heroes-v2>header{background:var(--dark);color:var(--paper);border-bottom:4px solid var(--teal)}
-.heroes-v2>header span{margin-left:auto;color:#bbb6a9;font-size:.5rem;letter-spacing:.1em}
-.heroes-v2>div{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.heroes-v2 article{min-height:105px;padding:17px;display:flex;align-items:center;gap:13px}.heroes-v2 article:first-child{border-right:1px solid var(--line)}
-.heroes-v2 article>svg{width:27px}.heroes-v2 article.hero>svg{color:var(--teal2)}.heroes-v2 article.bum>svg{color:var(--red)}
-.heroes-v2 article span{display:grid}.heroes-v2 article b{font-size:.52rem;letter-spacing:.1em}.heroes-v2 article strong{font:400 1.25rem var(--display);letter-spacing:.03em}.heroes-v2 article small{margin-top:4px;color:var(--muted);font-size:.57rem}
-.home-status{min-height:58px;margin-top:16px;padding:11px 14px;display:flex;align-items:center;gap:11px;background:#dfe9df;border-left:5px solid var(--teal2)}
-.home-status>svg{width:22px;color:var(--teal2)}.home-status span{display:grid}.home-status strong{font-size:.68rem}.home-status small{margin-top:2px;color:#5f6760;font-size:.58rem}
-
-.home-clubhouse{position:sticky;top:92px;background:var(--dark);color:var(--paper);border:1px solid #4a4e49}
-.home-clubhouse>header{padding:19px;display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid #4a4e49}.home-clubhouse>header .checker{flex:0 0 auto}
-.home-clubhouse h2{margin:0;font:400 1.8rem var(--display);letter-spacing:.04em}.home-clubhouse header p{margin:3px 0 0;color:#aeb8b2;font-size:.58rem;line-height:1.4}
-.home-clubhouse>form{padding:13px;display:grid;grid-template-columns:1fr auto;gap:7px;border-bottom:1px solid #4a4e49}.home-clubhouse textarea{min-height:52px;resize:none;padding:9px;background:#f8f2e5;border:1px solid #85887f;font-size:.65rem}.home-clubhouse form button{border:0;background:var(--amber);padding:0 13px;font:400 .75rem var(--display)}.home-clubhouse form button:disabled{opacity:.45}
-.home-feed article{padding:14px;display:grid;grid-template-columns:34px 1fr;gap:10px;border-bottom:1px solid #3d423e}.home-feed article>i{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:var(--teal2);font:400 .76rem var(--display);font-style:normal}.home-feed article>div{min-width:0}.home-feed strong,.home-feed small{display:block}.home-feed strong{font-size:.64rem}.home-feed small{margin-top:2px;color:#8e9891;font-size:.52rem}.home-feed p{margin:9px 0;color:#d8ddd9;font-size:.64rem;line-height:1.45}.home-feed p b{display:block;margin-bottom:2px;color:var(--amber);font-size:.52rem}.home-feed footer{display:flex;gap:14px;color:#aeb8b2;font-size:.55rem}.home-feed footer button,.home-feed footer span{border:0;background:transparent;color:inherit;padding:0;display:flex;align-items:center;gap:4px}.home-feed footer svg{width:14px}
-
-.team-command-v2{max-width:1380px;margin:0 auto}
-.team-paper-head{min-height:98px}
-.team-paper-head>div:first-child{position:relative;z-index:1}
-.team-paper-head p b{color:var(--ink)}
-.team-week-v2{position:relative;z-index:1;min-width:280px;height:58px;display:grid;grid-template-columns:42px 1fr 42px;background:#fffaf0;border:1px solid var(--ink)}
-.team-week-v2 button{border:0;background:transparent;color:var(--ink)}.team-week-v2 button:first-child{border-right:1px solid var(--line)}.team-week-v2 button:last-child{border-left:1px solid var(--line)}.team-week-v2 svg{width:18px}
-.team-week-v2 span{display:grid;place-content:center;text-align:center}.team-week-v2 strong{font:400 1rem var(--display);letter-spacing:.07em}.team-week-v2 small{font-size:.53rem;color:var(--muted)}
-.lineup-summary-v2{min-height:64px;margin:14px 0;display:flex;align-items:center;gap:18px;padding:9px 14px;background:#f8edce;border:1px solid #ad9b6d}
-.lineup-summary-v2>div{display:flex;align-items:center;gap:9px}.lineup-summary-v2>div:first-child svg{width:24px;color:var(--teal2)}.lineup-summary-v2 span{display:grid}.lineup-summary-v2 strong{font-size:.76rem}.lineup-summary-v2 small{font-size:.55rem;color:var(--muted)}
-.lineup-summary-v2>div:nth-child(2){margin-left:auto;display:grid;text-align:right}.lineup-summary-v2>div:nth-child(2) strong{font:400 1.8rem/.8 var(--display)}.lineup-summary-v2>button{min-height:34px;border:1px solid var(--ink);background:#fffaf0;padding:0 11px;display:flex;align-items:center;gap:6px;font-size:.6rem;font-weight:700}.lineup-summary-v2>button svg{width:14px}
-
-.roster-workspace-v2{display:grid;grid-template-columns:minmax(0,1fr) 335px;gap:18px;align-items:start}
-.roster-list-v2{min-width:0;border:1px solid #797d77;background:var(--dark);color:var(--paper)}
-.roster-columns-v2,.roster-row-v2{display:grid;grid-template-columns:58px minmax(190px,1.2fr) minmax(130px,.9fr) 58px 82px 70px 68px;align-items:center}
-.roster-columns-v2{min-height:36px;padding:0 10px;color:#b9c0bb;font-size:.5rem;font-weight:700;letter-spacing:.09em}
-.roster-group-v2>header{min-height:34px;padding:0 13px;display:flex;align-items:center;justify-content:space-between;border-block:1px solid #60645e}
-.roster-group-v2>header h2{margin:0;font:400 1.05rem var(--display);letter-spacing:.05em}.roster-group-v2>header span{font-size:.55rem;font-weight:700}
-.roster-group-v2.starters>header{background:var(--teal2)}.roster-group-v2.bench>header{background:#bc8125}.roster-group-v2.ir>header{background:var(--red)}
-.roster-row-v2{min-height:58px;padding:5px 10px;border-bottom:1px solid #404440;transition:background .14s,box-shadow .14s}
-.roster-row-v2:hover{background:#282d29}.roster-row-v2.is-selected{background:#263a38;box-shadow:inset 5px 0 var(--amber)}.roster-row-v2.is-candidate{background:#183c35;box-shadow:inset 5px 0 #51d2a5}
-.roster-player,.roster-opponent{display:grid;min-width:0}.roster-player strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.75rem}.roster-player small{color:var(--teal);font-size:.56rem}.roster-opponent strong{font-size:.65rem}.roster-opponent small{color:#a8b0aa;font-size:.52rem}.roster-projection{font:400 1rem var(--display)}
-.roster-row-v2 .player-trend{font-size:.52rem}.roster-row-v2 .roster-status{font-size:.52rem;color:#b8c0ba}.roster-row-v2 .roster-status.locked{color:#ef8a7d}
-.roster-row-action button{min-width:58px;min-height:30px;border:1px solid var(--teal);background:transparent;color:var(--teal);font:400 .68rem var(--display);letter-spacing:.05em;text-transform:uppercase}.is-candidate .roster-row-action button{background:#51d2a5;border-color:#51d2a5;color:#11221e}.is-selected .roster-row-action button{border-color:#d2b879;color:#d2b879}
-
-.decision-rail-v2{display:grid;gap:14px}.decision-rail-v2>section{background:var(--dark);color:var(--paper);border:1px solid #4d514d}
-.decision-rail-v2 section>header{min-height:46px;padding:0 13px;display:flex;align-items:center;gap:9px;border-bottom:3px solid var(--teal)}.decision-rail-v2 h2{margin:0;font:400 1.25rem var(--display);letter-spacing:.05em;text-transform:uppercase}.decision-rail-v2 header svg{width:20px;color:var(--amber)}
-.best-lineup-v2{padding-bottom:14px}.best-lineup-v2>p,.compare-v2>p{margin:14px;font-size:.68rem;line-height:1.5;color:#cbd0cc}.best-lineup-v2>p b{color:var(--teal)}.best-lineup-v2>p strong{color:#65ddb4}.best-lineup-v2>button{min-height:38px;margin:0 14px;padding:0 12px;border:0;background:var(--amber);display:flex;align-items:center;gap:7px;font:400 .75rem var(--display);text-transform:uppercase}.best-lineup-v2>button svg{width:14px}.best-lineup-v2>span{margin:0 14px;display:flex;align-items:center;gap:7px;color:#65ddb4;font-size:.62rem}.best-lineup-v2>span svg{width:16px}
-.compare-v2>button{width:100%;min-height:58px;padding:8px 12px;border:0;border-top:1px solid #454945;background:transparent;color:var(--paper);display:flex;align-items:center;gap:10px;text-align:left}.compare-v2>button:hover{background:#28332f}.compare-v2>button span{display:grid;flex:1}.compare-v2>button strong{font-size:.68rem}.compare-v2>button small{font-size:.52rem;color:#9fa8a1}.compare-v2>button>b{font:400 1rem var(--display)}.compare-v2>button>b small{display:block;color:#65ddb4}
-.best-available-v2>header button{margin-left:auto;border:0;background:transparent;color:var(--teal);font-size:.53rem;display:flex;align-items:center;gap:4px}.best-available-v2>header button svg{width:13px}.best-available-v2>div{min-height:65px;padding:9px 11px;display:grid;grid-template-columns:35px 1fr auto;align-items:center;gap:9px}.best-available-v2>div>b{width:32px;height:32px;display:grid;place-items:center;background:var(--paper);color:var(--ink);font:400 .7rem var(--display)}.best-available-v2>div>span{display:grid}.best-available-v2>div>span strong{font-size:.68rem}.best-available-v2>div>span small{font-size:.52rem;color:#9fa8a1}.best-available-v2>div>button{min-height:32px;border:0;background:var(--teal2);color:var(--paper);display:flex;align-items:center;gap:4px;padding:0 9px;font:400 .65rem var(--display);text-transform:uppercase}.best-available-v2>div>button svg{width:13px}
-.lineup-undo-v2{position:fixed;z-index:40;right:24px;bottom:24px;min-height:50px;padding:0 12px;display:flex;align-items:center;gap:10px;background:#7ad9b7;color:#13211c;border:1px solid #1d6d56;box-shadow:4px 4px 0 rgba(0,0,0,.25);font-size:.68rem}.lineup-undo-v2>svg{width:18px}.lineup-undo-v2 button{border:0;background:transparent;color:inherit;display:flex;align-items:center;gap:4px}.lineup-undo-v2 button:first-of-type{padding-left:10px;border-left:1px solid #427e69;font-weight:700}.lineup-undo-v2 button svg{width:14px}
-
-@media(max-width:1100px){
-  .ffi-lockup{width:92px}.ffi-lockup span{display:none}.league-picker-wrap{min-width:160px}.primary-nav button{min-width:68px;padding:0 8px}.global-search{display:none}
-  .clubhouse-home-v2{grid-template-columns:1fr}.home-clubhouse{position:static}.home-feed{display:grid;grid-template-columns:repeat(3,1fr)}.home-feed article{border-right:1px solid #3d423e}
-  .roster-workspace-v2{grid-template-columns:1fr}.decision-rail-v2{grid-template-columns:1fr 1fr}.compare-v2{grid-row:1/3}
-}
-@media(max-width:720px){
-  body{padding-bottom:66px}.topbar{height:58px;position:sticky}.ffi-lockup{width:68px;padding:0 10px}.ffi-lockup strong{font-size:2rem}.league-picker-wrap{flex:1;min-width:0}.league-picker{border-right:0}.league-picker .checker{display:none}.profile-button{min-width:48px}.notification-button,.global-search{display:none}
-  .primary-nav{position:fixed;z-index:50;inset:auto 0 0;height:66px;background:var(--dark);border-top:2px solid var(--teal);display:grid;grid-template-columns:repeat(5,1fr)}
-  .primary-nav button{min-width:0;padding:6px 2px 5px;display:grid;place-content:center;gap:2px;border-bottom:0;border-top:3px solid transparent;font-size:.52rem}.primary-nav button svg{display:block;margin:auto}.primary-nav button.active{border-top-color:var(--amber);border-bottom:0;color:var(--amber)}
-  .app-content{padding:12px 10px 30px}
-  .clubhouse-home-v2{display:block}.league-paper-head,.team-paper-head{min-height:74px;padding:13px 14px}.league-paper-head h1,.team-paper-head h1{font-size:3rem}.league-paper-head>span{display:none}
-  .today-focus{display:block;padding:17px}.today-focus>button{width:100%;margin-top:15px}
-  .home-matchup-v2>div{grid-template-columns:40px 1fr auto;gap:10px}.home-matchup-v2>div>i,.opponent-pending{grid-column:2/4}.opponent-pending{padding:10px 0 0;border-left:0;border-top:1px solid var(--line)}.home-matchup-v2>div>i{display:none}
-  .heroes-v2>header span{display:none}.heroes-v2>div{grid-template-columns:1fr}.heroes-v2 article:first-child{border-right:0;border-bottom:1px solid var(--line)}
-  .home-status{display:none}.home-clubhouse{margin-top:16px}.home-feed{display:block}.home-feed article{border-right:0}
-  .team-paper-head{display:block}.team-week-v2{min-width:0;width:100%;height:48px;margin-top:13px}
-  .lineup-summary-v2{flex-wrap:wrap}.lineup-summary-v2>div:nth-child(2){margin-left:auto}.lineup-summary-v2>button{width:100%;justify-content:center}
-  .roster-columns-v2{display:none}.roster-list-v2{border:0}
-  .roster-row-v2{min-height:74px;padding:8px 9px;grid-template-columns:42px minmax(0,1fr) 52px 62px;grid-template-areas:'slot player projection action' 'slot opponent trend status';gap:2px 8px}
-  .roster-row-v2>.roster-slot{grid-area:slot;align-self:center;width:34px;height:28px;display:grid;place-items:center;background:#d6d8d3;color:var(--ink);font-size:.75rem}.roster-player{grid-area:player}.roster-opponent{grid-area:opponent}.roster-projection{grid-area:projection;text-align:right}.roster-row-v2>.player-trend{grid-area:trend}.roster-row-v2>.roster-status{grid-area:status;text-align:right}.roster-row-action{grid-area:action}.roster-row-action button{min-width:52px}
-  .roster-player strong{font-size:.74rem}.roster-opponent{display:flex;gap:6px}.roster-opponent strong,.roster-opponent small{font-size:.51rem}
-  .decision-rail-v2{grid-template-columns:1fr}.compare-v2{grid-row:auto}.lineup-undo-v2{left:12px;right:12px;bottom:76px;justify-content:center}
-}
+.heroe~¶ЯKh‘йм¶»§q«^w\\\‹ZXYKќX[K\\\‹ZXY^ЬЬЪ][ЫЋњ™[]]™NЮ‹Z[™^ЊNЫX\™Ъ[ЋЊЩ›ЫќЌЫ[\
+Ь™[K]ќЛKЊњ™[JKЛЌНH\ЉKY\Ь^JNЭ^][њЩ›Ь›Nќ\\Ш\Щ_B‹›XYЭYK\\\‹ZXYќX[K\\\‹ZXYЬЬЪ][ЫЋњ™[]]™NЮ‹Z[™^ЊNЫX\™Ъ[ЋЋЩ›Ыќ\Ъ^™N‹ЌЊЬ™[NЩ›Ыќ]ЩZYЪЌМЫ]\‹\ЬXЪ[™О‹ЊL™[NЭ^][њЩ›Ь›Nќ\\Ш\ЩNШЫЫЬЋќ\ЉK]X[Љ_B‹›XYЭYK\\\‹ZXYњЬ[ћЬЬЪ][ЫЋњ™[]]™NЮ‹Z[™^ЊNШЫЫЬЋќ\ЉK]X[ЉNЩ›ЫќЌ\™[KМKЊH\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊY[NЭ[њЩ›Ь›Nњ›Э]JL™YК_B‚‹ќЩ^KY›ШЭ\ЮЫZ[‹ZZYЪЊLЌњЫX\™Ъ[‹]ЬЊMњЬY[™ОЊЊњЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќњЬXЩKX™]ЩY[ЋЩШ\ЊЌШXЪЩЬ›Э[™€Щ™™YЊШ›Ь™\ЋЊ\ЫЫYШXXLNШ›Ь™\‹[YќЌЬЫЫY\ЉKX[X™\Љ_B‹ќЩ^KY›ШЭ\ИЫX[Щ›Ыќ\Ъ^™N‹ЌN™[NЩ›Ыќ]ЩZYЪЋЫ]\‹\ЬXЪ[™О‹ЊLЩ[NШЫЫЬЋќ\ЉK\™Y
+_B‹ќЩ^KY›ШЭ\ИћЫX\™Ъ[ЋЌЬЩ›ЫќЌЫ[\
+KЋ™[KЭќЛ‹Ћ™[JKМH\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹Њ™[_B‹ќЩ^KY›ШЭ\ИЫX\™Ъ[ЋЊЫX^]ЪYЌЌЊШЫЫЬЋ€НЊЌЌНЊNЩ›Ыќ\Ъ^™N‹ЌМњ™[NЫ[™KZZYЪЊKЌ_B‹ќЩ^KY›ШЭ\Пќ]ЫћЫZ[‹]ЪYЊNLЫZ[‹ZZYЪЌLњЬY[™ОЊMЬШ›Ь™\ЋЊњЫЫY\ЉKZ[љКNШXЪЩЬ›Э[™ќ\ЉKX[X™\ЉNШЫЫЬЋќ\ЉKZ[љКNШ›Ю\ЪYЭОЊЬЬ\ЉKZ[љКNЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќЩ[ќ\ЋЩШ\Ћ\Щ›ЫќЌЋM\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊY[NЭ^][њЩ›Ь›Nќ\\Ш\Щ_B‹ќЩ^KY›ШЭ\Пќ]Ы€Э™ЮЭЪYЊNKќЩ^KY›ШЭ\Пќ]Ы€Э™О›\ЭXЪ[ЫX\™Ъ[‹[Yќ]]ЯB‚‹љЫYK[X]Ъ\]Њ‹њ]ZXЪЛXXЭ[ЫњЛ]Њ‹љ\›Щ\Л]ЊћЫX\™Ъ[‹]ЬЊMњШ›Ь™\ЋЊ\ЫЫYШXXLNШXЪЩЬ›Э[™€Щ™™YЊB‹љЫYK[X]Ъ\]ЊЏљXY\‹њ]ZXЪЛXXЭ[ЫњЛ]ЊЏљXY\‹љ\›Щ\Л]ЊЏљXY\ћЫZ[‹ZZYЪЌЬY[™ОЊM\Щ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊLњШ›Ь™\‹X›ЭЫNЊ\ЫЫY\ЉK[[™J_B‹љЫYK[X]Ъ\]Њ€‹њ]ZXЪЛXXЭ[ЫњЛ]Њ€‹љ\›Щ\Л]Њ€ћЫX\™Ъ[ЋЊЩ›ЫќЌKЊН\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊY[NЭ^][њЩ›Ь›Nќ\\Ш\Щ_B‹љЫYK[X]Ъ\]ЊЏљXY\€ќ]ЫћЫX\™Ъ[‹[Yќ]]ОШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋќ\ЉK]X[ЉNЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌњЩ›Ыќ\Ъ^™N‹ЌЊњ™[NЩ›Ыќ]ЩZYЪЌМЭ^][њЩ›Ь›Nќ\\Ш\Щ_KљЫYK[X]Ъ\]ЊЏљXY\€Э™ЮЭЪYЊMB‹љЫYK[X]Ъ\]ЊЏ™]ћЫZ[‹ZZYЪЊLЬY[™ОЊNЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЌZ[›X^
+LМYњЉH]]ИНњZ[›X^
+ЊЊYњЉNШ[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊMB‹ќX[K[X\љЮЭЪYЌњЪZYЪЌњЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШXЪЩЬ›Э[™ќ\ЉKY\љКNШЫЫЬЋќ\ЉK]X[
+NЩ›ЫќЌKЌ™[H\ЉKY\Ь^J_B‹љЫYK[X]Ъ\]ЊЏ™]Џ™]ћЩ\Ь^N™ЬљYKљЫYK[X]Ъ\]Њ€Э›Ы™ЮЩ›Ыќ\Ъ^™N‹Ћ™[_KљЫYK[X]Ъ\]Њ€ЫX[ЫX\™Ъ[‹]ЬЊЬШЫЫЬЋќ\ЉK[]]Y
+NЩ›Ыќ\Ъ^™N‹ЌMЬ™[_B‹љЫYK[X]Ъ\]ЊЏ™]ЏћЩ›ЫќЌ‹ЌЬ™[KЛЋ\ЉKY\Ь^JNШЫЫЬЋќ\ЉK]X[Љ_KљЫYK[X]Ъ\]ЊЏ™]Џ€ЫX[Щ\Ь^N›ШЪОЩ›ЫќЌМЌ™[H\ЉKX›ЩJNЫ]\‹\ЬXЪ[™О‹ЊY[_B‹љЫYK[X]Ъ\]ЊЏ™]Џљ^Щ›ЫќЌЌН\™[H\ЉKY\Ь^JNЩ›Ыќ\Э[N››Ь›X[ШЫЫЬЋќ\ЉK\™Y
+_B‹›ЬЫ™[ќ\[™[™ЮЬY[™Л[YќЊMњШ›Ь™\‹[YќЊ\ЫЫY\ЉK[[™J_B‚‹њ]ZXЪЛXXЭ[ЫњЛ]ЊЏљXY\€ЫX\™Ъ[ЋЊШЫЫЬЋќ\ЉK[]]Y
+NЩ›Ыќ\Ъ^™N‹Ќњ™[_B‹њ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]ЫћЭЪYЊL	NЫZ[‹ZZYЪЌЋШ›Ь™\ЋЊШ›Ь™\‹X›ЭЫNЊ\ЫЫY\ЉK[[™JNЬY[™ОЊLM\ШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋќ\ЉKZ[љКNЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊНYњ€ЊШ[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊLњЭ^X[YЫЋ›YќB‹њ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]ЫЋ›\ЭXЪ[Ш›Ь™\‹X›ЭЫNЊKњ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]ЫЋљЭ™\ћШXЪЩЬ›Э[™€ЩЋYЩ_B‹њ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]ЫЏњЭ™О™љ\њЭXЪ[ЭЪYЊЌШЫЫЬЋќ\ЉK]X[Љ_Kњ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]ЫЏњЭ™О›\ЭXЪ[ЭЪYЊMЬШЫЫЬЋќ\ЉK[]]Y
+_B‹њ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]Ы€Ь[ћЩ\Ь^N™ЬљYKњ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]Ы€Э›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌО™[_Kњ]ZXЪЛXXЭ[ЫњЛ]ЊЏќ]Ы€ЫX[ЫX\™Ъ[‹]ЬЊЬШЫЫЬЋќ\ЉK[]]Y
+NЩ›Ыќ\Ъ^™N‹Ќњ™[_B‚‹љ\›Щ\Л]ЊЏљXY\ћШXЪЩЬ›Э[™ќ\ЉKY\љКNШЫЫЬЋќ\ЉK\\\ЉNШ›Ь™\‹X›ЭЫNЌЫЫY\ЉK]X[
+_B‹љ\›Щ\Л]ЊЏљXY\€Ь[ћЫX\™Ъ[‹[Yќ]]ОШЫЫЬЋ€ШЌNNЩ›Ыќ\Ъ^™N‹Ќ\™[NЫ]\‹\ЬXЪ[™О‹ЊY[_B‹љ\›Щ\Л]ЊЏ™]ћЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊYњ€YњЋЩШ\ЊB‹љ\›Щ\Л]Њ€\ќXЫ^ЫZ[‹ZZYЪЊL\ЬY[™ОЊMЬЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊLЬKљ\›Щ\Л]Њ€\ќXЫN™љ\њЭXЪ[Ш›Ь™\‹\љYЪЊ\ЫЫY\ЉK[[™J_B‹љ\›Щ\Л]Њ€\ќXЫOњЭ™ЮЭЪYЊЌЬKљ\›Щ\Л]Њ€\ќXЫKљ\›ПњЭ™ЮШЫЫЬЋќ\ЉK]X[Љ_Kљ\›Щ\Л]Њ€\ќXЫKќ[OњЭ™ЮШЫЫЬЋќ\ЉK\™Y
+_B‹љ\›Щ\Л]Њ€\ќXЫHЬ[ћЩ\Ь^N™ЬљYKљ\›Щ\Л]Њ€\ќXЫHћЩ›Ыќ\Ъ^™N‹ЌLњ™[NЫ]\‹\ЬXЪ[™О‹ЊY[_Kљ\›Щ\Л]Њ€\ќXЫHЭ›Ы™ЮЩ›ЫќЌKЊЌ\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊЩ[_Kљ\›Щ\Л]Њ€\ќXЫHЫX[ЫX\™Ъ[‹]ЬЌШЫЫЬЋќ\ЉK[]]Y
+NЩ›Ыќ\Ъ^™N‹ЌMЬ™[_B‹љЫYK\Э]\ЮЫZ[‹ZZYЪЌNЫX\™Ъ[‹]ЬЊMњЬY[™ОЊL\MЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊL\ШXЪЩЬ›Э[™€Щ™NYЋШ›Ь™\‹[YќЌ\ЫЫY\ЉK]X[Љ_B‹љЫYK\Э]\ПњЭ™ЮЭЪYЊЊњШЫЫЬЋќ\ЉK]X[Љ_KљЫYK\Э]\ИЬ[ћЩ\Ь^N™ЬљYKљЫYK\Э]\ИЭ›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌЋ™[_KљЫYK\Э]\ИЫX[ЫX\™Ъ[‹]ЬЊњШЫЫЬЋ€НYЌЌНЊЩ›Ыќ\Ъ^™N‹ЌN™[_B‚‹љЫYKXЫXљЭ\Щ^ЬЬЪ][ЫЋњЭXЪЮNЭЬЋLњШXЪЩЬ›Э[™ќ\ЉKY\љКNШЫЫЬЋќ\ЉK\\\ЉNШ›Ь™\ЋЊ\ЫЫYНMM_B‹љЫYKXЫXљЭ\ЩOљXY\ћЬY[™ОЊN\Щ\Ь^N™›^Ш[YЫ‹Z][\О™›^\Э\ќЩШ\ЊLњШ›Ь™\‹X›ЭЫNЊ\ЫЫYНMM_KљЫYKXЫXљЭ\ЩOљXY\€ЪXЪЩ\ћЩ›^Њ]]ЯB‹љЫYKXЫXљЭ\ЩHћЫX\™Ъ[ЋЊЩ›ЫќЌKЋ™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹Њ[_KљЫYKXЫXљЭ\ЩHXY\€ЫX\™Ъ[ЋЊЬШЫЫЬЋ€ШYXЋЊЋЩ›Ыќ\Ъ^™N‹ЌN™[NЫ[™KZZYЪЊKЌB‹љЫYKXЫXљЭ\ЩO™›Ь›^ЬY[™ОЊLЬЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊYњ€]]ОЩШ\ЌЬШ›Ь™\‹X›ЭЫNЊ\ЫЫYНMM_KљЫYKXЫXљЭ\ЩH^\™X^ЫZ[‹ZZYЪЌLњЬ™\Ъ^™N››Ы™NЬY[™ОЋ\ШXЪЩЬ›Э[™€ЩЋЊ™MNШ›Ь™\ЋЊ\ЫЫYОNЩЋЩ›Ыќ\Ъ^™N‹ЌЌ\™[_KљЫYKXЫXљЭ\ЩH›Ь›Hќ]ЫћШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉKX[X™\ЉNЬY[™ОЊLЬЩ›ЫќЌЌН\™[H\ЉKY\Ь^J_KљЫYKXЫXљЭ\ЩH›Ь›Hќ]ЫЋ™\ШX›YЫЬXЪ]N‹Ќ_B‹љЫYKY™YY\ќXЫ^ЬY[™ОЊMЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊНYњЋЩШ\ЊLШ›Ь™\‹X›ЭЫNЊ\ЫЫYМЩЊЩ_KљЫYKY™YY\ќXЫOљ^ЭЪYЊНЪZYЪЊНЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШ›Ь™\‹\Y]\ОЌL	NШXЪЩЬ›Э[™ќ\ЉK]X[ЉNЩ›ЫќЌЌНњ™[H\ЉKY\Ь^JNЩ›Ыќ\Э[N››Ь›X[KљЫYKY™YY\ќXЫO™]ћЫZ[‹]ЪYЊKљЫYKY™YYЭ›Ы™ЛљЫYKY™YYЫX[Щ\Ь^N›ШЪЯKљЫYKY™YYЭ›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌЌ™[_KљЫYKY™YYЫX[ЫX\™Ъ[‹]ЬЊњШЫЫЬЋ€ОNNLNЩ›Ыќ\Ъ^™N‹ЌLњ™[_KљЫYKY™YYЫX\™Ъ[ЋЋ\ШЫЫЬЋ€ЩNЩ›Ыќ\Ъ^™N‹ЌЌ™[NЫ[™KZZYЪЊKЌ_KљЫYKY™YYћЩ\Ь^N›ШЪОЫX\™Ъ[‹X›ЭЫNЊњШЫЫЬЋќ\ЉKX[X™\ЉNЩ›Ыќ\Ъ^™N‹ЌLњ™[_KљЫYKY™YY›ЫЭ\ћЩ\Ь^N™›^ЩШ\ЊMШЫЫЬЋ€ШYXЋЊЋЩ›Ыќ\Ъ^™N‹ЌM\™[_KљЫYKY™YY›ЫЭ\€ќ]Ы‹љЫYKY™YY›ЫЭ\€Ь[ћШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋљ[љ\љ]ЬY[™ОЊЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌKљЫYKY™YY›ЫЭ\€Э™ЮЭЪYЊMB‚‹ќX[KXЫЫ[X[™]ЊћЫX^]ЪYЊLОЫX\™Ъ[ЋЊ]]ЯB‹ќX[K\\\‹ZXYЫZ[‹ZZYЪЋNB‹ќX[K\\\‹ZXY™]Ћ™љ\њЭXЪ[ЬЬЪ][ЫЋњ™[]]™NЮ‹Z[™^Њ_B‹ќX[K\\\‹ZXYћШЫЫЬЋќ\ЉKZ[љК_B‹ќX[K]ЩYZЛ]ЊћЬЬЪ][ЫЋњ™[]]™NЮ‹Z[™^ЊNЫZ[‹]ЪYЊЋЪZYЪЌNЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЌњYњ€њШXЪЩЬ›Э[™€Щ™™YЊШ›Ь™\ЋЊ\ЫЫY\ЉKZ[љК_B‹ќX[K]ЩYZЛ]Њ€ќ]ЫћШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋќ\ЉKZ[љК_KќX[K]ЩYZЛ]Њ€ќ]ЫЋ™љ\њЭXЪ[Ш›Ь™\‹\љYЪЊ\ЫЫY\ЉK[[™J_KќX[K]ЩYZЛ]Њ€ќ]ЫЋ›\ЭXЪ[Ш›Ь™\‹[YќЊ\ЫЫY\ЉK[[™J_KќX[K]ЩYZЛ]Њ€Э™ЮЭЪYЊNB‹ќX[K]ЩYZЛ]Њ€Ь[ћЩ\Ь^N™ЬљYЬXЩKXЫЫќ[ќЩ[ќ\ЋЭ^X[YЫЋЩ[ќ\џKќX[K]ЩYZЛ]Њ€Э›Ы™ЮЩ›ЫќЌ\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊЩ[_KќX[K]ЩYZЛ]Њ€ЫX[Щ›Ыќ\Ъ^™N‹ЌLЬ™[NШЫЫЬЋќ\ЉK[]]Y
+_B‹›[™]\\Э[[X\ћK]ЊћЫZ[‹ZZYЪЌЌЫX\™Ъ[ЋЊMЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊNЬY[™ОЋ\MШXЪЩЬ›Э[™€ЩЋYЩNШ›Ь™\ЋЊ\ЫЫYШYXЌ™B‹›[™]\\Э[[X\ћK]ЊЏ™]ћЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\Ћ\K›[™]\\Э[[X\ћK]ЊЏ™]Ћ™љ\њЭXЪ[Э™ЮЭЪYЊЌШЫЫЬЋќ\ЉK]X[Љ_K›[™]\\Э[[X\ћK]Њ€Ь[ћЩ\Ь^N™ЬљYK›[™]\\Э[[X\ћK]Њ€Э›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌНњ™[_K›[™]\\Э[[X\ћK]Њ€ЫX[Щ›Ыќ\Ъ^™N‹ЌM\™[NШЫЫЬЋќ\ЉK[]]Y
+_B‹›[™]\\Э[[X\ћK]ЊЏ™]Ћ›ќXЪ[
+Љ^ЫX\™Ъ[‹[Yќ]]ОЩ\Ь^N™ЬљYЭ^X[YЫЋњљYЪK›[™]\\Э[[X\ћK]ЊЏ™]Ћ›ќXЪ[
+ЉHЭ›Ы™ЮЩ›ЫќЌKЋ™[KЛЋ\ЉKY\Ь^J_K›[™]\\Э[[X\ћK]ЊЏќ]ЫћЫZ[‹ZZYЪЊНШ›Ь™\ЋЊ\ЫЫY\ЉKZ[љКNШXЪЩЬ›Э[™€Щ™™YЊЬY[™ОЊL\Щ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌњЩ›Ыќ\Ъ^™N‹Ќњ™[NЩ›Ыќ]ЩZYЪЌМK›[™]\\Э[[X\ћK]ЊЏќ]Ы€Э™ЮЭЪYЊMB‚‹њ›ЬЭ\‹]ЫЬљЬЬXЩK]ЊћЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО›Z[›X^
+YњЉHМН\ЩШ\ЊNШ[YЫ‹Z][\ОњЭ\ќB‹њ›ЬЭ\‹[\Э]ЊћЫZ[‹]ЪYЊШ›Ь™\ЋЊ\ЫЫYНОMЩНОШXЪЩЬ›Э[™ќ\ЉKY\љКNШЫЫЬЋќ\ЉK\\\Љ_B‹њ›ЬЭ\‹XЫЫ[[њЛ]Њ‹њ›ЬЭ\‹\›ЭЛ]ЊћЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЌNZ[›X^
+NLKЊ™њЉHZ[›X^
+LМЋYњЉHNњМЋШ[YЫ‹Z][\ОЩ[ќ\џB‹њ›ЬЭ\‹XЫЫ[[њЛ]ЊћЫZ[‹ZZYЪЊНњЬY[™ОЊLШЫЫЬЋ€ШЋXМЋЩ›Ыќ\Ъ^™N‹Ќ\™[NЩ›Ыќ]ЩZYЪЌМЫ]\‹\ЬXЪ[™О‹ЊY[_B‹њ›ЬЭ\‹YЬ›Э\]ЊЏљXY\ћЫZ[‹ZZYЪЊНЬY[™ОЊLЬЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќњЬXЩKX™]ЩY[ЋШ›Ь™\‹X›ШЪОЊ\ЫЫYНЊЌY_B‹њ›ЬЭ\‹YЬ›Э\]ЊЏљXY\€ћЫX\™Ъ[ЋЊЩ›ЫќЌKЊ\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊY[_Kњ›ЬЭ\‹YЬ›Э\]ЊЏљXY\€Ь[ћЩ›Ыќ\Ъ^™N‹ЌM\™[NЩ›Ыќ]ЩZYЪЌМB‹њ›ЬЭ\‹YЬ›Э\]Њ‹њЭ\ќ\њПљXY\ћШXЪЩЬ›Э[™ќ\ЉK]X[Љ_Kњ›ЬЭ\‹YЬ›Э\]Њ‹™[ЪљXY\ћШXЪЩЬ›Э[™€ШОLЌ_Kњ›ЬЭ\‹YЬ›Э\]Њ‹љ\ЏљXY\ћШXЪЩЬ›Э[™ќ\ЉK\™Y
+_B‹њ›ЬЭ\‹\›ЭЛ]ЊћЫZ[‹ZZYЪЌNЬY[™ОЌ\LШ›Ь™\‹X›ЭЫNЊ\ЫЫYНЭ[њЪ][ЫЋXЪЩЬ›Э[™ЊMЛ›Ю\ЪYЭИЊMЯB‹њ›ЬЭ\‹\›ЭЛ]ЊЋљЭ™\ћШXЪЩЬ›Э[™€МЋ™Ћ_Kњ›ЬЭ\‹\›ЭЛ]Њ‹љ\Л\Щ[XЭYШXЪЩЬ›Э[™€МЌЊШLОШ›Ю\ЪYЭОљ[њЩ]\\ЉKX[X™\Љ_Kњ›ЬЭ\‹\›ЭЛ]Њ‹љ\ЛXШ[™Y]^ШXЪЩЬ›Э[™€МNШМНNШ›Ю\ЪYЭОљ[њЩ]\НLYM_B‹њ›ЬЭ\‹\^Y\‹њ›ЬЭ\‹[ЬЫ™[ќЩ\Ь^N™ЬљYЫZ[‹]ЪYЊKњ›ЬЭ\‹\^Y\€Э›Ы™ЮЫЭ™\™›ЭОљY[ЋЭ^[Э™\™›ЭО™[\Ъ\ОЭЪ]K\ЬXЩN››ЭЬ\Щ›Ыќ\Ъ^™N‹ЌН\™[_Kњ›ЬЭ\‹\^Y\€ЫX[ШЫЫЬЋќ\ЉK]X[
+NЩ›Ыќ\Ъ^™N‹ЌMњ™[_Kњ›ЬЭ\‹[ЬЫ™[ќЭ›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌЌ\™[_Kњ›ЬЭ\‹[ЬЫ™[ќЫX[ШЫЫЬЋ€ШNЊXNЩ›Ыќ\Ъ^™N‹ЌLњ™[_Kњ›ЬЭ\‹\›Ъ™XЭ[ЫћЩ›ЫќЌ\™[H\ЉKY\Ь^J_B‹њ›ЬЭ\‹\›ЭЛ]Њ€њ^Y\‹]™[™Щ›Ыќ\Ъ^™N‹ЌLњ™[_Kњ›ЬЭ\‹\›ЭЛ]Њ€њ›ЬЭ\‹\Э]\ЮЩ›Ыќ\Ъ^™N‹ЌLњ™[NШЫЫЬЋ€ШЋМ_Kњ›ЬЭ\‹\›ЭЛ]Њ€њ›ЬЭ\‹\Э]\Л›ШЪЩYШЫЫЬЋ€ЩYЋMЩB‹њ›ЬЭ\‹\›ЭЛXXЭ[Ы€ќ]ЫћЫZ[‹]ЪYЌNЫZ[‹ZZYЪЊМШ›Ь™\ЋЊ\ЫЫY\ЉK]X[
+NШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋќ\ЉK]X[
+NЩ›ЫќЌЌЋ™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊY[NЭ^][њЩ›Ь›Nќ\\Ш\Щ_Kљ\ЛXШ[™Y]Hњ›ЬЭ\‹\›ЭЛXXЭ[Ы€ќ]ЫћШXЪЩЬ›Э[™€НLYMNШ›Ь™\‹XЫЫЬЋ€НLYMNШЫЫЬЋ€МLLЊЊY_Kљ\Л\Щ[XЭYњ›ЬЭ\‹\›ЭЛXXЭ[Ы€ќ]ЫћШ›Ь™\‹XЫЫЬЋ€ЩЋОNШЫЫЬЋ€ЩЋО_B‚‹™XЪ\Ъ[Ы‹\Z[]ЊћЩ\Ь^N™ЬљYЩШ\ЊMK™XЪ\Ъ[Ы‹\Z[]ЊЏњЩXЭ[ЫћШXЪЩЬ›Э[™ќ\ЉKY\љКNШЫЫЬЋќ\ЉK\\\ЉNШ›Ь™\ЋЊ\ЫЫYНLMB‹™XЪ\Ъ[Ы‹\Z[]Њ€ЩXЭ[ЫЏљXY\ћЫZ[‹ZZYЪЌњЬY[™ОЊLЬЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\Ћ\Ш›Ь™\‹X›ЭЫNЊЬЫЫY\ЉK]X[
+_K™XЪ\Ъ[Ы‹\Z[]Њ€ћЫX\™Ъ[ЋЊЩ›ЫќЌKЊЌ\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊY[NЭ^][њЩ›Ь›Nќ\\Ш\Щ_K™XЪ\Ъ[Ы‹\Z[]Њ€XY\€Э™ЮЭЪYЊЊШЫЫЬЋќ\ЉKX[X™\Љ_B‹™\Э[[™]\]ЊћЬY[™ЛX›ЭЫNЊMK™\Э[[™]\]ЊЏњЫЫ\\™K]ЊЏњЫX\™Ъ[ЋЊMЩ›Ыќ\Ъ^™N‹ЌЋ™[NЫ[™KZZYЪЊKЌNШЫЫЬЋ€ШШ™ШЯK™\Э[[™]\]ЊЏњћШЫЫЬЋќ\ЉK]X[
+_K™\Э[[™]\]ЊЏњЭ›Ы™ЮШЫЫЬЋ€НЌYЌK™\Э[[™]\]ЊЏќ]ЫћЫZ[‹ZZYЪЊОЫX\™Ъ[ЋЊMЬY[™ОЊLњШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉKX[X™\ЉNЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌЬЩ›ЫќЌЌН\™[H\ЉKY\Ь^JNЭ^][њЩ›Ь›Nќ\\Ш\Щ_K™\Э[[™]\]ЊЏќ]Ы€Э™ЮЭЪYЊMK™\Э[[™]\]ЊЏњЬ[ћЫX\™Ъ[ЋЊMЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌЬШЫЫЬЋ€НЌYЌЩ›Ыќ\Ъ^™N‹ЌЊњ™[_K™\Э[[™]\]ЊЏњЬ[€Э™ЮЭЪYЊMњB‹ЫЫ\\™K]ЊЏќ]ЫћЭЪYЊL	NЫZ[‹ZZYЪЌNЬY[™ОЋLњШ›Ь™\ЋЊШ›Ь™\‹]ЬЊ\ЫЫYНMMNШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋќ\ЉK\\\ЉNЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊLЭ^X[YЫЋ›YќKЫЫ\\™K]ЊЏќ]ЫЋљЭ™\ћШXЪЩЬ›Э[™€МЋММ™џKЫЫ\\™K]ЊЏќ]Ы€Ь[ћЩ\Ь^N™ЬљYЩ›^Њ_KЫЫ\\™K]ЊЏќ]Ы€Э›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌЋ™[_KЫЫ\\™K]ЊЏќ]Ы€ЫX[Щ›Ыќ\Ъ^™N‹ЌLњ™[NШЫЫЬЋ€ОYNL_KЫЫ\\™K]ЊЏќ]ЫЏћЩ›ЫќЌ\™[H\ЉKY\Ь^J_KЫЫ\\™K]ЊЏќ]ЫЏ€ЫX[Щ\Ь^N›ШЪОШЫЫЬЋ€НЌYЌB‹™\ЭX]Z[X›K]ЊЏљXY\€ќ]ЫћЫX\™Ъ[‹[Yќ]]ОШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋќ\ЉK]X[
+NЩ›Ыќ\Ъ^™N‹ЌLЬ™[NЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌK™\ЭX]Z[X›K]ЊЏљXY\€ќ]Ы€Э™ЮЭЪYЊLЬK™\ЭX]Z[X›K]ЊЏ™]ћЫZ[‹ZZYЪЌЌ\ЬY[™ОЋ\L\Щ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊН\Yњ€]]ОШ[YЫ‹Z][\ОЩ[ќ\ЋЩШ\Ћ\K™\ЭX]Z[X›K]ЊЏ™]ЏћЭЪYЊМњЪZYЪЊМњЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШXЪЩЬ›Э[™ќ\ЉK\\\ЉNШЫЫЬЋќ\ЉKZ[љКNЩ›ЫќЌЌЬ™[H\ЉKY\Ь^J_K™\ЭX]Z[X›K]ЊЏ™]ЏњЬ[ћЩ\Ь^N™ЬљYK™\ЭX]Z[X›K]ЊЏ™]ЏњЬ[€Э›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌЋ™[_K™\ЭX]Z[X›K]ЊЏ™]ЏњЬ[€ЫX[Щ›Ыќ\Ъ^™N‹ЌLњ™[NШЫЫЬЋ€ОYNL_K™\ЭX]Z[X›K]ЊЏ™]Џќ]ЫћЫZ[‹ZZYЪЊМњШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉK]X[ЉNШЫЫЬЋќ\ЉK\\\ЉNЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌЬY[™ОЊ\Щ›ЫќЌЌЌ\™[H\ЉKY\Ь^JNЭ^][њЩ›Ь›Nќ\\Ш\Щ_K™\ЭX]Z[X›K]ЊЏ™]Џќ]Ы€Э™ЮЭЪYЊLЬB‹›[™]\][™Л]ЊћЬЬЪ][ЫЋ™љ^YЮ‹Z[™^ЌЬљYЪЊЌШ›ЭЫNЊЌЫZ[‹ZZYЪЌLЬY[™ОЊLњЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊLШXЪЩЬ›Э[™€НШYXЌОШЫЫЬЋ€МLМЊLXОШ›Ь™\ЋЊ\ЫЫYМY™MЋШ›Ю\ЪYЭОЌ™ШJЊЌJNЩ›Ыќ\Ъ^™N‹ЌЋ™[_K›[™]\][™Л]ЊЏњЭ™ЮЭЪYЊNK›[™]\][™Л]Њ€ќ]ЫћШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋљ[љ\љ]Щ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЌK›[™]\][™Л]Њ€ќ]ЫЋ™љ\њЭ[Щ‹]\^ЬY[™Л[YќЊLШ›Ь™\‹[YќЊ\ЫЫYНЌЩMЋNЩ›Ыќ]ЩZYЪЌМK›[™]\][™Л]Њ€ќ]Ы€Э™ЮЭЪYЊMB‚ђYYXJX^]ЪYЊLL
+^В€™™љK[ШЪЭ\ЭЪYЋLњK™™љK[ШЪЭ\Ь[ћЩ\Ь^N››Ы™_K›XYЭYK\XЪЩ\‹]Ь\ЫZ[‹]ЪYЊMЊKњљ[X\ћK[]€ќ]ЫћЫZ[‹]ЪYЌЋЬY[™ОЊK™ЫШ[\ЩX\ЪЩ\Ь^N››Ы™_B€ЫXљЭ\ЩKZЫYK]ЊћЩЬљY][\]KXЫЫ[[њОЊYњџKљЫYKXЫXљЭ\Щ^ЬЬЪ][ЫЋњЭ]XЯKљЫYKY™YYЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОњ™\X]
+ЛYњЉ_KљЫYKY™YY\ќXЫ^Ш›Ь™\‹\љYЪЊ\ЫЫYМЩЊЩ_B€њ›ЬЭ\‹]ЫЬљЬЬXЩK]ЊћЩЬљY][\]KXЫЫ[[њОЊYњџK™XЪ\Ъ[Ы‹\Z[]ЊћЩЬљY][\]KXЫЫ[[њОЊYњ€YњџKЫЫ\\™K]ЊћЩЬљY\›ЭОЊKМЯBџBђYYXJX^]ЪYЌМЊ
+^В€›Щ^ЬY[™ЛX›ЭЫNЌЌњKќЬ\ћЪZYЪЌNЬЬЪ][ЫЋњЭXЪЮ_K™™љK[ШЪЭ\ЭЪYЌЋЬY[™ОЊLK™™љK[ШЪЭ\Э›Ы™ЮЩ›Ыќ\Ъ^™NЊњ™[_K›XYЭYK\XЪЩ\‹]Ь\Щ›^ЊNЫZ[‹]ЪYЊK›XYЭYK\XЪЩ\ћШ›Ь™\‹\љYЪЊK›XYЭYK\XЪЩ\€ЪXЪЩ\ћЩ\Ь^N››Ы™_Kњ›Щљ[KXќ]ЫћЫZ[‹]ЪYЌK››ЭYљXШ][Ы‹Xќ]Ы‹™ЫШ[\ЩX\ЪЩ\Ь^N››Ы™_B€њљ[X\ћK[]ћЬЬЪ][ЫЋ™љ^YЮ‹Z[™^ЌLЪ[њЩ]]]ИЪZYЪЌЌњШXЪЩЬ›Э[™ќ\ЉKY\љКNШ›Ь™\‹]ЬЊњЫЫY\ЉK]X[
+NЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОњ™\X]
+KYњЉ_B€њљ[X\ћK[]€ќ]ЫћЫZ[‹]ЪYЊЬY[™ОЌњњ\Щ\Ь^N™ЬљYЬXЩKXЫЫќ[ќЩ[ќ\ЋЩШ\ЊњШ›Ь™\‹X›ЭЫNЊШ›Ь™\‹]ЬЊЬЫЫY[њЬ\™[ќЩ›Ыќ\Ъ^™N‹ЌLњ™[_Kњљ[X\ћK[]€ќ]Ы€Э™ЮЩ\Ь^N›ШЪОЫX\™Ъ[Ћ]]ЯKњљ[X\ћK[]€ќ]Ы‹XЭ]™^Ш›Ь™\‹]ЬXЫЫЬЋќ\ЉKX[X™\ЉNШ›Ь™\‹X›ЭЫNЊШЫЫЬЋќ\ЉKX[X™\Љ_B€\XЫЫќ[ќЬY[™ОЊLњLМB€ЫXљЭ\ЩKZЫYK]ЊћЩ\Ь^N›ШЪЯK›XYЭYK\\\‹ZXYќX[K\\\‹ZXYЫZ[‹ZZYЪЌНЬY[™ОЊLЬMK›XYЭYK\\\‹ZXYKќX[K\\\‹ZXY^Щ›Ыќ\Ъ^™NЊЬ™[_K›XYЭYK\\\‹ZXYњЬ[ћЩ\Ь^N››Ы™_B€ќЩ^KY›ШЭ\ЮЩ\Ь^N›ШЪОЬY[™ОЊMЬKќЩ^KY›ШЭ\Пќ]ЫћЭЪYЊL	NЫX\™Ъ[‹]ЬЊM\B€љЫYK[X]Ъ\]ЊЏ™]ћЩЬљY][\]KXЫЫ[[њОЌYњ€]]ОЩШ\ЊLKљЫYK[X]Ъ\]ЊЏ™]ЏљK›ЬЫ™[ќ\[™[™ЮЩЬљYXЫЫ[[ЋЊ‹НK›ЬЫ™[ќ\[™[™ЮЬY[™ОЊLШ›Ь™\‹[YќЊШ›Ь™\‹]ЬЊ\ЫЫY\ЉK[[™J_KљЫYK[X]Ъ\]ЊЏ™]Џљ^Щ\Ь^N››Ы™_B€љ\›Щ\Л]ЊЏљXY\€Ь[ћЩ\Ь^N››Ы™_Kљ\›Щ\Л]ЊЏ™]ћЩЬљY][\]KXЫЫ[[њОЊYњџKљ\›Щ\Л]Њ€\ќXЫN™љ\њЭXЪ[Ш›Ь™\‹\љYЪЊШ›Ь™\‹X›ЭЫNЊ\ЫЫY\ЉK[[™J_B€љЫYK\Э]\ЮЩ\Ь^N››Ы™_KљЫYKXЫXљЭ\Щ^ЫX\™Ъ[‹]ЬЊMњKљЫYKY™YYЩ\Ь^N›ШЪЯKљЫYKY™YY\ќXЫ^Ш›Ь™\‹\љYЪЊB€ќX[K\\\‹ZXYЩ\Ь^N›ШЪЯKќX[K]ЩYZЛ]ЊћЫZ[‹]ЪYЊЭЪYЊL	NЪZYЪЌЫX\™Ъ[‹]ЬЊLЬB€›[™]\\Э[[X\ћK]ЊћЩ›^]Ь\ќЬ\K›[™]\\Э[[X\ћK]ЊЏ™]Ћ›ќXЪ[
+Љ^ЫX\™Ъ[‹[Yќ]]ЯK›[™]\\Э[[X\ћK]ЊЏќ]ЫћЭЪYЊL	NЪќ\ЭYћKXЫЫќ[ќЩ[ќ\џB€њ›ЬЭ\‹XЫЫ[[њЛ]ЊћЩ\Ь^N››Ы™_Kњ›ЬЭ\‹[\Э]ЊћШ›Ь™\ЋЊB€њ›ЬЭ\‹\›ЭЛ]ЊћЫZ[‹ZZYЪЌНЬY[™ОЋ\ЩЬљY][\]KXЫЫ[[њОЌњZ[›X^
+YњЉHLњЊњЩЬљY][\]KX\™X\О‰ЬЫЭ^Y\€›Ъ™XЭ[Ы€XЭ[Ы‰И	ЬЫЭЬЫ™[ќ™[™Э]\ЙОЩШ\ЊњB€њ›ЬЭ\‹\›ЭЛ]ЊЏ‹њ›ЬЭ\‹\ЫЭЩЬљYX\™XNњЫЭШ[YЫ‹\Щ[ЋЩ[ќ\ЋЭЪYЊНЪZYЪЊЋЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШXЪЩЬ›Э[™€Щ™ОШЫЫЬЋќ\ЉKZ[љКNЩ›Ыќ\Ъ^™N‹ЌН\™[_Kњ›ЬЭ\‹\^Y\ћЩЬљYX\™XNњ^Y\џKњ›ЬЭ\‹[ЬЫ™[ќЩЬљYX\™XN›ЬЫ™[ќKњ›ЬЭ\‹\›Ъ™XЭ[ЫћЩЬљYX\™XNњ›Ъ™XЭ[ЫЋЭ^X[YЫЋњљYЪKњ›ЬЭ\‹\›ЭЛ]ЊЏ‹њ^Y\‹]™[™ЩЬљYX\™XNќ™[™Kњ›ЬЭ\‹\›ЭЛ]ЊЏ‹њ›ЬЭ\‹\Э]\ЮЩЬљYX\™XNњЭ]\ОЭ^X[YЫЋњљYЪKњ›ЬЭ\‹\›ЭЛXXЭ[ЫћЩЬљYX\™XNXЭ[ЫџKњ›ЬЭ\‹\›ЭЛXXЭ[Ы€ќ]ЫћЫZ[‹]ЪYЌLњB€њ›ЬЭ\‹\^Y\€Э›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌН™[_Kњ›ЬЭ\‹[ЬЫ™[ќЩ\Ь^N™›^ЩШ\ЌњKњ›ЬЭ\‹[ЬЫ™[ќЭ›Ы™Лњ›ЬЭ\‹[ЬЫ™[ќЫX[Щ›Ыќ\Ъ^™N‹ЌL\™[_B€™XЪ\Ъ[Ы‹\Z[]ЊћЩЬљY][\]KXЫЫ[[њОЊYњџKЫЫ\\™K]ЊћЩЬљY\›ЭО]]ЯK›[™]\][™Л]ЊћЫYќЊLњЬљYЪЊLњШ›ЭЫNЌНњЪќ\ЭYћKXЫЫќ[ќЩ[ќ\џBџB‚‹К€X›XИ‘’H›ЩXЭЪ]H
+‹В‹›X\љЩ][™Л\Ъ]^ЛK[ZЛZ[љО€МMМNLNЛK[ZЛ\\\Ћ€ЩЌY™LОЛK[ZЛ\\\ЊЋ€ЩNШNЛK[ZЛ]X[€МMMYЌXОЛK[ZЛX\]XN€НЌШYNЛK[ZЛX[X™\Ћ€ЩXLММЛK[ZЛ\™Y€ШMЊЩМЋЫZ[‹ZZYЪЊLљШXЪЩЬ›Э[™ќ\ЉK[ZЛ\\\ЉNШЫЫЬЋќ\ЉK[ZЛZ[љКNЩ›ЫќY[Z[Nќ\ЉKX›ЩJ_B‹›ZЛZXY\ћЬЬЪ][ЫЋњЭXЪЮNЮ‹Z[™^ЌЊЭЬЊЪZYЪЌОЬY[™ОЊЫ[\
+ЌќЛЋ
+NЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊНШXЪЩЬ›Э[™њ™ШJЌЊОKЊЌЛЋMКNШ›Ь™\‹X›ЭЫNЊ\ЫЫYШ™ЌMЋШXЪЩ›ЬYљ[\Ћ›\ЉL
+_B‹›ZЛXњ[™Щ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊLЬШЫЫЬЋљ[љ\љ]K›ZЛXњ[™Э›Ы™ЮЩ›ЫќЌЛЊњ™[KЛЋ\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹Њ[_K›ZЛXњ[™Ь[ћЬY[™Л[YќЊLЬШ›Ь™\‹[YќЊ\ЫЫYЭ\њ™[ќЫЫЬЋЩ›Ыќ\Ъ^™N‹Ќ\™[NЩ›Ыќ]ЩZYЪЌМЫ[™KZZYЪЊKЊЌNЫ]\‹\ЬXЪ[™О‹ЊMЩ[_B‹›ZЛZXY\Џ›]ћЫX\™Ъ[‹[Yќ]]ОЩ\Ь^N™›^Ш[YЫ‹Z][\ОњЭ™]ЪЪZYЪЊL	_K›ZЛZXY\Џ›]€ќ]ЫћЬY[™ОЊЊШ›Ь™\ЋЊШ›Ь™\‹X›ЭЫNЊЬЫЫY[њЬ\™[ќШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋљ[љ\љ]Щ›Ыќ\Ъ^™N‹ЌМ\™[NЩ›Ыќ]ЩZYЪЌМK›ZЛZXY\Џ›]€ќ]ЫЋљЭ™\ћШ›Ь™\‹X›ЭЫKXЫЫЬЋќ\ЉK[ZЛX[X™\Љ_B‹›ZЛY[ќ\ћЫZ[‹]ЪYЊMЪZYЪЌШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NШЫЫЬЋ€Щ™™ЋЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќЩ[ќ\ЋЩШ\ЋЩ›Ыќ\Ъ^™N‹ЌЬ™[NЩ›Ыќ]ЩZYЪЌМK›ZЛY[ќ\€Э™ЮЭЪYЊMњK›ZЛ[Y[ќ^Щ\Ь^N››Ы™NШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ[њЬ\™[ќB‹›X\љЩ][™Л\Ъ]O›XZ[ћЫЭ™\™›ЭОљY[џK›ZЛZ\›ЮЫZ[‹ZZYЪЌЌLЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО›Z[›X^
+ЌНYњЉHZ[›X^
+ЊKЊЌYњЉNШ›Ь™\‹X›ЭЫNЊ\ЫЫYШXXLОLЯB‹›ZЛZ\›ЛXЫЬ^ЬY[™ОЌЌ\Ы[\
+Н]ќЛО
+HЩ\Ь^N™›^Щ›^Y\™XЭ[ЫЋЫЫ[[ЋЪќ\ЭYћKXЫЫќ[ќЩ[ќ\ЋШXЪЩЬ›Э[™њYX[YЬYY[ќ
+Ъ\ЫH]M‰HN	K™ШJЊЛЌKЌЊJH\[њЬ\™[ќ\
+K\ЉK[ZЛ\\\ЉNШXЪЩЬ›Э[™\Ъ^™NЌњњB‹›ZЛZ\›ЛXЫЬH^ЫX\™Ъ[ЋЊЩ›ЫќЌЫ[\
+ЌЬ™[KЭќЛЌ™[JKЛЌО\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹KЊMY[NЭ^][њЩ›Ь›Nќ\\Ш\Щ_K›ZЛZ\›ЛXЫЬHHћЩ›Ыќ]ЩZYЪЌШЫЫЬЋќ\ЉK[ZЛ]X[
+_B‹›ZЛZ\›ЛXЫЬOњЫX^]ЪYЌMЊЫX\™Ъ[ЋЊЋЌ\Щ›ЫќЌЫ[\
+KЊњ™[KKЌЭќЛKЌН\™[JKМKЊНHЩ[Ь™ЪXKЩ\љYџK›ZЛZ\›ЛXЫЬO™]ћЩ\Ь^N™›^ЩШ\ЊLњK›ZЛZ\›ЛXЫЬHќ]ЫћЫZ[‹ZZYЪЌMЬY[™ОЊЌ\Ш›Ь™\ЋЊњЫЫY\ЉK[ZЛZ[љКNШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋљ[љ\љ]Щ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќЩ[ќ\ЋЩШ\ЊLЩ›Ыќ\Ъ^™N‹ЌНњ™[NЩ›Ыќ]ЩZYЪЌМK›ZЛZ\›ЛXЫЬHќ]ЫЋ™љ\њЭXЪ[ШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NШ›Ь™\‹XЫЫЬЋќ\ЉK[ZЛ]X[
+NШЫЫЬЋ€Щ™™џK›ZЛZ\›ЛXЫЬHќ]Ы€Э™ЮЭЪYЊMЬK›ZЛZ\›ЛXЫЬOњЫX[ЫX\™Ъ[‹]ЬЊМЩ›Ыќ\Ъ^™N‹Ќ™[NЩ›Ыќ]ЩZYЪЌМЫ]\‹\ЬXЪ[™О‹Њ™[NШЫЫЬЋ€НYЌЊНYџB‹›ZЛZ\›Л\›ЩXЭЬЬЪ][ЫЋњ™[]]™NЫZ[‹]ЪYЊЬY[™ОЋLIHLњЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШXЪЩЬ›Э[™›[™X\‹YЬYY[ќ
+LЊYЛМ™НМKМMМЊYJNШЫЫЬЋ€Щ™™ЋЫЭ™\™›ЭОљY[џK›ZЛZ\›Л\›ЩXЭ™Y›Ь™^ШЫЫќ[ќ‰ЙОЬЬЪ][ЫЋXњЫЫ]NЪ[њЩ]ЊШXЪЩЬ›Э[™њ™\X][™Л[[™X\‹YЬYY[ќ
+LYЛ[њЬ\™[ќЬ™ШJЌMKЌMKЌMKЊЌJHЬ
+K™\X][™Л[[™X\‹YЬYY[ќ
+YЛ[њЬ\™[ќЬ™ШJЌMKЌMKЌMKЊЌJHЬ
+_B‹›ZЛZ\›Л\›ЩXЭњ›ZЛZ\›Л\›ЩXЭњЬ[ћЬЬЪ][ЫЋXњЫЫ]NЮ‹Z[™^ЊNЫX\™Ъ[ЋЊЩ›ЫќЌKЊњ™[KМKЊH\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹ЊY[NШЫЫЬЋ€ШН™XШNЭ[њЩ›Ь›Nњ›Э]JMYК_K›ZЛZ\›Л\›ЩXЭњЭЬЊНЬЫYќЌ	_K›ZЛZ\›Л\›ЩXЭњЬ[ћЬљYЪЌ	NШ›ЭЫNЊЌЭ^X[YЫЋњљYЪK›ZЛZ\›Л\›ЩXЭњћШЫЫЬЋќ\ЉK[ZЛX\]XJNЩ›Ыќ]ЩZYЪЌB‹›ZЛ\›ЩXЭ]Ъ[™ЭЮЬЬЪ][ЫЋњ™[]]™NЮ‹Z[™^ЊЋЭЪY›Z[ЉМL	JNШXЪЩЬ›Э[™€ЩЋYЌЩЊШЫЫЬЋќ\ЉK[ZЛZ[љКNШ›Ь™\ЋЊ\ЫЫYННШMНЋШ›Ю\ЪYЭОЊЊЌ™ШJЊЋ
+NЭ[њЩ›Ь›Nњ\њЬXЭ]™JLЊ
+H›Э]VJL™YК_B‹›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\ћЪZYЪЌЬY[™ОЊM\Щ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊMЬШ›Ь™\‹X›ЭЫNЊ\ЫЫYШОМШЌЯK›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\ЏњЭ›Ы™ЮЩ›ЫќЌKЊН\™[H\ЉKY\Ь^J_K›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\ЏњЬ[ћЩ›Ыќ\Ъ^™N‹Ќњ™[NЩ›Ыќ]ЩZYЪЌМK›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\€]ћЫX\™Ъ[‹[Yќ]]ОЩ\Ь^N™›^ЩШ\ЊMњЩ›Ыќ\Ъ^™N‹Ќ™[_K›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\€]€ћШ›Ь™\‹X›ЭЫNЊњЫЫY\ЉK[ZЛ]X[
+_K›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\€]€^Щ›Ыќ\Э[N››Ь›X[K›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\€Э™ЮЭЪYЊM\B‹›ZЛ]Ъ[™ЭЛX›Щ^ЫZ[‹ZZYЪЊОLЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊMM\YњџK›ZЛ]Ъ[™ЭЛX›ЩO\ЪY^ЬY[™ОЊЋMШXЪЩЬ›Э[™€ЩYYNYОШ›Ь™\‹\љYЪЊ\ЫЫYШШНЊЋЭ^X[YЫЋЩ[ќ\џK›ZЛ]X[K[X\љЮЭЪYЌNЪZYЪЌNЫX\™Ъ[Ћ]]ОЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШ›Ь™\‹\Y]\ОЌL	NШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NШЫЫЬЋ€Щ™™ЋЩ›ЫќЌKЊН\™[H\ЉKY\Ь^J_K›ZЛ]Ъ[™ЭЛX›ЩH\ЪYHЮЫX\™Ъ[ЋЊLњ\Щ›ЫќЌKЊЌ\™[H\ЉKY\Ь^J_K›ZЛ]Ъ[™ЭЛX›ЩH\ЪYHЫX[Щ\Ь^N›ШЪОЩ›Ыќ\Ъ^™N‹Ќ\™[NШЫЫЬЋ€Н™MМН™_K›ZЛ]Ъ[™ЭЛX›ЩH\ЪYHќ]ЫћЭЪYЊL	NЫZ[‹ZZYЪЊН\ЫX\™Ъ[‹]ЬЊЊњШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NШЫЫЬЋ€Щ™™ЋЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќЩ[ќ\ЋЩШ\ЌњЩ›Ыќ\Ъ^™N‹ЌM\™[_K›ZЛ]Ъ[™ЭЛX›ЩH\ЪYHќ]Ы€Э™ЮЭЪYЊLЬB‹›ZЛ]Ъ[™ЭЛX›ЩO›XZ[ћЬY[™ОЊЊK›ZЛ\›ЬЭ\‹]]^Щ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќњЬXЩKX™]ЩY[ЋЫX\™Ъ[‹X›ЭЫNЊM\K›ZЛ\›ЬЭ\‹]]HЮЫX\™Ъ[ЋЊЩ›ЫќЌKЌН\™[H\ЉKY\Ь^J_K›ZЛ\›ЬЭ\‹]]HЬ[ћЩ›Ыќ\Ъ^™N‹Ќ\™[NШЫЫЬЋќ\ЉK[ZЛ]X[
+NЩ›Ыќ]ЩZYЪЌМK›ZЛ\›ЬЭ\‹]]Hќ]ЫћЪZYЪЊМЬШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NШЫЫЬЋ€Щ™™ЋЬY[™ОЊLњЩ›Ыќ\Ъ^™N‹ЌLЬ™[_K›ZЛ\›ЬЭ\‹ZXY›ZЛ\›ЬЭ\‹\›ЭЮЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЌ\Yњ€Н\њШ[YЫ‹Z][\ОЩ[ќ\џK›ZЛ\›ЬЭ\‹ZXYЪZYЪЊЋЬY[™ОЊШXЪЩЬ›Э[™€ЩNLЩЩ›Ыќ\Ъ^™N‹ЌЬ™[NЩ›Ыќ]ЩZYЪЌМЫ]\‹\ЬXЪ[™О‹Њ[_K›ZЛ\›ЬЭ\‹\›ЭЮЫZ[‹ZZYЪЌЬY[™ОЌ\Ш›Ь™\‹X›ЭЫNЊ\ЫЫYЩЩXНЩ›Ыќ\Ъ^™N‹ЌMњ™[_K›ZЛ\›ЬЭ\‹\›ЭПћШЫЫЬЋќ\ЉK[ZЛ]X[
+NЩ›ЫќЌЌМњ™[H\ЉKY\Ь^J_K›ZЛ\›ЬЭ\‹\›ЭПњЬ[ћЩ\Ь^N™ЬљYK›ZЛ\›ЬЭ\‹\›ЭИЫX[Щ›Ыќ\Ъ^™N‹Ќ™[NШЫЫЬЋ€ННН™_B‹›ZЛX™[YYћЬY[™ОЌM\Ы[\
+Ћ]ќЛО
+NЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО›Z[›X^
+МЌЩњЉHZ[›X^
+MЊKЊЩњЉNЩШ\ЌМШ[YЫ‹Z][\ОЩ[ќ\ЋШ›Ь™\‹X›ЭЫNЊ\ЫЫYШЌMK›ZЛX™[YY€ћЫX\™Ъ[ЋЊЩ›ЫќЌЫ[\
+‹Ќњ™[KќЛЌЬ™[JKЛЋH\ЉKY\Ь^JNЭ^][њЩ›Ь›Nќ\\Ш\Щ_K›ZЛX™[YY€ЫX^]ЪYЌMМЫX\™Ъ[ЋЊMњЩ›ЫќЌ\™[KМKЌMHЩ[Ь™ЪXKЩ\љYџK›ZЛX™[YY‹\Ъ[ќЮЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОњ™\X]
+ЛYњЉ_K›ZЛX™[YY‹\Ъ[ќПњЬ[ћЫZ[‹ZZYЪЊMLЬY[™ОЊЊЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋЭ^X[YЫЋЩ[ќ\ЋШ›Ь™\‹[YќЊ\ЫЫYШНШМЊK›ZЛX™[YY‹\Ъ[ќИЭ™ЮЭЪYЊМ\K›ZЛX™[YY‹\Ъ[ќИћЩ›ЫќЌKЊ\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹Њ™[NЭ^][њЩ›Ь›Nќ\\Ш\Щ_K›ZЛX™[YY‹\Ъ[ќИЫX[Щ›ЫќЌЌНњ™[KМKЊНHЩ[Ь™ЪXKЩ\љYЋШЫЫЬЋ€НXНЊЌY_B‹›ZЛ]ЫЬљЩ›ЭЬЮЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО›Z[›X^
+МLЌЩњЉHZ[›X^
+ЊKЊЩњЉNШXЪЩЬ›Э[™€ЩЌЩЌXџK›ZЛ]ЫЬљЩ›ЭЬПљXY\ћЬY[™ОЋЫ[\
+Мњ]ќЛНњ
+NШ›Ь™\‹\љYЪЊ\ЫЫYШНШМXЌK›ZЛ]ЫЬљЩ›ЭЬИ‹›ZЛ][Y\И‹›ZЛ[ZYЬ]H‹›ZЛXЫЫ[Z\ЬЪ[Ы™\€‹›ZЛXЫЫ›™XЭ‹›ZЛYљ[[ћЫX\™Ъ[ЋЊЩ›ЫќЌЫ[\
+ЛЌЬ™[KKЌ]ќЛ‹ЌЬ™[JKЛЋ€\ЉKY\Ь^JNЭ^][њЩ›Ь›Nќ\\Ш\Щ_K›ZЛ]ЫЬљЩ›ЭЬПљXY\€›ZЛ][Y\ПљXY\€ЫX^]ЪYЌМЫX\™Ъ[ЋЊЊњЩ›ЫќЌ\™[KМKЌHЩ[Ь™ЪXKЩ\љYџK›ZЛ]ЫЬљЩ›ЭЬП™]ћЬY[™ОЌK›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫ^ЫZ[‹ZZYЪЊM\ЬY[™ОЊЊЫ[\
+Ќ\ќЛN
+NЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЌњОYњ€ЊШ[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊЊ\Ш›Ь™\‹X›ЭЫNЊ\ЫЫYЩОXџK›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫN™љ\њЭXЪ[Ш›Ь™\‹]ЬЊ\ЫЫYЩОXџK›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫOњЬ[ћЩ›ЫќЌKЊњ™[H\ЉKY\Ь^JNШЫЫЬЋ€ШXXLNџK›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫOњЭ™ЮЭЪYЊЋ\ШЫЫЬЋќ\ЉK[ZЛ]X[
+_K›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫOњЭ™О›\ЭXЪ[ЭЪYЊNШЫЫЬЋ€ННЌШЌНЯK›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫHЮЫX\™Ъ[ЋЊЩ›ЫќЌњ™[H\ЉKY\Ь^JNЭ^][њЩ›Ь›Nќ\\Ш\Щ_K›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫHЫX\™Ъ[ЋЌњЩ›Ыќ\Ъ^™N‹ЌМњ™[NШЫЫЬЋ€НYЊЌY_B‹›ZЛ][Y\ЮЬY[™ОЋЫ[\
+Ћ]ќЛО
+NЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО›Z[›X^
+МЌMYњЉHZ[›X^
+ЌLKЌYњЉNЩШ\ЌM\ШXЪЩЬ›Э[™ќ\ЉK[ZЛZ[љКNШЫЫЬЋ€ЩЊЩY™MK›ZЛ][Y\ИћШЫЫЬЋ€ЩЌY™LЯK›ZЛ][Y\ПљXY\€ШЫЫЬЋ€ШМXНМ_K›ZЛ][Y\И[ЫX\™Ъ[ЋЊЋЬY[™ОЊЫ\Э\Э[N››Ы™_K›ZЛ][Y\И^ЬY[™ОЋШ›Ь™\‹X›ЭЫNЊ\ЫЫYМШНЩЩ›Ыќ\Ъ^™N‹ЌЬ™[_K›ZЛ][Y\ИN™Y›Ь™^ШЫЫќ[ќ‰ш %	ОЫX\™Ъ[‹\љYЪЊLњШЫЫЬЋќ\ЉK[ZЛX[X™\Љ_B‹ќ[YK\ЪЭШШ\Щ^ЫZ[‹]ЪYЊKќ[YK]XњЮЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОњ™\X]
+ЛYњЉNЩШ\ЋЫX\™Ъ[‹X›ЭЫNЊLKќ[YK]XњИќ]ЫћЫZ[‹ZZYЪЌЊњШ›Ь™\ЋЊ\ЫЫYНMMXЌMЋШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋ€ШYXЌШЊЩ\Ь^N™ЬљYЬXЩKXЫЫќ[ќЩ[ќ\ЋЭ^X[YЫЋ›YќЬY[™ОЋLњKќ[YK]XњИќ]Ы‹XЭ]™^ШXЪЩЬ›Э[™ќ\ЉK[ZЛX[X™\ЉNШ›Ь™\‹XЫЫЬЋќ\ЉK[ZЛX[X™\ЉNШЫЫЬЋќ\ЉK[ZЛZ[љК_Kќ[YK]XњИЭ›Ы™ЮЩ›ЫќЌЋM\™[H\ЉKY\Ь^JNЫ]\‹\ЬXЪ[™О‹Њ[_Kќ[YK]XњИЬ[ћЩ›Ыќ\Ъ^™N‹Ќ™[_B‹ќ[YK\ЭYЩ^ЫZ[‹ZZYЪЌЊШXЪЩЬ›Э[™€ЩYYNШЫЫЬЋ€МYЊLYЋШ›Ь™\ЋЊ\ЫЫYНННЩОШ›Ю\ЪYЭОЊL\LЬ™ШJЊЋ
+NЭ[њЪ][ЫЋXЪЩЬ›Э[™ЊњЛЫЫЬ€ЊњЯKќ[YK\ЭYЩOљXY\ћЪZYЪЌМЬY[™ОЊЊЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊLњШXЪЩЬ›Э[™€МЊЌLЊЋШЫЫЬЋ€Щ™™џKќ[YK[ЩЫЮЭЪYЌњЪZYЪЌњЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NЩ›ЫќЌ\™[H\ЉKY\Ь^J_Kќ[YK\ЭYЩOљXY\Џ™]ћЩ\Ь^N™ЬљYKќ[YK\ЭYЩOљXY\€Э›Ы™ЮЩ›ЫќЌKЊM\™[H\ЉKY\Ь^J_Kќ[YK\ЭYЩOљXY\€ЫX[Щ›Ыќ\Ъ^™N‹ЌЬ™[NШЫЫЬЋ€ШYXЋЊKќ[YK\ЭYЩOљXY\€ќ]ЫћЫX\™Ъ[‹[Yќ]]ОЪZYЪЊНШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉK[ZЛX[X™\ЉNЬY[™ОЊLњЩ›Ыќ\Ъ^™N‹ЌLЬ™[_Kќ[YK\ЭYЩO›XZ[ћЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊMLYњЋЫZ[‹ZZYЪЊНLKќ[YK\ЭYЩHXZ[Џ\ЪY^ЬY[™ОЊЌ\NЩ\Ь^N™ЬљYШ[YЫ‹XЫЫќ[ќњЭ\ќЩШ\ЊNШXЪЩЬ›Э[™€ЩLШМЋЩ›Ыќ\Ъ^™N‹ЌLњ™[NЩ›Ыќ]ЩZYЪЌМKќ[YK\ЭYЩHXZ[Џ™]ћЬY[™ОЌ\Kќ[YK\ЭYЩHЮЫX^]ЪYЌLЊЫX\™Ъ[ЋЊЩ›ЫќЌЫ[\
+‹Ќ™[KќЛЌ\™[JKЛЋ€\ЉKY\Ь^JNЭ^][њЩ›Ь›Nќ\\Ш\Щ_Kќ[YK\ЭYЩHXZ[€ЫX^]ЪYЌLЩ›ЫќЌЋ\™[KМKЌHЩ[Ь™ЪXKЩ\љYџKќ[YK\ШЫЬ™X›Ш\™ЫX\™Ъ[‹]ЬЊМЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊKЊ™њ€™\X]
+ЛYњЉNШ›Ь™\ЋЊ\ЫЫYШXXLЋLџKќ[YK\ШЫЬ™X›Ш\™ЉћЬY[™ОЊLњШ›Ь™\‹\љYЪЊ\ЫЫYШXXLЋLЋЩ›Ыќ\Ъ^™N‹ЌM\™[_Kќ[YK\ШЫЬ™X›Ш\™Ь[Ћ›\ЭXЪ[Ш›Ь™\‹\љYЪЊKќ[YK\ЭYЩKЫ\ЬЪXЮШXЪЩЬ›Э[™€ЩЋЋЌKќ[YK\ЭYЩKЫ\ЬЪXПљXY\ћШXЪЩЬ›Э[™€МMМШЊМ_Kќ[YK\ЭYЩKЫ\ЬЪXИќ[YK[ЩЫЮШXЪЩЬ›Э[™€Щ™LЩОШЫЫЬЋ€МMМШЊМ_Kќ[YK\ЭYЩKЫ\ЬЪXИXZ[Џ\ЪY^ШXЪЩЬ›Э[™€ЩMЩXЩM_Kќ[YK\ЭYЩK›љYЪШXЪЩЬ›Э[™€МLЊXL™NШЫЫЬЋ€ЩYYЊ™™џKќ[YK\ЭYЩK›љYЪљXY\ћШXЪЩЬ›Э[™€МLLЊKќ[YK\ЭYЩK›љYЪќ[YK[ЩЫЮШXЪЩЬ›Э[™€ММMNџKќ[YK\ЭYЩK›љYЪXZ[Џ\ЪY^ШXЪЩЬ›Э[™€МNLЌШЫЫЬЋ€Ш™XШ™™џKќ[YK\ЭYЩK›љYЪќ[YK\ШЫЬ™X›Ш\™ЉћШ›Ь™\‹XЫЫЬЋ€НЌLMНKќ[YK\ЭYЩK›љYЪќ[YK\ШЫЬ™X›Ш\™Ш›Ь™\‹XЫЫЬЋ€НЌLMНB‹›ZЛ[ZYЬ]^ЬY[™ОЌМЫ[\
+ЋЭќЛLЊ
+NШXЪЩЬ›Э[™ќ\ЉK[ZЛ\\\ЉNШ›Ь™\‹X›ЭЫNЊ\ЫЫYШШЌM_K›ZЛ[ZYЬ]OљXY\ћЩ\Ь^N™›^Ш[YЫ‹Z][\О™[™Ъќ\ЭYћKXЫЫќ[ќњЬXЩKX™]ЩY[ЋЩШ\Ќ\K›ZЛ[ZYЬ]H€‹›ZЛXЫЫ[Z\ЬЪ[Ы™\€€ћЩ›Ыќ]ЩZYЪЌШЫЫЬЋќ\ЉK[ZЛ]X[
+_K›ZЛ[ZYЬ]OљXY\€ЫX^]ЪYЌЊЩ›ЫќЌ\™[KМKЌHЩ[Ь™ЪXKЩ\љYџK›ZЛ[ZYЬ]O™]ћЫX\™Ъ[‹]ЬЊН\Щ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОњ™\X]
+ЛYњЉNШ›Ь™\‹X›ШЪОЊ\ЫЫYШШЌM_K›ZЛ[ZYЬ]H\ќXЫ^ЫZ[‹ZZYЪЊLЊЬY[™ОЊЊЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\ЊM\Ш›Ь™\‹\љYЪЊ\ЫЫYШШЌM_K›ZЛ[ZYЬ]H\ќXЫN›\ЭXЪ[Ш›Ь™\ЋЊK›ZЛ[ZYЬ]H\ќXЫOћЭЪYЊОЪZYЪЊОЩ›^Њ]]ОШ›Ь™\‹\Y]\ОЌL	NЩ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШXЪЩЬ›Э[™ќ\ЉK[ZЛX[X™\ЉNЩ›ЫќЌKЊ\™[H\ЉKY\Ь^J_K›ZЛ[ZYЬ]H\ќXЫHЬ[ћЩ\Ь^N™ЬљYK›ZЛ[ZYЬ]H\ќXЫHЭ›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌНњ™[_K›ZЛ[ZYЬ]H\ќXЫHЫX[ЫX\™Ъ[‹]ЬЌ\Щ›Ыќ\Ъ^™N‹ЌЊЬ™[NЫ[™KZZYЪЊKЌШЫЫЬЋ€НYЌЊНYџB‹›ZЛXЫЫ[Z\ЬЪ[Ы™\ћЬY[™ОЌН\Ы[\
+ЋЭќЛLЊ
+NЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО›Z[›X^
+ММЌMYњЉHZ[›X^
+ЊЊKЌYњЉNЩШ\ЌЌ\ШXЪЩЬ›Э[™€МXЊYLXОШЫЫЬЋ€ЩЌYЊMK›ZЛXЫЫ[Z\ЬЪ[Ы™\ЏљXY\€ЫX^]ЪYЌМШЫЫЬЋ€ШМШОМОЩ›ЫќЌ\™[KМKЌHЩ[Ь™ЪXKЩ\љYџK›ZЛXЫЫ[Z\ЬЪ[Ы™\ЏљXY\€ќ]ЫћЫZ[‹ZZYЪЌЫX\™Ъ[‹]ЬЊЊЬY[™ОЊNШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉK[ZЛX[X™\ЉNЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\Ћ\Щ›Ыќ\Ъ^™N‹ЌЌњ™[NЩ›Ыќ]ЩZYЪЌМK›ZЛXЫЫ[Z\ЬЪ[Ы™\ЏљXY\€ќ]Ы€Э™ЮЭЪYЊMњB‹ЫЫ[Z\ЬЪ[Ы™\‹\™]љY]ЮЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊMLYњЋЫZ[‹ZZYЪЌЊШXЪЩЬ›Э[™€ЩЋЌЩЊОШЫЫЬЋќ\ЉK[ZЛZ[љКNШ›Ь™\ЋЊ\ЫЫYН™Н™ЋШ›Ю\ЪYЭОЊL\LЬ™ШJЊМЉ_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П\ЪY^ЬY[™ОЊЌM\ШXЪЩЬ›Э[™€МЌLLЌОШЫЫЬЋ€ШYXЋЊЩ\Ь^N™ЬљYШ[YЫ‹XЫЫќ[ќњЭ\ќЩШ\ЊN\Щ›Ыќ\Ъ^™N‹ЌMњ™[_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П\ЪYHЭ›Ы™ЮЩ›ЫќЌKЌ\™[H\ЉKY\Ь^JNШЫЫЬЋ€Щ™™џKЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П\ЪYHћЬY[™ОЊLШXЪЩЬ›Э[™€МMНMNШЫЫЬЋ€Щ™™џKЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П›XZ[ћЬY[™ОЊЊњKЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П›XZ[ЏљXY\ћЩ\Ь^N™›^Ш[YЫ‹Z][\О™›^\Э\ќЪќ\ЭYћKXЫЫќ[ќњЬXЩKX™]ЩY[ЋЬY[™ЛX›ЭЫNЊNШ›Ь™\‹X›ЭЫNЊ\ЫЫYШШШНЋ_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]ИЮЫX\™Ъ[ЋЊЩ›ЫќЌKЌ\™[H\ЉKY\Ь^J_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]ИЫX\™Ъ[ЋЌЩ›Ыќ\Ъ^™N‹ЌM\™[NШЫЫЬЋ€НЋMМ_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П›XZ[ЏљXY\€ќ]ЫћЪZYЪЊМњШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NШЫЫЬЋ€Щ™™ЋЬY[™ОЊL\Щ›Ыќ\Ъ^™N‹Ќ\™[_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П›XZ[Џ™]ћЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊYњ€YњЋЫX\™Ъ[‹]ЬЊM\KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]И\ќXЫ^ЫZ[‹ZZYЪЋЬY[™ОЊLњЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОЊЌЬYњ€M\Ш[YЫ‹Z][\ОЩ[ќ\ЋЩШ\Ћ\Ш›Ь™\ЋЊ\ЫЫYЩXШМЫX\™Ъ[Ћ‹L\L\KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]И\ќXЫN›\ЭXЪ[ЩЬљYXЫЫ[[ЋЊKЛL_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]И\ќXЫOњЭ™ЮЭЪYЊЊЬШЫЫЬЋќ\ЉK[ZЛ]X[
+_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]И\ќXЫOњЭ™О›\ЭXЪ[ЭЪYЊMШЫЫЬЋ€НМНШMНKЫЫ[Z\ЬЪ[Ы™\‹\™]љY]И\ќXЫHЬ[ћЩ\Ь^N™ЬљYKЫЫ[Z\ЬЪ[Ы™\‹\™]љY]И\ќXЫHЭ›Ы™ЮЩ›Ыќ\Ъ^™N‹ЌЊњ™[_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]И\ќXЫHЫX[ЫX\™Ъ[‹]ЬЊЬЩ›Ыќ\Ъ^™N‹Ќ\™[NШЫЫЬЋ€НЋМЋ_B‹›ZЛXЫЫ›™XЭЬY[™ОЌЫ[\
+ЋЭќЛLЊ
+NЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО›Z[›X^
+НЋYњЉHZ[›X^
+LМKЊYњЉNЩШ\ЌЊШ[YЫ‹Z][\ОЩ[ќ\ЋШXЪЩЬ›Э[™ќ\ЉK[ZЛ\\\Љ_K›ZЛXЫЫ›™XЭћЩ›Ыќ\Ъ^™NЫ[\
+ЛЊЬ™[K]ќЛKЋ™[J_K›ZЛXЫЫ›™XЭXY\€ЫX^]ЪYЌЊЫX\™Ъ[ЋЊLњЩ›Ыќ\Ъ^™N‹ЌМњ™[NЫ[™KZZYЪЊKЌ_K›ZЛXЫЫ›™XЭ™]ћЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОњ™\X]
+KYњЉNШ›Ь™\‹[YќЊ\ЫЫYШЌM_K›ZЛXЫЫ›™XЭ™]€Ь[ћЫZ[‹ZZYЪЋM\Щ\Ь^N™ЬљYЬXЩKZ][\ОЩ[ќ\ЋШ›Ь™\‹\љYЪЊ\ЫЫYШЌM_K›ZЛXЫЫ›™XЭЭ™ЮЭЪYЊЌШЫЫЬЋќ\ЉK[ZЛ]X[
+_K›ZЛXЫЫ›™XЭћЩ›Ыќ\Ъ^™N‹ЌM\™[_B‹›ZЛYљ[[ЬY[™ОЌM\Ы[\
+ЋЭќЛLЊ
+NЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќЩ[ќ\ЋЩШ\ЌЌ\ШXЪЩЬ›Э[™ќ\ЉK[ZЛ]X[
+NШЫЫЬЋ€Щ™™џK›ZЛYљ[[ћЩ›Ыќ\Ъ^™NЫ[\
+Ь™[K]ќЛKЌњ™[J_K›ZЛYљ[[ЫX\™Ъ[ЋЋШЫЫЬЋ€ШОYLYK›ZЛYљ[[™]Ћ›\ЭXЪ[Щ\Ь^N™›^ЩШ\ЊLњK›ZЛYљ[[ќ]Ы‹›ZЛYљ[[^ЫZ[‹]ЪYЊMЌ\ЫZ[‹ZZYЪЌЬY[™ОЊMЬШ›Ь™\ЋЊ\ЫЫYЩ™™ЋШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋ€Щ™™ЋЩ\Ь^N™›^Ш[YЫ‹Z][\ОЩ[ќ\ЋЪќ\ЭYћKXЫЫќ[ќЩ[ќ\ЋЩШ\ЋЩ›Ыќ\Ъ^™N‹ЌЌЬ™[NЩ›Ыќ]ЩZYЪЌМK›ZЛYљ[[ќ]ЫћШ›Ь™\‹XЫЫЬЋќ\ЉK[ZЛX[X™\ЉNШXЪЩЬ›Э[™ќ\ЉK[ZЛX[X™\ЉNШЫЫЬЋќ\ЉK[ZЛZ[љК_K›ZЛYљ[[Э™ЮЭЪYЊMњB‹›ZЛY›ЫЭ\ћЫZ[‹ZZYЪЊЊLЬY[™ОЌњЫ[\
+Ћ]ќЛО
+NЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њО]]ИYњ€Z[›X^
+ЋњЉHШ[YЫ‹Z][\ОњЭ\ќЩШ\Ќ\ШXЪЩЬ›Э[™€МNLXЊXNШЫЫЬЋ€ЩNMYЯK›ZЛY›ЫЭ\ЏњЫX\™Ъ[ЋЊNШЫЫЬЋ€ООMЋЩ›Ыќ\Ъ^™N‹Ќ\™[NЫ]\‹\ЬXЪ[™О‹ЊM™[NЭ^][њЩ›Ь›Nќ\\Ш\Щ_K›ZЛY›ЫЭ\Џ›]ћЩ\Ь^N™ЬљYЩЬљY][\]KXЫЫ[[њОњ™\X]
+ЛYњЉNЩШ\ЊМK›ZЛY›ЫЭ\Џ›]€]ћЩ\Ь^N™ЬљYЩШ\ЌЬШ[YЫ‹XЫЫќ[ќњЭ\ќK›ZЛY›ЫЭ\Џ›]€ћЫX\™Ъ[‹X›ЭЫNЌЩ›Ыќ\Ъ^™N‹ЌN™[_K›ZЛY›ЫЭ\Џ›]€ќ]Ы‹›ZЛY›ЫЭ\Џ›]€^ЬY[™ОЊШ›Ь™\ЋЊШXЪЩЬ›Э[™ќ[њЬ\™[ќШЫЫЬЋ€ШYXЌXЊЭ^X[YЫЋ›YќЩ›Ыќ\Ъ^™N‹ЌM™[_K™›ЫЭ\‹XЪXЪЩ\ћЭЪYЊНЪZYЪЌLШXЪЩЬ›Э[™ЫЫљXЛYЬYY[ќ
+ЩYYHЌIK[њЬ\™[ќL	KЩYYHНIK[њЬ\™[ќ
+HМMЬMЬBђYYXJX^]ЪYЊLL
+^Л›ZЛZXY\Џ›]€ќ]ЫћЬY[™ОЊ\K›ZЛZ\›ЮЩЬљY][\]KXЫЫ[[њОЊYњџK›ZЛZ\›Л\›ЩXЭЫZ[‹ZZYЪЌЊK›ZЛX™[YY‹›ZЛ]ЫЬљЩ›ЭЬЛ›ZЛ][Y\Л›ZЛXЫЫ[Z\ЬЪ[Ы™\‹›ZЛXЫЫ›™XЭЩЬљY][\]KXЫЫ[[њОЊYњџK›ZЛX™[YY‹\Ъ[ќЮЫX\™Ъ[‹]ЬЊK›ZЛ]ЫЬљЩ›ЭЬПљXY\ћЬY[™ЛX›ЭЫNЊМШ›Ь™\‹\љYЪЊK›ZЛ]ЫЬљЩ›ЭЬП™]ћЬY[™Л]ЬЊK›ZЛ][Y\ЮЩШ\ЊМK›ZЛXЫЫ[Z\ЬЪ[Ы™\ћЩШ\ЊН\K›ZЛXЫЫ›™XЭЩШ\ЊМK›ZЛY›ЫЭ\ћЩЬљY][\]KXЫЫ[[њОЊYњ€YњџK›ZЛY›ЫЭ\Џ›]ћЩЬљYXЫЫ[[ЋЊKЛL_K™›ЫЭ\‹XЪXЪЩ\ћЬЬЪ][ЫЋXњЫЫ]NЬљYЪЊМ_BђYYXJX^]ЪYЌМЊ
+^Л›ZЛZXY\ћЪZYЪЌЌЬY[™ОЊMK›ZЛZXY\€›ZЛXњ[™Э›Ы™ЮЩ›Ыќ\Ъ^™NЊ‹ЊН\™[_K›ZЛZXY\€›ZЛXњ[™Ь[ћЩ\Ь^N››Ы™_K›ZЛ[Y[ќ^Щ\Ь^N›ШЪОЫX\™Ъ[‹[Yќ]]ЯK›ZЛ[Y[ќHЭ™ЮЭЪYЊЊњK›ZЛZXY\Џ›]ћЬЬЪ][ЫЋXњЫЫ]NЪ[њЩ]ЌЌ]]ОЩ\Ь^N››Ы™NЪZYЪ]]ОЬY[™ОЊLШXЪЩЬ›Э[™ќ\ЉK[ZЛ\\\ЉNШ›Ь™\‹X›ЭЫNЊ\ЫЫYШXX_K›ZЛZXY\Џ›]‹›Ь[ћЩ\Ь^N™ЬљYK›ZЛZXY\Џ›]€ќ]ЫћЫZ[‹ZZYЪЌЭ^X[YЫЋ›YќШ›Ь™\‹X›ЭЫNЊ\ЫЫYЩXЩX™џK›ZЛY[ќ\ћЫZ[‹]ЪYЊL\ЪZYЪЊОЩ›Ыќ\Ъ^™N‹ЌN™[_K›ZЛZ\›ЮЩ\Ь^N›ШЪЯK›ZЛZ\›ЛXЫЬ^ЬY[™ОЌњЊK›ZЛZ\›ЛXЫЬH^Щ›Ыќ\Ъ^™NЌЌ™[_K›ZЛZ\›ЛXЫЬO™]ћЩ\Ь^N™ЬљYK›ZЛZ\›ЛXЫЬOњЫX[Ы[™KZZYЪЊKЌџK›ZЛZ\›Л\›ЩXЭЫZ[‹ZZYЪЌLЬY[™ОЋM\K›ZЛ\›ЩXЭ]Ъ[™ЭЮЭ[њЩ›Ь›N››Ы™_K›ZЛ]Ъ[™ЭЛX›Щ^ЩЬљY][\]KXЫЫ[[њОЊYњџK›ZЛ]Ъ[™ЭЛX›ЩO\ЪY^Щ\Ь^N››Ы™_K›ZЛ\›ЩXЭ]Ъ[™ЭПљXY\€]ћЩ\Ь^N››Ы™_K›ZЛ]Ъ[™ЭЛX›ЩO›XZ[ћЬY[™ОЊLЬK›ZЛ\›ЬЭ\‹\›ЭО›ќXЪ[
+ЉНЉ^Щ\Ь^N››Ы™_K›ZЛX™[YYћЬY[™ОЌњЊЩШ\ЊМK›ZЛX™[YY‹\Ъ[ќЮЩЬљY][\]KXЫЫ[[њОЊYњџK›ZЛX™[YY‹\Ъ[ќПњЬ[ћЫZ[‹ZZYЪЊLLШ›Ь™\‹[YќЊШ›Ь™\‹]ЬЊ\ЫЫYШНШМЊK›ZЛ]ЫЬљЩ›ЭЬПљXY\‹›ZЛ]ЫЬљЩ›ЭЬП™]ћЬY[™ОЌњЊK›ZЛ]ЫЬљЩ›ЭЬИ‹›ZЛ][Y\И‹›ZЛ[ZYЬ]H‹›ZЛXЫЫ[Z\ЬЪ[Ы™\€‹›ZЛXЫЫ›™XЭ‹›ZЛYљ[[ћЩ›Ыќ\Ъ^™NЊЛЌЬ™[_K›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫ^ЬY[™ОЊN\ЩЬљY][\]KXЫЫ[[њОЊМњЋYњџK›ZЛ]ЫЬљЩ›ЭЬИ\ќXЫOњЭ™О›\ЭXЪ[Щ\Ь^N››Ы™_K›ZЛ][Y\ЮЬY[™ОЌЊKќ[YK]XњЮЩЬљY][\]KXЫЫ[[њОЊYњџKќ[YK\ЭYЩO›XZ[ћЩЬљY][\]KXЫЫ[[њОЊYњџKќ[YK\ЭYЩHXZ[Џ\ЪY^Щ\Ь^N››Ы™_Kќ[YK\ЭYЩHXZ[Џ™]ћЬY[™ОЊМЊKќ[YK\ШЫЬ™X›Ш\™ЩЬљY][\]KXЫЫ[[њОЊYњ€YњџKќ[YK\ШЫЬ™X›Ш\™ЉћШ›Ь™\‹X›ЭЫNЊ\ЫЫYШXXLЋLџK›ZЛ[ZYЬ]^ЬY[™ОЌЊK›ZЛ[ZYЬ]OљXY\ћЩ\Ь^N›ШЪЯK›ZЛ[ZYЬ]O™]ћЩЬљY][\]KXЫЫ[[њОЊYњџK›ZЛ[ZYЬ]H\ќXЫ^Ш›Ь™\‹\љYЪЊШ›Ь™\‹X›ЭЫNЊ\ЫЫYШШЌM_K›ZЛXЫЫ[Z\ЬЪ[Ы™\ћЬY[™ОЌЊKЫЫ[Z\ЬЪ[Ы™\‹\™]љY]ЮЩЬљY][\]KXЫЫ[[њОЊYњџKЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П\ЪY^Щ\Ь^N››Ы™_KЫЫ[Z\ЬЪ[Ы™\‹\™]љY]П›XZ[ћЬY[™ОЊMK›ZЛXЫЫ›™XЭЬY[™ОЌЊK›ZЛXЫЫ›™XЭ™]ћЩЬљY][\]KXЫЫ[[њОњ™\X]
+ЛYњЉ_K›ZЛXЫЫ›™XЭ™]€Ь[ћШ›Ь™\‹X›ЭЫNЊ\ЫЫYШЌM_K›ZЛYљ[[ЬY[™ОЌњЊЩ\Ь^N›ШЪЯK›ZЛYљ[[™]Ћ›\ЭXЪ[ЫX\™Ъ[‹]ЬЊЌЩ\Ь^N™ЬљYK›ZЛY›ЫЭ\ћЬY[™ОЊН\ЊЩЬљY][\]KXЫЫ[[њОЊYњџK›ZЛY›ЫЭ\ЏњЫX\™Ъ[ЋЊK›ZЛY›ЫЭ\Џ›]ћЩЬљY][\]KXЫЫ[[њОЊYњ€YњџK™›ЫЭ\‹XЪXЪЩ\ћЩ\Ь^N››Ы™__B
