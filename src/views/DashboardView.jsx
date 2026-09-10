@@ -1,40 +1,29 @@
 import {
-  AlertTriangle, ArrowRight, ChevronRight, Clock3, Heart,
-  MessageSquare, Repeat2, Shirt, Trophy, Zap,
+  AlertTriangle, ArrowRight, CheckCircle2, Heart, MessageSquare,
+  Repeat2, Search, Shirt, Trophy, Zap,
 } from 'lucide-react'
-import { createElement, useState } from 'react'
-
-const phases = [
-  { id: 'prep', days: 'TUE – WED', label: 'Prep & research', title: 'Build your short list', detail: 'Review the week, make claims, and get trade talks moving.', action: 'Browse players', view: 'players' },
-  { id: 'adjust', days: 'THU – SAT', label: 'Final adjustments', title: 'Lineups lock Sunday at 1:00 PM', detail: 'All 9 starting slots are filled. One player is on your watchlist.', action: 'Set lineup', view: 'team' },
-  { id: 'live', days: 'SUN – MON', label: 'Set & watch', title: 'Your matchup is live', detail: 'Track every starter, react with the league, and see what changed.', action: 'Open matchup', view: 'matchups' },
-]
+import { createElement, useMemo, useState } from 'react'
 
 const initialFeed = [
-  { id: 1, initials: 'TG', name: 'Tim Garcia (SYBAU)', time: '2h ago', text: 'Claimed a player off waivers.', likes: 3, comments: 0 },
-  { id: 2, initials: 'CM', name: 'Commissioner', time: '5h ago', label: 'LEAGUE NOTE', text: 'Welcome to Season 24. Same crew, more good football. Set those lineups and let’s have a great season.', likes: 6, comments: 2 },
-  { id: 3, initials: 'TG', name: 'Tim Garcia (SYBAU)', time: '1d ago', text: 'Put Malachi Washington on the trade block.', likes: 2, comments: 1 },
+  { id: 1, initials: 'TG', name: 'Tim Garcia · SYBAU', time: '2h', text: 'Updated a lineup.', likes: 3, comments: 0 },
+  { id: 2, initials: 'CM', name: 'Commissioner', time: '5h', label: 'LEAGUE NOTE', text: 'Season 24 is open. Check your roster and league settings before Week 1.', likes: 6, comments: 2 },
+  { id: 3, initials: 'TG', name: 'Tim Garcia · SYBAU', time: '1d', text: 'Put Malachi Washington on the trade block.', likes: 2, comments: 1 },
 ]
 
-function Matchup({ onView }) {
-  return <section className="club-matchup">
-    <header><h2>Week 1 matchup</h2><span>PROJECTED</span></header>
-    <div className="club-matchup-body">
-      <div className="club-team home"><i>S</i><span><strong>SYBAU</strong><small>Tim Garcia · 0–0</small></span><b>118.4</b></div>
-      <em>VS</em>
-      <div className="club-team away"><b>112.1</b><span><strong>PAPAS FRIAS</strong><small>Michael Hill · 0–0</small></span><i>P</i></div>
-    </div>
-    <button type="button" onClick={() => onView('matchups')}>Open matchup <ArrowRight /></button>
-  </section>
-}
-
-function Attention({ data, onView }) {
-  const items = [
-    { icon: Shirt, label: 'Lineup', text: '9 of 9 starters set', view: 'team' },
-    { icon: Zap, label: 'Waivers', text: `${data.claims.length} pending claim`, view: 'transactions' },
-    { icon: Repeat2, label: 'Trade', text: `${data.trades.length} offer to review`, view: 'transactions' },
-  ]
-  return <section className="attention-list"><header><h2>Needs attention</h2></header>{items.map(({ icon, label, text, view }) => <button key={label} type="button" onClick={() => onView(view)}>{createElement(icon)}<span><strong>{label}</strong><small>{text}</small></span><ChevronRight /></button>)}</section>
+function weeklyFocus(data) {
+  const day = new Date().getDay()
+  if (day === 2 || day === 3) return {
+    icon: Zap, title: `${data.claims.length} waiver claim${data.claims.length === 1 ? '' : 's'} pending`,
+    detail: 'Review available players and set your claim order.', action: 'Explore players', view: 'players',
+  }
+  if (day === 0 || day === 1) return {
+    icon: Trophy, title: 'Follow your week', detail: 'Your live matchup belongs here once the schedule feed is connected.',
+    action: 'Open matchup', view: 'matchups',
+  }
+  return {
+    icon: Shirt, title: 'Review your lineup', detail: 'Your starters are filled. Check matchups, trends, and your bench before kickoff.',
+    action: 'Open My Team', view: 'team',
+  }
 }
 
 function Clubhouse({ feed, setFeed }) {
@@ -43,42 +32,58 @@ function Clubhouse({ feed, setFeed }) {
     event.preventDefault()
     const text = message.trim()
     if (!text) return
-    setFeed((current) => [{ id: Date.now(), initials: 'TG', name: 'Tim Garcia (SYBAU)', time: 'now', text, likes: 0, comments: 0 }, ...current])
+    setFeed((current) => [{ id: Date.now(), initials: 'TG', name: 'Tim Garcia · SYBAU', time: 'now', text, likes: 0, comments: 0 }, ...current])
     setMessage('')
   }
-  const like = (id) => setFeed((current) => current.map((item) => item.id === id ? { ...item, likes: item.likes + 1 } : item))
-  return <section className="clubhouse-feed">
-    <header><h2>The clubhouse</h2><span>Latest from Liquid Crew</span><small>GOOD CONVERSATION KEEPS THE LEAGUE STRONG.</small></header>
-    <div className="clubhouse-body"><div className="feed-list">{feed.map((item) => <article key={item.id}>
-      <i>{item.initials}</i><div className="feed-author"><strong>{item.name}</strong><small>{item.time}</small></div><p>{item.label ? <b>{item.label}</b> : null}{item.text}</p>
-      <div className="feed-actions"><button type="button" onClick={() => like(item.id)} aria-label={`React to ${item.name}`}><Heart /> {item.likes}</button><span><MessageSquare /> {item.comments}</span></div>
+  return <aside className="home-clubhouse">
+    <header><span className="checker" /><div><h2>The Clubhouse</h2><p>Your league. Your rules. Your history. Your place.</p></div></header>
+    <form onSubmit={post}><textarea value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Say something to the league…" aria-label="Message to the league" /><button type="submit" disabled={!message.trim()}>Post</button></form>
+    <div className="home-feed">{feed.map((item) => <article key={item.id}>
+      <i>{item.initials}</i><div><strong>{item.name}</strong><small>{item.time} ago</small><p>{item.label ? <b>{item.label}</b> : null}{item.text}</p><footer><button type="button" onClick={() => setFeed((current) => current.map((post) => post.id === item.id ? { ...post, likes: post.likes + 1 } : post))}><Heart /> {item.likes}</button><span><MessageSquare /> {item.comments}</span></footer></div>
     </article>)}</div>
-    <form className="trash-talk" onSubmit={post}><div><h3>Trash talk</h3><small>KEEP IT FUN. KEEP IT CLEAN.</small></div><textarea value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Say something to the league…" aria-label="Message to the league" /><button type="submit" disabled={!message.trim()}>Post</button></form></div>
-  </section>
-}
-
-function LeagueRail({ data, onView }) {
-  return <aside className="league-rail">
-    <p className="rail-slogan">SAME GAME.<br /><b>A HIGHER STANDARD.</b></p>
-    <section><header>Standings</header><div className="rail-table-head"><span>#</span><span>TEAM</span><span>W</span><span>L</span></div>{data.teams.slice(0, 4).map((team, index) => <div className={team.id === 'sybau' ? 'selected' : ''} key={team.id}><span>{index + 1}</span><strong>{team.name}</strong><span>{team.wins}</span><span>{team.losses}</span></div>)}<button type="button" onClick={() => onView('league')}>View full standings <ArrowRight /></button></section>
-    <section><header>Waiver priority</header><div className="waiver-place"><b>#8</b><span>SYBAU<small>{data.claims.length} claim pending</small></span></div><button type="button" onClick={() => onView('transactions')}>Manage claims <ArrowRight /></button></section>
-    <p className="rail-manifesto">TWELVE MANAGERS.<br />ONE LEAGUE.<br />A LONG SEASON.</p>
   </aside>
 }
 
 export function DashboardView({ data, onView }) {
-  const [phase, setPhase] = useState('adjust')
   const [feed, setFeed] = useState(initialFeed)
-  const activePhase = phases.find((item) => item.id === phase)
-  return <div className="club-home">
-    <main className="club-home-main">
-      <header className="game-plan-head"><div><h1>Week 1 Game Plan</h1><p>SAME LEAGUE. <b>DIFFERENT BREED.</b></p></div><strong>LIQUID CREW<small>SEASON 24</small></strong></header>
-      <nav className="week-phases" aria-label="Week phase">{phases.map((item) => <button className={phase === item.id ? 'active' : ''} type="button" key={item.id} onClick={() => setPhase(item.id)}><strong>{item.days}</strong><span>{item.label}</span></button>)}</nav>
-      <section className={`game-plan-action phase-${phase}`}><Clock3 /><div><h2>{activePhase.title}</h2><p>{activePhase.detail}</p></div><div className="starter-count"><b>{phase === 'adjust' ? '9 of 9' : phase === 'prep' ? '#8' : '118.4'}</b><span>{phase === 'adjust' ? 'STARTERS SET' : phase === 'prep' ? 'WAIVER PRIORITY' : 'PROJECTED'}</span></div><button type="button" onClick={() => onView(activePhase.view)}>{activePhase.action} <ArrowRight /></button>{phase === 'adjust' ? <aside><AlertTriangle /><span><b>Watchlist check</b><small>No injury designation</small></span></aside> : null}</section>
-      <div className="game-plan-grid"><Matchup onView={onView} /><Attention data={data} onView={onView} /></div>
-      <section className="heroes-strip"><header><h2>Heroes & Bums</h2><span>WEEKLY TRENDS · SEED DATA FOR DEMO ONLY</span><small>UPS. DOWNS. PERSPECTIVE.</small></header><div><article className="hero"><Trophy /><span><strong>Jaxon Smith-Njigba</strong><b>RISING INTEREST · +24%</b><small>Most-added WR in this demo league.</small></span></article><article className="bum"><AlertTriangle /><span><strong>Bhayshul Tuten</strong><b>FALLING INTEREST · −18%</b><small>Managers are cooling after a quiet preseason.</small></span></article><p>SAME PLAYERS.<br /><b>DIFFERENT STORIES<br />EVERY WEEK.</b></p></div></section>
-      <Clubhouse feed={feed} setFeed={setFeed} />
+  const focus = weeklyFocus(data)
+  const FocusIcon = focus.icon
+  const starters = data.roster.filter((player) => player.rosterSlot === 'starter')
+  const projected = starters.reduce((sum, player) => sum + player.projection, 0)
+  const trendLeaders = useMemo(() => {
+    const sorted = [...data.roster.filter((player) => player.rosterSlot !== 'ir')].sort((a, b) => b.projection - a.projection)
+    return { hero: sorted[0], bum: sorted.at(-1) }
+  }, [data.roster])
+
+  const actions = [
+    { icon: Shirt, title: 'Manage roster', detail: 'Starters, bench, IR, and lineup moves.', view: 'team' },
+    { icon: Search, title: 'Explore players', detail: 'Search free agents and submit waiver claims.', view: 'players' },
+    { icon: Repeat2, title: 'Trades', detail: `${data.trades.length} offer${data.trades.length === 1 ? '' : 's'} waiting in League.`, view: 'league' },
+  ]
+
+  return <div className="clubhouse-home-v2">
+    <main>
+      <header className="league-paper-head"><div><h1>Liquid Crew</h1><p>Season 24 on FFI</p></div><span>GOOD FOOTBALL.<br />BETTER PEOPLE.</span></header>
+
+      <section className="today-focus">
+        <div><small>WHAT NEEDS ATTENTION</small><h2>{focus.title}</h2><p>{focus.detail}</p></div>
+        <button type="button" onClick={() => onView(focus.view)}><FocusIcon />{focus.action}<ArrowRight /></button>
+      </section>
+
+      <section className="home-matchup-v2">
+        <header><h2>This week</h2><button type="button" onClick={() => onView('matchups')}>View matchup <ArrowRight /></button></header>
+        <div><span className="team-mark">S</span><div><strong>SYBAU</strong><small>Tim Garcia · {starters.length} starters set</small></div><b>{projected.toFixed(1)}<small>PROJECTED</small></b><i>VS</i><div className="opponent-pending"><strong>Opponent pending</strong><small>Connect the league schedule to populate this matchup.</small></div></div>
+      </section>
+
+      <section className="quick-actions-v2"><header><h2>Quick actions</h2><p>Everything you do most, one tap away.</p></header>{actions.map(({ icon, title, detail, view }) => <button key={title} type="button" onClick={() => onView(view)}>{createElement(icon)}<span><strong>{title}</strong><small>{detail}</small></span><ArrowRight /></button>)}</section>
+
+      <section className="heroes-v2"><header><h2>Heroes & Bums</h2><span>PERFORMANCE SNAPSHOT · DEMO DATA</span></header><div>
+        <article className="hero"><Trophy /><span><b>HERO</b><strong>{trendLeaders.hero?.name}</strong><small>Highest projected player on your current roster.</small></span></article>
+        <article className="bum"><AlertTriangle /><span><b>BUM</b><strong>{trendLeaders.bum?.name}</strong><small>Lowest projected active player. Context matters.</small></span></article>
+      </div></section>
+
+      <section className="home-status"><CheckCircle2 /><span><strong>Your league data stays yours.</strong><small>FFI is the platform. Liquid Crew controls its identity, settings, and history.</small></span></section>
     </main>
-    <LeagueRail data={data} onView={onView} />
+    <Clubhouse feed={feed} setFeed={setFeed} />
   </div>
 }

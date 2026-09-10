@@ -1,6 +1,6 @@
 import {
   Bell, CalendarDays, ChevronDown, ClipboardList, Home,
-  Menu, MessageSquare, Search, Shield, Shirt, Trophy, Users, X,
+  Search, Shield, Shirt, Trophy, Users,
 } from 'lucide-react'
 import { createElement } from 'react'
 
@@ -12,28 +12,18 @@ const items = [
   ['league', 'League', Shield],
 ]
 
-export function AppChrome({ view, onView, sidebarOpen, onSidebar, leagueMenuOpen, onLeagueMenu, onCreateLeague, leagues, activeLeague, onSelectLeague, onGlobalSearch, children }) {
+export function AppChrome({ view, onView, leagueMenuOpen, onLeagueMenu, onCreateLeague, leagues, activeLeague, onSelectLeague, onGlobalSearch, children }) {
   return (
     <div className="ffi-app">
       <header className="topbar">
-        <button className="mobile-menu" type="button" onClick={onSidebar} aria-label={sidebarOpen ? 'Close navigation' : 'Open navigation'}>{sidebarOpen ? <X /> : <Menu />}</button>
         <a className="ffi-lockup" href="#dashboard" onClick={() => onView('dashboard')}><strong>FFI</strong><span>THE FANTASY FOOTBALL<br />INDEPENDENTS</span></a>
         <div className="league-picker-wrap"><button className="league-picker" type="button" onClick={onLeagueMenu} aria-expanded={leagueMenuOpen}><i className="checker" /> <span>{activeLeague?.name ?? 'SELECT LEAGUE'}</span><ChevronDown /></button>{leagueMenuOpen ? <div className="league-dropdown"><small>YOUR LEAGUES</small>{leagues.map((league) => <button key={league.id} type="button" className={activeLeague?.id === league.id ? 'selected' : ''} onClick={() => onSelectLeague(league)}><strong>{league.name}</strong><span>{league.role} · {league.team}</span></button>)}<button className="create-league" type="button" onClick={onCreateLeague}>+ Create or join league</button></div> : null}</div>
+        <nav className="primary-nav" aria-label="FFI navigation">{items.map(([id, label, icon]) => <button key={id} className={view === id ? 'active' : ''} type="button" onClick={() => onView(id)}>{createElement(icon)}<span>{label}</span></button>)}</nav>
         <button className="week-picker" type="button" title="Week selector"><CalendarDays /><span>WEEK 1</span></button>
         <form className="global-search" onSubmit={onGlobalSearch}><Search /><input name="query" aria-label="Search FFI" placeholder="Search players…" /></form>
         <button className="icon-button notification-button" type="button" aria-label="Notifications"><Bell /><b>3</b></button>
         <button className="profile-button" type="button"><span>TG</span><i>Tim Garcia</i><ChevronDown /></button>
       </header>
-      <aside className={sidebarOpen ? 'sidebar is-open' : 'sidebar'}>
-        <div className="sidebar-league">
-          <small>YOUR LEAGUE</small>
-          <strong>{activeLeague?.name ?? 'LIQUID CREW'}</strong>
-          <span>// SEASON 24</span>
-        </div>
-        <nav aria-label="FFI navigation">{items.map(([id, label, icon]) => <button key={id} className={view === id ? 'active' : ''} type="button" onClick={() => { onView(id); onSidebar(false) }}>{createElement(icon)}<span>{label}</span></button>)}</nav>
-        <div className="sidebar-bottom"><MessageSquare /><strong>LEAGUE CHAT</strong><small>3 unread messages</small></div>
-        <p className="sidebar-manifesto">SAME LEAGUE.<br />DIFFERENT ANIMALS.</p>
-      </aside>
       <main className="app-content">{children}</main>
     </div>
   )
