@@ -19,7 +19,7 @@ const workflows = [
 ]
 
 const themeOptions = {
-  liquid: { name: 'Liquid Crew', note: '90s sports-zine', className: 'liquid', accent: 'Amber · teal · scorecard cream' },
+  liquid: { name: 'Liquid Crew', note: '90s sports-zine', className: 'liquid', accent: 'Amber · black · scorecard cream' },
   classic: { name: 'Sunday Standard', note: 'Clean and classic', className: 'classic', accent: 'Forest · white · graphite' },
   night: { name: 'Night Game', note: 'Bold and electric', className: 'night', accent: 'Midnight · blue · signal red' },
 }
@@ -81,19 +81,19 @@ export function MarketingSite({ onEnterDemo }) {
 
     <main id="top">
       <section className="mk-hero">
-        <div className="mk-hero-copy"><h1>Your league.<br />Your rules.<br /><b>Your place.</b></h1><p>Fantasy football built for the people who actually run the league.</p><div><button type="button" onClick={onEnterDemo}>Explore the demo <ArrowRight /></button><button type="button" onClick={() => go('product')}>See how FFI works</button></div><small>MORE CONTROL · DEEPER CONNECTIONS · A LEAGUE OF YOUR OWN</small></div>
-        <div className="mk-hero-product"><p>COMMUNITIES<br />MAKE FOOTBALL<br /><b>BETTER.</b></p><DemoRoster onEnter={onEnterDemo} /><span>SAME GAME.<br />BIGGER STORIES.</span></div>
+        <div className="mk-hero-copy"><span className="mk-scrawl mk-scrawl-crown">M</span><h1>Your league.<br />Your rules.<br /><b>Your place.</b></h1><p>Fantasy football built for the people who actually run the league.</p><div><button type="button" onClick={onEnterDemo}>Explore the demo <ArrowRight /></button><button type="button" onClick={() => go('product')}>See how FFI works</button></div><small>MORE CONTROL · DEEPER CONNECTIONS · A LEAGUE OF YOUR OWN</small><span className="mk-scrawl mk-scrawl-home">SAME GAME. A BETTER HOME.</span></div>
+        <div className="mk-hero-product"><p>COMMUNITIES<br />MAKE FOOTBALL<br /><b>BETTER.</b></p><DemoRoster onEnter={onEnterDemo} /><span>SAME FRIENDS.<br />DIFFERENT FIELD.</span><i className="mk-tape tape-one" /><i className="mk-tape tape-two" /></div>
       </section>
 
       <section className="mk-belief"><div><h2>Tools for the people behind the game.</h2><p>FFI gives friend groups and communities the control, flexibility, and identity to make fantasy football feel like theirs.</p></div><div className="mk-belief-points"><span><SlidersHorizontal /><b>Commissioner control</b><small>Flexible settings. Less hassle.</small></span><span><Palette /><b>Make it yours</b><small>League themes and identity.</small></span><span><Users /><b>A stronger community</b><small>Built for groups, not impressions.</small></span></div></section>
 
       <section className="mk-workflows" id="product">
-        <header><h2>Standard<br />where it matters.</h2><p>The core tools people already understand—made clearer, faster, and mobile-first.</p></header>
+        <header><h2>Standard<br />where it matters.</h2><p>The core tools people already understand—made clearer, faster, and mobile-first.</p><span className="mk-scrawl mk-scrawl-receipts">KEEP<br />THE RECEIPTS.</span></header>
         <div>{workflows.map(({ number, icon, title, text }) => <article key={title}><span>{number}</span>{createElement(icon)}<div><h3>{title}</h3><p>{text}</p></div><ArrowRight /></article>)}</div>
       </section>
 
       <section className="mk-themes" id="themes">
-        <header><h2>Independent<br />where it counts.</h2><p>Your league should feel like your league—not a forgotten page inside a media company.</p><ul><li>Custom visual themes</li><li>League-created awards</li><li>History and rivalries</li><li>Commissioner voice</li><li>Public or private spaces</li></ul></header>
+        <header><h2>Independent<br />where it counts.</h2><p>Your league should feel like your league—not a forgotten page inside a media company.</p><ul><li>Custom visual themes</li><li>League-created awards</li><li>History and rivalries</li><li>Commissioner voice</li><li>Public or private spaces</li></ul><span className="mk-scrawl mk-scrawl-lc">LC</span></header>
         <ThemePreview activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
       </section>
 
@@ -112,7 +112,7 @@ export function MarketingSite({ onEnterDemo }) {
         <div>{partnerFeeds.map(([icon, label]) => <span key={label}>{createElement(icon)}<b>{label}</b></span>)}</div>
       </section>
 
-      <section className="mk-final"><div><h2>Build your league’s home.</h2><p>See the product. Shape the platform. Keep the league yours.</p></div><div><button type="button" onClick={onEnterDemo}>Enter the demo <ArrowRight /></button><button type="button" className="mk-secondary-action" onClick={() => go('about')}>Why FFI <ArrowRight /></button></div></section>
+      <section className="mk-final"><span className="mk-scrawl mk-scrawl-people">SAME PEOPLE.<br />MORE FOOTBALL.</span><div><h2>Build your league’s home.</h2><p>See the product. Shape the platform. Keep the league yours.</p></div><div><button type="button" onClick={onEnterDemo}>Enter the demo <ArrowRight /></button><button type="button" className="mk-secondary-action" onClick={() => go('about')}>Why FFI <ArrowRight /></button></div></section>
     </main>
 
     <footer className="mk-footer"><div className="mk-brand"><strong>FFI</strong><span>FANTASY FOOTBALL<br />FOR REAL LIFE</span></div><p>People · leagues · a better Sunday</p><nav><div><b>Product</b><button type="button" onClick={() => go('product')}>Features</button><button type="button" onClick={onEnterDemo}>Interactive demo</button></div><div><b>Leagues</b><button type="button" onClick={() => go('commissioners')}>For commissioners</button><button type="button" onClick={() => go('themes')}>League themes</button></div><div><b>Company</b><button type="button" onClick={() => go('about')}>About FFI</button><button type="button" onClick={() => go('connect')}>Data approach</button></div></nav><span className="footer-checker" /></footer>
