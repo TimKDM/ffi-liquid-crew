@@ -1,120 +1,24 @@
-import {
-  ArrowRight, BarChart3, CalendarDays, ClipboardList, Database,
-  HeartHandshake, Menu, MessageSquare, Palette, Repeat2, Search, ShieldCheck,
-  Shirt, SlidersHorizontal, Trophy, Users, X, Zap,
-} from 'lucide-react'
-import { createElement, useState } from 'react'
+import { ArrowRight, Check, Menu, Search, Send, X } from 'lucide-react'
+import { useState } from 'react'
 
-const productNav = [
-  ['product', 'Product'],
-  ['commissioners', 'For Commissioners'],
-  ['themes', 'League Themes'],
-  ['about', 'About'],
-]
+const nav = [['product', 'Product'], ['commissioners', 'Commissioners'], ['themes', 'League Themes'], ['why', 'Why FFI']]
+const roster = [['QB','Trevor Lawrence','JAX','@ KC','19.8'],['RB','Ashton Jeanty','LV','@ DEN','18.7'],['RB','Bhayshul Tuten','JAX','@ KC','10.2'],['WR','Jaxon Smith-Njigba','SEA','SF','17.4'],['WR','Malik Nabers','NYG','@ DAL','15.9'],['TE','Harold Fannin Jr.','CLE','CIN','8.6']]
+const themes = [['Liquid Crew','Amber / black / scorecard'],['Sunday Service','Clean / traditional / sharp'],['Bench Warmers','Warm / loud / unserious'],['Gridiron Social Club','Dark / classic / club']]
 
-const workflows = [
-  { number: '01', icon: Shirt, title: 'Set lineups', text: 'Starters, bench, IR, and valid replacements on one screen.' },
-  { number: '02', icon: Zap, title: 'Work waivers', text: 'Search, compare, claim, and manage priority without getting lost.' },
-  { number: '03', icon: Repeat2, title: 'Make trades', text: 'Build an offer, see the impact, and keep the conversation attached.' },
-]
-
-const themeOptions = {
-  liquid: { name: 'Liquid Crew', note: '90s sports-zine', className: 'liquid', accent: 'Amber · black · scorecard cream' },
-  classic: { name: 'Sunday Standard', note: 'Clean and classic', className: 'classic', accent: 'Forest · white · graphite' },
-  night: { name: 'Night Game', note: 'Bold and electric', className: 'night', accent: 'Midnight · blue · signal red' },
-}
-
-const partnerFeeds = [
-  [CalendarDays, 'Schedules'],
-  [BarChart3, 'Stats'],
-  [HeartHandshake, 'Injuries'],
-  [Zap, 'Projections'],
-  [Database, 'Odds'],
-]
-
-function DemoRoster({ onEnter }) {
-  const rows = [
-    ['QB', 'Trevor Lawrence', 'JAX', '@ KC', '19.8'],
-    ['RB', 'Ashton Jeanty', 'LV', '@ DEN', '18.7'],
-    ['RB', 'Bhayshul Tuten', 'JAX', '@ KC', '10.2'],
-    ['WR', 'Jaxon Smith-Njigba', 'SEA', 'SF', '17.4'],
-    ['WR', 'Malik Nabers', 'NYG', '@ DAL', '15.9'],
-    ['TE', 'Harold Fannin Jr.', 'CLE', 'CIN', '8.6'],
-  ]
-  return <div className="mk-product-window">
-    <header><strong>FFI</strong><span>Liquid Crew</span><nav><b>My Team</b><i>Matchup</i><i>Players</i><i>League</i></nav><Search /></header>
-    <div className="mk-window-body">
-      <aside><span className="mk-team-mark">LC</span><h3>Liquid Crew</h3><small>Season 24</small><button type="button" onClick={onEnter}>Open demo <ArrowRight /></button></aside>
-      <main><div className="mk-roster-title"><div><h3>My Team</h3><span>SYBAU</span></div><button type="button" onClick={onEnter}>Manage lineup</button></div>
-        <div className="mk-roster-head"><span>SLOT</span><span>PLAYER</span><span>OPP</span><span>PROJ</span></div>
-        {rows.map(([slot, player, team, opponent, projection]) => <div className="mk-roster-row" key={player}><b>{slot}</b><span><strong>{player}</strong><small>{team}</small></span><span>{opponent}</span><strong>{projection}</strong></div>)}
-      </main>
-    </div>
-  </div>
-}
-
-function ThemePreview({ activeTheme, setActiveTheme }) {
-  const theme = themeOptions[activeTheme]
-  return <div className="theme-showcase">
-    <div className="theme-tabs">{Object.entries(themeOptions).map(([id, item]) => <button key={id} type="button" className={activeTheme === id ? 'active' : ''} onClick={() => setActiveTheme(id)}><strong>{item.name}</strong><span>{item.note}</span></button>)}</div>
-    <div className={`theme-stage ${theme.className}`}>
-      <header><span className="theme-logo">{activeTheme === 'liquid' ? 'LC' : activeTheme === 'classic' ? 'SS' : 'NG'}</span><div><strong>{theme.name}</strong><small>{theme.accent}</small></div><button type="button">League home</button></header>
-      <main><aside><span>HOME</span><span>MY TEAM</span><span>MATCHUP</span><span>PLAYERS</span><span>LEAGUE</span></aside><div><h3>Your league should feel like your league.</h3><p>Custom colors, graphics, awards, history, commissioner voice, and privacy.</p><div className="theme-scoreboard"><b>WEEKLY AWARDS</b><span>Hero</span><span>Bad Beat</span><span>Bench Boss</span></div></div></main>
-    </div>
-  </div>
-}
+function RosterPreview({ onEnterDemo }) { return <div className="ffi-roster-preview"><header><strong>FFI</strong><b>My Team</b><span>Liquid Crew⌄</span></header><nav><b>ROSTER</b><span>MATCHUP</span><span>PLAYERS</span><span>LEAGUE</span></nav><main><div><h3>Starters</h3><button type="button" onClick={onEnterDemo}>Set lineup</button></div><header><span>POS</span><span>PLAYER</span><span>OPP</span><span>PROJ</span></header>{roster.map(([pos,player,team,opp,proj])=><div className="ffi-roster-line" key={player}><b>{pos}</b><span><strong>{player}</strong><small>{team}</small></span><span>{opp}</span><strong>{proj}</strong></div>)}</main></div> }
 
 export function MarketingSite({ onEnterDemo }) {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [activeTheme, setActiveTheme] = useState('liquid')
-  const go = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    setMenuOpen(false)
-  }
-  return <div className="marketing-site">
-    <header className="mk-header">
-      <a className="mk-brand" href="#top" aria-label="FFI home"><strong>FFI</strong><span>THE FANTASY FOOTBALL<br />INDEPENDENTS</span></a>
-      <button className="mk-menu" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle site navigation">{menuOpen ? <X /> : <Menu />}</button>
-      <nav className={menuOpen ? 'open' : ''}>{productNav.map(([id, label]) => <button key={id} type="button" onClick={() => go(id)}>{label}</button>)}</nav>
-      <button className="mk-enter" type="button" onClick={onEnterDemo}>Enter Demo <ArrowRight /></button>
-    </header>
-
-    <main id="top">
-      <section className="mk-hero">
-        <div className="mk-hero-copy"><span className="mk-scrawl mk-scrawl-crown">M</span><h1>Your league.<br />Your rules.<br /><b>Your place.</b></h1><p>Fantasy football built for the people who actually run the league.</p><div><button type="button" onClick={onEnterDemo}>Explore the demo <ArrowRight /></button><button type="button" onClick={() => go('product')}>See how FFI works</button></div><small>MORE CONTROL · DEEPER CONNECTIONS · A LEAGUE OF YOUR OWN</small><span className="mk-scrawl mk-scrawl-home">SAME GAME. A BETTER HOME.</span></div>
-        <div className="mk-hero-product"><p>COMMUNITIES<br />MAKE FOOTBALL<br /><b>BETTER.</b></p><DemoRoster onEnter={onEnterDemo} /><span>SAME FRIENDS.<br />DIFFERENT FIELD.</span><i className="mk-tape tape-one" /><i className="mk-tape tape-two" /></div>
-      </section>
-
-      <section className="mk-belief"><div><h2>Tools for the people behind the game.</h2><p>FFI gives friend groups and communities the control, flexibility, and identity to make fantasy football feel like theirs.</p></div><div className="mk-belief-points"><span><SlidersHorizontal /><b>Commissioner control</b><small>Flexible settings. Less hassle.</small></span><span><Palette /><b>Make it yours</b><small>League themes and identity.</small></span><span><Users /><b>A stronger community</b><small>Built for groups, not impressions.</small></span></div></section>
-
-      <section className="mk-workflows" id="product">
-        <header><h2>Standard<br />where it matters.</h2><p>The core tools people already understand—made clearer, faster, and mobile-first.</p><span className="mk-scrawl mk-scrawl-receipts">KEEP<br />THE RECEIPTS.</span></header>
-        <div>{workflows.map(({ number, icon, title, text }) => <article key={title}><span>{number}</span>{createElement(icon)}<div><h3>{title}</h3><p>{text}</p></div><ArrowRight /></article>)}</div>
-      </section>
-
-      <section className="mk-themes" id="themes">
-        <header><h2>Independent<br />where it counts.</h2><p>Your league should feel like your league—not a forgotten page inside a media company.</p><ul><li>Custom visual themes</li><li>League-created awards</li><li>History and rivalries</li><li>Commissioner voice</li><li>Public or private spaces</li></ul><span className="mk-scrawl mk-scrawl-lc">LC</span></header>
-        <ThemePreview activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
-      </section>
-
-      <section className="mk-migrate">
-        <header><h2>Bring the league.<br /><b>Leave the platform.</b></h2><p>Move without asking everyone to start their fantasy life over.</p></header>
-        <div>{[['1', 'Import settings', 'Bring over scoring, rosters, and league structure.'], ['2', 'Invite managers', 'Send one link and bring the group back together.'], ['3', 'Keep your history', 'Preserve seasons, records, awards, and rivalries.']].map(([n, title, text]) => <article key={n}><b>{n}</b><span><strong>{title}</strong><small>{text}</small></span></article>)}</div>
-      </section>
-
-      <section className="mk-commissioner" id="commissioners">
-        <header><h2>Total control.<br /><b>A better experience.</b></h2><p>Run the league without turning commissioner work into a second job.</p><button type="button" onClick={onEnterDemo}>See the commissioner tools <ArrowRight /></button></header>
-        <div className="commissioner-preview"><aside><strong>FFI</strong><span>League</span><b>Settings</b><span>Managers</span><span>Scoring</span><span>Rules</span></aside><main><header><div><h3>League Settings</h3><p>Fine-tune the league from top to bottom.</p></div><button type="button">Save changes</button></header><div>{[[Trophy, 'Scoring', 'Points, bonuses, and defensive scoring'], [Users, 'Rosters', 'Positions, bench, and IR'], [ShieldCheck, 'Permissions', 'Manager and commissioner access'], [MessageSquare, 'Polls', 'League votes and rule changes'], [ClipboardList, 'Rules', 'Custom rules and league notes']].map(([icon, title, text]) => <article key={title}>{createElement(icon)}<span><strong>{title}</strong><small>{text}</small></span><ArrowRight /></article>)}</div></main></div>
-      </section>
-
-      <section className="mk-connect" id="about">
-        <header><h2>Built to connect.</h2><p>FFI is architected to work with licensed sports-data and media providers. The demo is currently powered by clearly labeled sample data; production feeds come next.</p></header>
-        <div>{partnerFeeds.map(([icon, label]) => <span key={label}>{createElement(icon)}<b>{label}</b></span>)}</div>
-      </section>
-
-      <section className="mk-final"><span className="mk-scrawl mk-scrawl-people">SAME PEOPLE.<br />MORE FOOTBALL.</span><div><h2>Build your league’s home.</h2><p>See the product. Shape the platform. Keep the league yours.</p></div><div><button type="button" onClick={onEnterDemo}>Enter the demo <ArrowRight /></button><button type="button" className="mk-secondary-action" onClick={() => go('about')}>Why FFI <ArrowRight /></button></div></section>
-    </main>
-
-    <footer className="mk-footer"><div className="mk-brand"><strong>FFI</strong><span>FANTASY FOOTBALL<br />FOR REAL LIFE</span></div><p>People · leagues · a better Sunday</p><nav><div><b>Product</b><button type="button" onClick={() => go('product')}>Features</button><button type="button" onClick={onEnterDemo}>Interactive demo</button></div><div><b>Leagues</b><button type="button" onClick={() => go('commissioners')}>For commissioners</button><button type="button" onClick={() => go('themes')}>League themes</button></div><div><b>Company</b><button type="button" onClick={() => go('about')}>About FFI</button><button type="button" onClick={() => go('connect')}>Data approach</button></div></nav><span className="footer-checker" /></footer>
-  </div>
+  const [menuOpen,setMenuOpen]=useState(false); const [theme,setTheme]=useState(0)
+  const go=(id)=>{document.getElementById(id)?.scrollIntoView({behavior:'smooth'});setMenuOpen(false)}
+  return <div className="ffi-brand-site"><header className="ffi-site-header"><a href="#top" className="ffi-site-brand"><strong>FFI</strong><span>THE FANTASY FOOTBALL<br/>INDEPENDENTS</span></a><button className="ffi-site-menu" type="button" onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</button><nav className={menuOpen?'open':''}>{nav.map(([id,label])=><button type="button" key={id} onClick={()=>go(id)}>{label}</button>)}</nav><button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Enter Demo <ArrowRight/></button></header>
+  <main id="top">
+    <section className="ffi-brand-hero"><div className="ffi-hero-copy"><span className="ffi-margin-note">SAME FRIENDS.<br/>BETTER PLACE<br/>TO BEAT THEM.</span><h1>Fantasy football<br/>for people who<br/>actually like<br/>their league.</h1><p>Set your lineup. Talk your shit. Keep the group together.</p><div><button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Enter the demo <ArrowRight/></button><button className="ffi-outline-button" type="button" onClick={()=>go('product')}>See how it works</button></div></div><div className="ffi-hero-app"><RosterPreview onEnterDemo={onEnterDemo}/><span className="ffi-tape-note">SET LINEUPS<br/>TALK SHIT<br/>WIN TOGETHER.</span></div></section>
+    <section className="ffi-rhythm" id="why"><header><h2>The weekly<br/>rhythm.</h2><i>Different days.<br/>Same energy.</i></header>{[['TUESDAY','Waivers','Waivers without the scavenger hunt.'],['THURSDAY','Lineup','Set your lineup. Make your case.'],['SUNDAY','Matchup','Nobody cares about your projection until you win.']].map(([day,title,text])=><article key={day}><b>{day}</b><h3>{title}</h3><p>{text}</p></article>)}<aside>Your league has better stories than their network.</aside></section>
+    <section className="ffi-essentials" id="product"><header><h2>The essentials<br/>without the nonsense.</h2><p>All the tools you need. None of the distractions. Standard fantasy workflows, built for real leagues.</p></header><div className="ffi-tools-window"><nav><b>MANAGE</b><span>TRADE</span><span>WAIVERS</span><span>SCORING</span><span>STANDINGS</span></nav><main><label><Search/><input readOnly placeholder="Search players…"/></label><button type="button" onClick={onEnterDemo}>Add / Drop Players</button><button type="button" onClick={onEnterDemo}>Propose Trade</button><button type="button" onClick={onEnterDemo}>View Standings</button></main></div><i>FOOTBALL BRINGS US HERE.<br/>THE PEOPLE KEEP US HERE.</i></section>
+    <section className="ffi-clubhouse"><header><h2>A clubhouse.<br/>Not just a platform.</h2><p>Trash talk. Trade talk. Group chat. Keep the league in one place and the stories going all season.</p></header><div className="ffi-chat"><nav><b>League Chat</b><span>Trades</span><span>Announcements</span></nav>{[['TG','Tim Garcia','Putting in a claim. Let’s see if anyone’s paying attention.'],['AS','Ann','Too late. Already on it.'],['CM','Commissioner','Lineups due Thursday. No excuses.']].map(([initials,name,message])=><p key={name}><b>{initials}</b><span><strong>{name}</strong>{message}</span></p>)}<label><input readOnly placeholder="Talk your shit…"/><Send/></label></div><aside><strong>GOOD LEAGUES.</strong><b>GOOD PEOPLE.</b><span>Built for the group chat.</span></aside></section>
+    <section className="ffi-own-it" id="themes"><header><h2>Make it yours.</h2><p>FFI carries the Liquid Crew attitude. Each league supplies its own personality.</p><button className="ffi-outline-button" type="button" onClick={onEnterDemo}>Explore league themes <ArrowRight/></button></header><div className="ffi-theme-demo"><div><span className="ffi-lc-mark">LC</span><h3>{themes[theme][0]}</h3><small>{themes[theme][1]}</small></div><main><h3>Your league. Your look.</h3><p>Names, logos, colors, language, awards, and history—without changing how fantasy works.</p><div>{themes.map(([name],index)=><button className={theme===index?'active':''} key={name} type="button" onClick={()=>setTheme(index)}>{name}</button>)}</div></main></div></section>
+    <section className="ffi-commish" id="commissioners"><header><h2>Commissioners<br/>run a tight league.</h2><p>Flexible controls. Clear tools. Less headache, more football.</p></header><ul>{['Customize scoring settings','Manage waivers and trade rules','Edit league settings','Send announcements','Keep your league on track'].map(item=><li key={item}><Check/>{item}</li>)}</ul><button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Commissioner tools <ArrowRight/></button><aside>GOOD COMMISSIONERS<br/>KEEP GOOD FRIENDS.</aside></section>
+    <section className="ffi-move"><article><h2>Bring your league<br/>with you.</h2><p>Easy import from other platforms. Same history. New home.</p><button className="ffi-outline-button" type="button">Import your league <ArrowRight/></button></article><article><h2>Ready for<br/>what’s next.</h2><p>Prepared for licensed schedules, stats, injuries, projections, and odds feeds.</p><button className="ffi-outline-button" type="button" onClick={()=>go('why')}>Accurate data. Real football. <ArrowRight/></button></article><aside>THE GAME CHANGES.<br/>GOOD LEAGUES DON’T.</aside></section>
+    <section className="ffi-last-call"><div><h2>Fantasy football is better together.</h2><p>Enter the demo and see what your league can do.</p></div><button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Enter the demo <ArrowRight/></button></section>
+  </main><footer className="ffi-site-footer"><div className="ffi-site-brand"><strong>FFI</strong><span>THE FANTASY FOOTBALL<br/>INDEPENDENTS</span></div><p>Leagues make life better.</p><nav>{nav.map(([id,label])=><button type="button" key={id} onClick={()=>go(id)}>{label}</button>)}</nav><i>GOOD LEAGUES<br/>LAST LONGER.</i></footer></div>
 }
