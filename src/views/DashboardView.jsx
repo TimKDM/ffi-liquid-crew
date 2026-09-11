@@ -3,6 +3,8 @@ import {
   Repeat2, Search, Shirt, Trophy, Zap,
 } from 'lucide-react'
 import { createElement, useMemo, useState } from 'react'
+import { LeagueBadge } from '../components/Brand.jsx'
+import { demoTrends } from '../data/rosterHelpers.js'
 
 const initialFeed = [
   { id: 1, initials: 'TG', name: 'Tim Garcia · SYBAU', time: '2h', text: 'Updated a lineup.', likes: 3, comments: 0 },
@@ -51,19 +53,19 @@ export function DashboardView({ data, onView }) {
   const starters = data.roster.filter((player) => player.rosterSlot === 'starter')
   const projected = starters.reduce((sum, player) => sum + player.projection, 0)
   const trendLeaders = useMemo(() => {
-    const sorted = [...data.roster.filter((player) => player.rosterSlot !== 'ir')].sort((a, b) => b.projection - a.projection)
+    const sorted = [...data.roster.filter((player) => player.rosterSlot !== 'ir')].sort((a, b) => (demoTrends[b.id] ?? 0) - (demoTrends[a.id] ?? 0))
     return { hero: sorted[0], bum: sorted.at(-1) }
   }, [data.roster])
 
   const actions = [
     { icon: Shirt, title: 'Manage roster', detail: 'Starters, bench, IR, and lineup moves.', view: 'team' },
     { icon: Search, title: 'Explore players', detail: 'Search free agents and submit waiver claims.', view: 'players' },
-    { icon: Repeat2, title: 'Trades', detail: `${data.trades.length} offer${data.trades.length === 1 ? '' : 's'} waiting in League.`, view: 'league' },
+    { icon: Repeat2, title: 'Trades', detail: `${data.trades.length} demo offer${data.trades.length === 1 ? '' : 's'} in your trade center.`, view: 'transactions' },
   ]
 
   return <div className="clubhouse-home-v2">
     <main>
-      <header className="league-paper-head"><div><h1>Liquid Crew</h1><p>Season 24 on FFI</p></div><span>GOOD FOOTBALL.<br />BETTER PEOPLE.</span></header>
+      <header className="league-paper-head"><LeagueBadge /><div><h1>Liquid Crew</h1><p>Season 24 on FFI</p></div><span className="handwritten">Good football.<br />Better people.</span></header>
 
       <section className="today-focus">
         <div><small>WHAT NEEDS ATTENTION</small><h2>{focus.title}</h2><p>{focus.detail}</p></div>
@@ -78,11 +80,11 @@ export function DashboardView({ data, onView }) {
       <section className="quick-actions-v2"><header><h2>Quick actions</h2><p>Everything you do most, one tap away.</p></header>{actions.map(({ icon, title, detail, view }) => <button key={title} type="button" onClick={() => onView(view)}>{createElement(icon)}<span><strong>{title}</strong><small>{detail}</small></span><ArrowRight /></button>)}</section>
 
       <section className="heroes-v2"><header><h2>Heroes & Bums</h2><span>PERFORMANCE SNAPSHOT · DEMO DATA</span></header><div>
-        <article className="hero"><Trophy /><span><b>HERO</b><strong>{trendLeaders.hero?.name}</strong><small>Highest projected player on your current roster.</small></span></article>
-        <article className="bum"><AlertTriangle /><span><b>BUM</b><strong>{trendLeaders.bum?.name}</strong><small>Lowest projected active player. Context matters.</small></span></article>
+        <article className="hero"><Trophy /><span><b>HERO · +{demoTrends[trendLeaders.hero?.id]?.toFixed(1)}</b><strong>{trendLeaders.hero?.name}</strong><small>Biggest sample projection increase.</small></span></article>
+        <article className="bum"><AlertTriangle /><span><b>BUM · {demoTrends[trendLeaders.bum?.id]?.toFixed(1)}</b><strong>{trendLeaders.bum?.name}</strong><small>Biggest sample projection decrease.</small></span></article>
       </div></section>
 
-      <section className="home-status"><CheckCircle2 /><span><strong>Your league data stays yours.</strong><small>FFI is the platform. Liquid Crew controls its identity, settings, and history.</small></span></section>
+      <section className="home-status"><CheckCircle2 /><span><strong>Your league. Your stories.</strong><small>This is a local demo. Live football data and shared league services are not connected.</small></span></section>
     </main>
     <Clubhouse feed={feed} setFeed={setFeed} />
   </div>
