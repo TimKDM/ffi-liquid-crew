@@ -712,6 +712,14 @@
   text-align:left;
   font-size:.5rem;
 }
+.ffi-roster-preview main .ffi-roster-line{
+  min-height:31px;
+  padding:3px 6px;
+  border:0;
+  border-bottom:1px solid #353835;
+  background:transparent;
+  color:inherit;
+}
 .ffi-roster-line:hover{background:#232623}
 .ffi-roster-line>b{color:var(--f-white)}
 .ffi-roster-line>span:nth-child(2){display:grid}
