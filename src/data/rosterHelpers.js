@@ -1,6 +1,11 @@
+import { initialRoster } from './appData.js'
+
+// Recover natural positions in old browser saves that used FLEX as a position.
+const suppliedPositions = new Map(initialRoster.map((player) => [player.id, player.position === 'FLEX' ? 'WR' : player.position]))
+
 // A lineup slot is not the player's natural position. Keep both when swapping.
 export const slotOf = (player) => player.lineupPosition ?? player.position
-export const positionOf = (player) => player.naturalPosition ?? (player.id === 'marvin-harrison-jr' ? 'WR' : player.position)
+export const positionOf = (player) => player.naturalPosition ?? suppliedPositions.get(player.id) ?? player.position
 export const canReplace = (starter, reserve) => starter.rosterSlot === 'starter' && reserve.rosterSlot === 'bench' && (slotOf(starter) === positionOf(reserve) || (slotOf(starter) === 'FLEX' && ['RB', 'WR', 'TE'].includes(positionOf(reserve))))
 
 export function swapRoster(roster, playerId, replacementId) {
