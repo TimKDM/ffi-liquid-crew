@@ -4,12 +4,12 @@ import {
   BarChart3,
   Check,
   ClipboardCheck,
+  ClipboardList,
   Menu,
   Search,
   Send,
   Shield,
   Trophy,
-  Users,
   X,
 } from 'lucide-react'
 import { useState } from 'react'
@@ -79,8 +79,13 @@ function RosterPreview({ onEnterDemo }) {
 
 function RhythmIcon({ type }) {
   if (type === 'waivers') return <ClipboardCheck aria-hidden="true" />
-  if (type === 'lineup') return <Users aria-hidden="true" />
-  return <Shield aria-hidden="true" />
+  if (type === 'lineup') return <ClipboardList aria-hidden="true" />
+  return (
+    <svg className="ffi-helmet-icon" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M5 17.5V14C5 7.9 9.7 3 15.5 3S26 7.9 26 14v4.5h-7.2V24H13v-6.5H5Z" />
+      <path d="M19 18.5h9v4h-5v3.5" />
+    </svg>
+  )
 }
 
 export function MarketingSite({ onEnterDemo }) {
