@@ -46,8 +46,9 @@ function Clubhouse({ feed, setFeed }) {
   </aside>
 }
 
-export function DashboardView({ data, onView }) {
-  const [feed, setFeed] = useState(initialFeed)
+export function DashboardView({ data, setData, onView }) {
+  const feed = data.clubhouseFeed ?? initialFeed
+  const setFeed = (update) => setData((current) => ({ ...current, clubhouseFeed: typeof update === 'function' ? update(current.clubhouseFeed ?? initialFeed) : update }))
   const focus = weeklyFocus(data)
   const FocusIcon = focus.icon
   const starters = data.roster.filter((player) => player.rosterSlot === 'starter')

@@ -30,6 +30,12 @@ function App() {
   const [toast, setToast] = useState('')
 
   useEffect(() => {
+    const syncMode = () => setSiteMode(window.location.hash === '#demo' ? 'demo' : 'marketing')
+    window.addEventListener('hashchange', syncMode)
+    return () => window.removeEventListener('hashchange', syncMode)
+  }, [])
+
+  useEffect(() => {
     if (!toast) return undefined
     const timer = window.setTimeout(() => setToast(''), 2600)
     return () => window.clearTimeout(timer)

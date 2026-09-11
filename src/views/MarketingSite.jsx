@@ -4,8 +4,9 @@ import { BrandLockup, LeagueBadge } from '../components/Brand.jsx'
 import { Modal } from '../components/Modal.jsx'
 
 const nav = [['product', 'Product'], ['commissioners', 'Commissioners'], ['themes', 'League Themes'], ['why', 'Why FFI']]
-// The approved design's illustrative roster, not a claimed current NFL schedule.
-const previewRoster = [['QB', 'J. Allen', 'BUF', 'vs MIA', 'Sun 1:00 PM'], ['RB', 'B. Hall', 'NYJ', 'vs NE', 'Sun 1:00 PM'], ['RB', 'J. Gibbs', 'DET', 'vs LAR', 'Sun 4:25 PM'], ['WR', 'C. Lamb', 'DAL', 'vs NYG', 'Sun 8:20 PM'], ['WR', 'A. St. Brown', 'DET', 'vs LAR', 'Sun 4:25 PM'], ['TE', 'S. LaPorta', 'DET', 'vs LAR', 'Sun 4:25 PM'], ['FLEX', 'D. Smith', 'PHI', 'vs WAS', 'Sun 1:00 PM'], ['K', 'J. Moody', 'SF', 'vs ARI', 'Sun 4:05 PM'], ['DEF', 'Ravens', 'BAL', 'vs PIT', 'Sun 1:00 PM']]
+// User-supplied SYBAU roster overrides the mockup's illustrative player names.
+// Opponents are sample data; a real kickoff feed is not connected.
+const previewRoster = [['QB', 'T. Lawrence', 'JAX', '@ KC', '—'], ['RB', 'A. Jeanty', 'LV', '@ DEN', '—'], ['RB', 'B. Tuten', 'JAX', '@ KC', '—'], ['WR', 'J. Smith-Njigba', 'SEA', 'SF', '—'], ['WR', 'M. Nabers', 'NYG', '@ DAL', '—'], ['TE', 'H. Fannin Jr.', 'CLE', 'CIN', '—'], ['FLEX', 'M. Harrison Jr.', 'ARI', '@ NO', '—'], ['K', 'W. Reichard', 'MIN', '@ CHI', '—'], ['DEF', 'Seahawks', 'SEA', 'SF', '—']]
 const themes = ['Liquid Crew', 'Sunday Service', 'Bench Warmers', 'Gridiron Social Club']
 
 function Helmet() {
@@ -19,7 +20,7 @@ function RosterPreview({ onEnterDemo }) {
   return <div className="ffi-roster-preview" aria-label="Illustrative roster preview with sample schedule">
     <header><strong>FFI</strong><b>My Team</b><button type="button" onClick={() => onEnterDemo('team')}>Liquid Crew <ChevronDown /></button><Menu /></header>
     <nav>{[['team', 'ROSTER'], ['matchups', 'MATCHUP'], ['players', 'PLAYERS'], ['league', 'LEAGUE']].map(([view, label]) => <button className={view === 'team' ? 'active' : ''} key={view} type="button" onClick={() => onEnterDemo(view)}>{label}</button>)}</nav>
-    <main><h3>Starters</h3><div className="preview-columns"><span>POS</span><span>PLAYER</span><span /><span>OPP</span><span>STATUS</span></div>{previewRoster.map(([slot, name, team, opponent, status]) => <button className="preview-player" key={name} type="button" onClick={() => onEnterDemo('team')}><b>{slot}</b><strong>{name}</strong><span>{team}</span><span>{opponent}</span><span>{status}</span></button>)}</main>
+    <main><h3>Starters · sample matchups</h3><div className="preview-columns"><span>POS</span><span>PLAYER</span><span /><span>OPP</span><span>KICKOFF</span></div>{previewRoster.map(([slot, name, team, opponent, status]) => <button className="preview-player" key={name} type="button" onClick={() => onEnterDemo('team')}><b>{slot}</b><strong>{name}</strong><span>{team}</span><span>{opponent}</span><span>{status}</span></button>)}</main>
   </div>
 }
 
