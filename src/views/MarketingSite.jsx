@@ -1,191 +1,50 @@
-import {
-  ArrowLeftRight,
-  ArrowRight,
-  BarChart3,
-  Check,
-  ClipboardCheck,
-  ClipboardList,
-  Menu,
-  Search,
-  Send,
-  Shield,
-  Trophy,
-  X,
-} from 'lucide-react'
+import { ArrowLeftRight, ArrowRight, BarChart3, Check, ChevronDown, ClipboardCheck, ClipboardList, Flag, Menu, Plus, Search, Send, X } from 'lucide-react'
 import { useState } from 'react'
+import { BrandLockup, LeagueBadge } from '../components/Brand.jsx'
+import { Modal } from '../components/Modal.jsx'
 
-const nav = [
-  ['product', 'Product'],
-  ['commissioners', 'Commissioners'],
-  ['themes', 'League Themes'],
-  ['why', 'Why FFI'],
-]
+const nav = [['product', 'Product'], ['commissioners', 'Commissioners'], ['themes', 'League Themes'], ['why', 'Why FFI']]
+// The approved design's illustrative roster, not a claimed current NFL schedule.
+const previewRoster = [['QB', 'J. Allen', 'BUF', 'vs MIA', 'Sun 1:00 PM'], ['RB', 'B. Hall', 'NYJ', 'vs NE', 'Sun 1:00 PM'], ['RB', 'J. Gibbs', 'DET', 'vs LAR', 'Sun 4:25 PM'], ['WR', 'C. Lamb', 'DAL', 'vs NYG', 'Sun 8:20 PM'], ['WR', 'A. St. Brown', 'DET', 'vs LAR', 'Sun 4:25 PM'], ['TE', 'S. LaPorta', 'DET', 'vs LAR', 'Sun 4:25 PM'], ['FLEX', 'D. Smith', 'PHI', 'vs WAS', 'Sun 1:00 PM'], ['K', 'J. Moody', 'SF', 'vs ARI', 'Sun 4:05 PM'], ['DEF', 'Ravens', 'BAL', 'vs PIT', 'Sun 1:00 PM']]
+const themes = ['Liquid Crew', 'Sunday Service', 'Bench Warmers', 'Gridiron Social Club']
 
-const roster = [
-  ['QB', 'Trevor Lawrence', 'JAX', '@ KC', 'Sun 1:00 PM'],
-  ['RB', 'Ashton Jeanty', 'LV', '@ DEN', 'Sun 4:05 PM'],
-  ['RB', 'Bhayshul Tuten', 'JAX', '@ KC', 'Sun 1:00 PM'],
-  ['WR', 'Jaxon Smith-Njigba', 'SEA', 'SF', 'Sun 4:25 PM'],
-  ['WR', 'Malik Nabers', 'NYG', '@ DAL', 'Sun 1:00 PM'],
-  ['TE', 'Harold Fannin Jr.', 'CLE', 'CIN', 'Sun 1:00 PM'],
-  ['FLEX', 'Marvin Harrison Jr.', 'ARI', 'LAR', 'Sun 4:25 PM'],
-  ['K', 'Will Reichard', 'MIN', '@ GB', 'Sun 1:00 PM'],
-  ['D/ST', 'Seahawks', 'SEA', 'SF', 'Sun 4:25 PM'],
-]
-
-const themes = [
-  ['Liquid Crew', 'Amber / black / scorecard', 'LC'],
-  ['Sunday Service', 'Clean / traditional / sharp', 'SS'],
-  ['Bench Warmers', 'Warm / loud / unserious', 'BW'],
-  ['Gridiron Social Club', 'Dark / classic / club', 'GS'],
-]
-
-function BrandLockup({ compact = false }) {
-  return (
-    <span className={`ffi-site-brand${compact ? ' compact' : ''}`}>
-      <strong>FFI</strong>
-      <span>THE FANTASY FOOTBALL<br />INDEPENDENTS</span>
-    </span>
-  )
+function Helmet() {
+  return <svg className="helmet-icon" viewBox="0 0 40 40" aria-hidden="true"><path fill="currentColor" d="M4 23v-7A14 14 0 0 1 32 16v6H21v10h-9v-9Z" /><path fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" d="M25 22h11v8H24m5-8v13m7-5v5H25" /></svg>
+}
+function ThemeMark({ index }) {
+  return index === 0 ? <LeagueBadge /> : index === 1 ? <Helmet /> : index === 2 ? <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 25V8h20v17M7 25h26v6H7Zm3 6v7m20-7v7M14 8v17m4-17v17m4-17v17m4-17v17" fill="none" stroke="currentColor" strokeWidth="2.5" /></svg> : <Flag />
 }
 
 function RosterPreview({ onEnterDemo }) {
-  return (
-    <div className="ffi-roster-preview">
-      <header>
-        <strong>FFI</strong>
-        <b>My Team</b>
-        <button type="button" aria-label="Select league">Liquid Crew⌄</button>
-        <Menu aria-hidden="true" />
-      </header>
-      <nav aria-label="Demo navigation">
-        <b>ROSTER</b><span>MATCHUP</span><span>PLAYERS</span><span>LEAGUE</span>
-      </nav>
-      <main>
-        <h3>Starters</h3>
-        <header><span>POS</span><span>PLAYER</span><span>OPP</span><span>STATUS</span></header>
-        {roster.map(([pos, player, team, opp, status]) => (
-          <button className="ffi-roster-line" type="button" key={player} onClick={onEnterDemo}>
-            <b>{pos}</b>
-            <span><strong>{player}</strong><small>{team}</small></span>
-            <span>{opp}</span>
-            <span>{status}</span>
-          </button>
-        ))}
-      </main>
-    </div>
-  )
-}
-
-function RhythmIcon({ type }) {
-  if (type === 'waivers') return <ClipboardCheck aria-hidden="true" />
-  if (type === 'lineup') return <ClipboardList aria-hidden="true" />
-  return (
-    <svg className="ffi-helmet-icon" viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M5 17.5V14C5 7.9 9.7 3 15.5 3S26 7.9 26 14v4.5h-7.2V24H13v-6.5H5Z" />
-      <path d="M19 18.5h9v4h-5v3.5" />
-    </svg>
-  )
+  return <div className="ffi-roster-preview" aria-label="Illustrative roster preview with sample schedule">
+    <header><strong>FFI</strong><b>My Team</b><button type="button" onClick={() => onEnterDemo('team')}>Liquid Crew <ChevronDown /></button><Menu /></header>
+    <nav>{[['team', 'ROSTER'], ['matchups', 'MATCHUP'], ['players', 'PLAYERS'], ['league', 'LEAGUE']].map(([view, label]) => <button className={view === 'team' ? 'active' : ''} key={view} type="button" onClick={() => onEnterDemo(view)}>{label}</button>)}</nav>
+    <main><h3>Starters</h3><div className="preview-columns"><span>POS</span><span>PLAYER</span><span /><span>OPP</span><span>STATUS</span></div>{previewRoster.map(([slot, name, team, opponent, status]) => <button className="preview-player" key={name} type="button" onClick={() => onEnterDemo('team')}><b>{slot}</b><strong>{name}</strong><span>{team}</span><span>{opponent}</span><span>{status}</span></button>)}</main>
+  </div>
 }
 
 export function MarketingSite({ onEnterDemo }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [theme, setTheme] = useState(0)
-  const go = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    setMenuOpen(false)
-  }
-
-  return (
-    <div className="ffi-brand-site">
-      <header className="ffi-site-header">
-        <a href="#top" aria-label="FFI home"><BrandLockup /></a>
-        <button className="ffi-site-menu" type="button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
-        <nav className={menuOpen ? 'open' : ''}>{nav.map(([id, label]) => <button type="button" key={id} onClick={() => go(id)}>{label}</button>)}</nav>
-        <button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Enter Demo <ArrowRight /></button>
-        <i className="ffi-header-note">GOOD LEAGUES<br />LAST LONGER.</i>
-      </header>
-
-      <main id="top">
-        <section className="ffi-brand-hero">
-          <div className="ffi-hero-copy">
-            <span className="ffi-margin-note">SAME FRIENDS.<br />BETTER PLACE<br />TO BEAT THEM.</span>
-            <h1>Fantasy football<br />for people who<br />actually like<br />their league.</h1>
-            <p>Set your lineup. Talk your shit. Keep the group together.</p>
-            <div>
-              <button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Enter the demo <ArrowRight /></button>
-              <button className="ffi-outline-button" type="button" onClick={() => go('product')}>See how it works</button>
-            </div>
-          </div>
-          <div className="ffi-hero-app">
-            <RosterPreview onEnterDemo={onEnterDemo} />
-            <span className="ffi-tape-note">SET LINEUPS<br />TALK SHIT<br />WIN TOGETHER.</span>
-            <span className="ffi-wall-tag">FFI<small>LEAGUES<br />MAKE LIFE<br />BETTER.</small></span>
-          </div>
-        </section>
-
-        <section className="ffi-rhythm" id="why">
-          <header><h2>The weekly<br />rhythm.</h2><i>Different days.<br />Same energy.</i></header>
-          {[
-            ['TUESDAY', 'Waivers', 'Waivers without the scavenger hunt.', 'waivers'],
-            ['THURSDAY', 'Lineup', 'Set your lineup. Make your case.', 'lineup'],
-            ['SUNDAY', 'Matchup', 'Nobody cares about your projection until you win.', 'matchup'],
-          ].map(([day, title, copy, icon]) => <article key={day}><span><b>{day}</b><RhythmIcon type={icon} /></span><h3>{title}</h3><p>{copy}</p></article>)}
-          <aside>Your league has better stories than their network.<em /></aside>
-        </section>
-
-        <section className="ffi-essentials" id="product">
-          <header><h2>The essentials<br />without the nonsense.</h2><p>All the tools you need. None of the distractions.<br />Standard fantasy workflows, built for real leagues.</p><em /></header>
-          <div className="ffi-tools-window">
-            <nav><span>DRAFT</span><b>MANAGE</b><span>TRADE</span><span>WAIVERS</span><span>SCORING</span><span>STANDINGS</span></nav>
-            <main>
-              <div><b>Add / Drop Players</b><label><Search /><input readOnly placeholder="Search players…" /></label></div>
-              <button type="button" onClick={onEnterDemo}><ArrowLeftRight /><span>Propose Trade</span></button>
-              <button type="button" onClick={onEnterDemo}><BarChart3 /><span>View Standings</span></button>
-            </main>
-          </div>
-          <i>FOOTBALL<br />BRINGS US HERE.<br />THE PEOPLE<br />KEEP US HERE.<em /></i>
-        </section>
-
-        <section className="ffi-clubhouse">
-          <header><h2>A clubhouse.<br />Not just a platform.</h2><p>Trash talk. Trade talk. Group chat.<br />Keep the league in one place and the stories going all season.</p></header>
-          <div className="ffi-chat">
-            <nav><b>League Chat</b><span>Trades</span><span>Announcements</span></nav>
-            {[
-              ['TG', 'Tim Garcia', '10:14 AM', 'Putting in a claim. Let’s see if anyone’s paying attention.'],
-              ['AS', 'Ann', '11:03 AM', 'Too late. Already on it.'],
-              ['CM', 'Commissioner', '11:16 AM', 'Lineups due Thursday. No excuses.'],
-            ].map(([initials, name, time, message]) => <p key={name}><b>{initials}</b><span><strong>{name}<small>{time}</small></strong>{message}</span></p>)}
-            <label><input readOnly placeholder="Talk your shit…" /><Send /></label>
-          </div>
-          <aside><span>GOOD<br />LEAGUES</span><b>GOOD<br />PEOPLE.</b><small>Built for the group chat.</small></aside>
-        </section>
-
-        <section className="ffi-own-it" id="themes">
-          <header><h2>Make it yours.</h2><p>FFI carries the Liquid Crew attitude. Each league supplies its own personality.</p><button className="ffi-outline-button" type="button" onClick={onEnterDemo}>Explore league themes <ArrowRight /></button></header>
-          <div className="ffi-theme-demo">
-            <div className="ffi-theme-badge"><span className="ffi-lc-mark"><b>{themes[theme][2]}</b><small>FFI LEAGUE</small></span><h3>{themes[theme][0]}</h3><small>{themes[theme][1]}</small></div>
-            <main><h3>Your league. Your look.</h3><p>Names, logos, colors, language, awards, and history—without changing how fantasy works.</p><div>{themes.map(([name], index) => <button className={theme === index ? 'active' : ''} key={name} type="button" onClick={() => setTheme(index)}><b>{themes[index][2]}</b><span>{name}</span></button>)}</div></main>
-          </div>
-        </section>
-
-        <section className="ffi-commish" id="commissioners">
-          <header><h2>Commissioners<br />run a tight league.</h2><p>Flexible controls. Clear tools.<br />Less headache, more football.</p></header>
-          <ul>{['Customize scoring settings', 'Manage waivers and trade rules', 'Edit league settings', 'Send announcements', 'Keep your league on track'].map(item => <li key={item}><Check />{item}</li>)}</ul>
-          <button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Commissioner tools <ArrowRight /></button>
-          <aside>GOOD COMMISSIONERS<br />KEEP GOOD FRIENDS.</aside>
-        </section>
-
-        <section className="ffi-move">
-          <article><Trophy /><h2>Bring your league<br />with you.</h2><p>Easy import from other platforms.<br />Same history. New home.</p><button className="ffi-outline-button" type="button">Import your league <ArrowRight /></button></article>
-          <article><Shield /><h2>Ready for<br />what’s next.</h2><p>Prepared for licensed schedules, stats, injuries, projections, and odds feeds.</p><button className="ffi-outline-button" type="button" onClick={() => go('why')}>Accurate data. Real football. <ArrowRight /></button></article>
-          <aside>THE GAME CHANGES.<br />GOOD LEAGUES DON’T.</aside>
-        </section>
-
-        <section className="ffi-last-call"><div><h2>Fantasy football is better together.</h2><p>Enter the demo and see what your league can do.</p></div><button className="ffi-gold-button" type="button" onClick={onEnterDemo}>Enter the demo <ArrowRight /></button></section>
-      </main>
-
-      <footer className="ffi-site-footer"><div><BrandLockup compact /><p>Leagues make life better.</p></div><nav>{nav.map(([id, label]) => <button type="button" key={id} onClick={() => go(id)}>{label}</button>)}</nav><i>GOOD LEAGUES<br />LAST LONGER.<em /></i></footer>
-    </div>
-  )
+  const [notice, setNotice] = useState(null)
+  const go = (id) => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }
+  return <div className="ffi-brand-site">
+    <header className="ffi-site-header"><a href="#top" aria-label="FFI home"><BrandLockup /></a><button className="ffi-site-menu" type="button" aria-label="Toggle menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button><nav className={menuOpen ? 'open' : ''}>{nav.map(([id, label]) => <button key={id} type="button" onClick={() => go(id)}>{label}</button>)}</nav><button className="button primary" type="button" onClick={() => onEnterDemo()}>Enter Demo <ArrowRight /></button><span className="ffi-header-note handwritten">GOOD<br />LEAGUES<br />LAST<br />LONGER.</span></header>
+    <main id="top">
+      <section className="ffi-brand-hero">
+        <div className="ffi-hero-copy"><span className="ffi-margin-note handwritten">SAME FRIENDS.<br />BETTER PLACE<br />TO BEAT THEM.</span><h1>Fantasy football<br />for people who<br />actually like<br />their league.</h1><p>Set your lineup. Talk your shit. Keep the group together.</p><div><button className="button primary" type="button" onClick={() => onEnterDemo()}>Enter the demo <ArrowRight /></button><button className="button secondary" type="button" onClick={() => go('product')}>See how it works</button></div></div>
+        <div className="ffi-hero-app"><RosterPreview onEnterDemo={onEnterDemo} /></div>
+        <aside className="ffi-hero-wall"><span className="handwritten">SET LINEUPS<br />TALK SHIT<br />WIN TOGETHER.</span><b>FFI</b><strong>LEAGUES<br />MAKE LIFE<br />BETTER.</strong></aside>
+      </section>
+      <section className="ffi-rhythm paper" id="why"><header><h2>The weekly<br />rhythm.</h2><i className="handwritten">Different<br />days. Same<br />energy.</i></header>{[['TUESDAY', 'Waivers', 'Waivers without the scavenger hunt.'], ['THURSDAY', 'Lineup', 'Set your lineup. Make your case.'], ['SUNDAY', 'Matchup', 'Nobody cares about your projection until you win.']].map(([day, title, copy], i) => <article key={day}><div><b>{day}</b><h3>{title}</h3></div>{i === 0 ? <ClipboardCheck /> : i === 1 ? <ClipboardList /> : <Helmet />}<p>{copy}</p></article>)}<aside className="handwritten">YOUR LEAGUE<br />HAS BETTER STORIES<br />THAN THEIR<br />NETWORK.<em /></aside></section>
+      <section className="ffi-essentials" id="product"><header><h2>The essentials<br />without the nonsense.</h2><p>All the tools you need. None of the distractions.<br />Standard fantasy workflows, built for real leagues.</p><em /></header><div className="ffi-tools-window"><nav>{['DRAFT', 'MANAGE', 'TRADE', 'WAIVERS', 'SCORING', 'STANDINGS'].map((label, index) => <button className={index === 1 ? 'active' : ''} key={label} type="button" onClick={() => onEnterDemo(['commissioner', 'team', 'transactions', 'players', 'commissioner', 'league'][index])}>{label}</button>)}</nav><main><button className="ffi-search-preview" type="button" onClick={() => onEnterDemo('players')}><b>Add / Drop Players</b><span><Search /> Search players… <Search /></span></button><button type="button" onClick={() => onEnterDemo('transactions')}><ArrowLeftRight /> Propose Trade</button><button type="button" onClick={() => onEnterDemo('league')}><BarChart3 /> View Standings</button></main></div><i className="handwritten">FOOTBALL<br />BRINGS US HERE.<br />THE PEOPLE<br />KEEP US HERE.<em /></i></section>
+      <section className="ffi-clubhouse paper"><header><h2>A clubhouse.<br />Not just a platform.</h2><p>Trash talk. Trade talk. Group chat.<br />Keep the league in one place<br />and the stories going all season.</p><em /></header><div className="ffi-chat"><nav><button className="active" type="button" onClick={() => onEnterDemo()}>League Chat</button><button type="button" onClick={() => onEnterDemo('transactions')}>Trades</button><button type="button" onClick={() => onEnterDemo()}>Announcements</button></nav>{[['RM', 'RookieMistake', '10:14 AM', 'Putting in a claim. Let’s see if anyone’s paying attention.'], ['GG', 'GridironGina', '11:03 AM', 'Too late. Already on it. 😏'], ['DB', 'BdayBlitz', '11:21 AM', 'Same friends. Better place to beat them.'], ['CD', 'CommishDan', '12:06 PM', 'Lineups due Thursday. No excuses.']].map(([initials, name, time, message]) => <p key={name}><b>{initials}</b><span><strong>{name}<small>{time}</small></strong>{message}</span></p>)}<button className="ffi-chat-compose" type="button" onClick={() => onEnterDemo()}><span>Talk your shit…</span><Send /></button></div><figure><img src="/assets/ffi-clubhouse.png" alt="Friends gathered in a warm bar beneath a Good Leagues Good People sign" /><figcaption className="handwritten">BUILT FOR<br />THE GROUP CHAT.<em /></figcaption></figure></section>
+      <section className="ffi-own-it paper" id="themes"><header><h2>Make it yours.</h2><p>FFI carries the Liquid Crew attitude.<br />Each league supplies its own personality.</p><em /><button className="button secondary" type="button" onClick={() => setNotice('Theme previews show the visual direction. Custom league themes are not yet saved to the demo.')}>Explore League Themes <ArrowRight /></button></header><div className="ffi-featured-theme"><ThemeMark index={theme} /><div><h3>{themes[theme]}</h3><small>{theme === 0 ? 'Official Theme' : 'Theme Preview'}</small><p className="handwritten">“Different teams.<br />Same table.”</p><button className="button secondary" type="button" onClick={() => setNotice('This theme is a visual preview. The demo currently uses the Liquid Crew theme; applying other themes is not connected.')}>Use This Theme</button></div></div><div className="ffi-theme-choices"><h3>Your League. Your Look.</h3><p>Custom team names, logos, colors,<br />headers, and more. Make it feel like home.</p><div>{themes.map((name, index) => <button className={theme === index ? 'active' : ''} type="button" key={name} onClick={() => setTheme(index)} aria-pressed={theme === index}><ThemeMark index={index} /><span>{name}</span></button>)}<button className="create-theme" type="button" onClick={() => setNotice('Custom theme creation is planned, not connected in this frontend demo.')}><Plus /><span>Create<br />Your Own</span></button></div></div></section>
+      <section className="ffi-commish" id="commissioners"><header><h2>Commissioners<br />run a tight league.</h2><p>Flexible controls. Clear tools.<br />Less headache, more football.</p><em /></header><div><ul>{['Customize scoring settings', 'Manage waivers and trade rules', 'Edit league settings', 'Send announcements', 'Keep your league on track'].map(item => <li key={item}><Check />{item}</li>)}</ul><button className="button secondary" type="button" onClick={() => onEnterDemo('commissioner')}>Commissioner Tools <ArrowRight /></button></div><img src="/assets/ffi-commissioner.png" alt="Good commissioners keep good friends: a note beside a football and league scorecard" /></section>
+      <section className="ffi-move paper"><article><h2>Bring your league<br />with you.</h2><p>Same history. New home.<br />League import is on the roadmap.</p><em /><button className="button secondary" type="button" onClick={() => setNotice('League import is not available in this frontend demo. No ESPN or other platform connection has been configured.')}>Import Your League <ArrowRight /></button></article><article><h2>Ready for<br />what’s next.</h2><p>Built toward licensed<br />data-provider integration.</p><button className="button secondary" type="button" onClick={() => setNotice('This is a local frontend demo. Live schedules, statistics, injuries and projections are not connected. No paid data service is required to explore it.')}>Accurate Data. Real Football. <ArrowRight /></button></article><aside className="handwritten">THE GAME<br />CHANGES.<br />GOOD LEAGUES<br />DON’T.<em /></aside><div className="ffi-forever-note handwritten">PLAYERS<br />FRIENDS<br />STORIES<br /><b>FOREVER</b></div></section>
+      <section className="ffi-last-call"><div><h2>Fantasy football is better together.</h2><p>Enter the demo and see what your league can do.</p></div><button className="button primary" type="button" onClick={() => onEnterDemo()}>Enter the demo <ArrowRight /></button></section>
+    </main>
+    <footer className="ffi-site-footer"><div><BrandLockup compact /><p>Leagues make life better.</p></div><nav>{nav.map(([id, label]) => <button type="button" key={id} onClick={() => go(id)}>{label}</button>)}<button type="button" onClick={() => onEnterDemo()}>Enter Demo</button><span>Frontend demo · Sample data · Browser-only saves</span></nav><i className="handwritten">GOOD LEAGUES<br />LAST LONGER.<em /></i></footer>
+    {notice ? <Modal title="About this demo" onClose={() => setNotice(null)}><p>{notice}</p><button className="button primary" type="button" onClick={() => setNotice(null)}>Got it</button></Modal> : null}
+  </div>
 }
